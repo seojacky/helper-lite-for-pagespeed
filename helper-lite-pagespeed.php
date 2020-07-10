@@ -1,12 +1,12 @@
 <?php
 /*
- * Plugin name: PageSpeed Helper by Big_Jacky
+ * Plugin name: Helper Lite for Pagespeed
  * Description: Плагин создан по мотивам докладов Demi Murych и добавляет некоторые хаки для прохождения теста PageSpeed от Google | <a href="http://https://t.me/big_jacky" target="blank_">Автор</a> | <a href="http://https://github.com/seojacky/pagespeed-helper-by-big-jacky" target="blank_">О плагине</a>
- * Version: 1.2
+ * Version: 2.0
  * Author: @big_jacky 
  * Author URI: https://t.me/big_jacky
- * Plugin URI: https://github.com/seojacky/pagespeed-helper-by-big-jacky
- * GitHub Plugin URI: https://github.com/seojacky/pagespeed-helper-by-big-jacky
+ * Plugin URI: https://github.com/seojacky/helper-lite-pagespeed
+ * GitHub Plugin URI: https://github.com/seojacky/helper-lite-pagespeed
 */
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
