@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin name: Helper Lite for Pagespeed
+ * Plugin name: Helper Lite for PageSpeed
  * Description: A faster your site with image attributes decoding="async" & loading="lazy". Help to Up Your Google Page Speed Score. | <a href="http://https://t.me/big_jacky" target="blank_">Author</a> 
  * Version: 2.0
  * Author: @big_jacky 
