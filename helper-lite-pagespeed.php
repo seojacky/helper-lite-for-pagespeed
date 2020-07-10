@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin name: Helper Lite for Pagespeed
- * Description: A faster your site with image attributes decoding="async" loading="lazy". Help to Up Your Google Page Speed Score | <a href="http://https://t.me/big_jacky" target="blank_">Автор</a> | <a href="http://https://github.com/seojacky/pagespeed-helper-by-big-jacky" target="blank_">О плагине</a>
+ * Description: A faster your site with image attributes decoding="async" & loading="lazy". Help to Up Your Google Page Speed Score | <a href="http://https://t.me/big_jacky" target="blank_">Автор</a> | <a href="http://https://github.com/seojacky/pagespeed-helper-by-big-jacky" target="blank_">О плагине</a>
  * Version: 2.0
  * Author: @big_jacky 
  * Author URI: https://t.me/big_jacky
