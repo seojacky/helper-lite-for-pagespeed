@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin name: Helper Lite for Pagespeed
- * Description: Плагин создан по мотивам докладов Demi Murych и добавляет некоторые хаки для прохождения теста PageSpeed от Google | <a href="http://https://t.me/big_jacky" target="blank_">Автор</a> | <a href="http://https://github.com/seojacky/pagespeed-helper-by-big-jacky" target="blank_">О плагине</a>
+ * Description: A faster your site with image attributes decoding="async" loading="lazy". Help up your score in PageSpeed test by Google | <a href="http://https://t.me/big_jacky" target="blank_">Автор</a> | <a href="http://https://github.com/seojacky/pagespeed-helper-by-big-jacky" target="blank_">О плагине</a>
  * Version: 2.0
  * Author: @big_jacky 
  * Author URI: https://t.me/big_jacky
