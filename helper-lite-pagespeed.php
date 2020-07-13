@@ -13,20 +13,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
 
-add_filter( 'widget_custom_html_content', 'add_async_and_lazy', 10 );
-add_filter( 'widget_text', 'add_async_and_lazy', 10 );
-add_filter('the_content','add_async_and_lazy');
-function add_async_and_lazy($content) {
+add_filter( 'widget_custom_html_content', 'hlps_add_async_and_lazy', 10 );
+add_filter( 'widget_text', 'hlps_add_async_and_lazy', 10 );
+add_filter('the_content','hlps_add_async_and_lazy');
+function hlps_add_async_and_lazy($content) {
     $content = str_replace('<img','<img decoding="async" loading="lazy"', $content);
     return $content;
 }
 
-function add_async_and_lazy_to_attachment_image( $attributes ) {
+add_filter( 'wp_get_attachment_image_attributes', 'hlps_add_async_and_lazy_to_attachment_image', 90 );
+function hlps_add_async_and_lazy_to_attachment_image( $attributes ) {
   $attributes['decoding'] = 'async';
 	if(!isset($attributes['loading']) || $attributes['loading'] != 'lazy') {
 		$attributes['loading'] = 'lazy';
 	} 
   return $attributes;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'add_async_and_lazy_to_attachment_image', 90 );
 ?>
