@@ -5,8 +5,8 @@
  * Version: 2.0
  * Author: @big_jacky 
  * Author URI: https://t.me/big_jacky
- * Plugin URI: https://github.com/seojacky/helper-lite-page-speed
- * GitHub Plugin URI: https://github.com/seojacky/helper-lite-page-speed
+ * Plugin URI: https://github.com/seojacky/helper-lite-for-pagespeed
+ * GitHub Plugin URI: https://github.com/seojacky/helper-lite-for-pagespeed
 */
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
