@@ -28,6 +28,9 @@ e.g.
 
 == Changelog ==
 
+= 2.3.6 =
+* Fixed bugs
+
 = 2.3.3 =
 * Fixed bugs
 
