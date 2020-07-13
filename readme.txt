@@ -27,6 +27,10 @@ e.g.
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 2.3.3 =
+* Fixed bugs
+
 = 2.2 =
 * Fixed bugs
 
