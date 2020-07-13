@@ -27,10 +27,14 @@ e.g.
 == Frequently Asked Questions ==
 
 == Changelog ==
+= 2.2 =
+* Fixed bugs
+
+= 2.1 =
+* Fixed bugs
 
 = 2.0 (10.07.2020) =
 * Fixed bugs
-
 
 == Upgrade Notice ==
 
