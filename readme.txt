@@ -3,7 +3,7 @@ Contributors: seojacky
 Tags: wordpress, seo-friendly, seo, pagespeed, image
 Requires at least: 5.0
 Tested up to: 5.4
-Stable tag: 2.3.7
+Stable tag: 2.3.8
 Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -27,6 +27,9 @@ e.g.
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 2.3.8 (17.07.2020) =
+* Fixed WordPress Coding Standarts
 
 = 2.3.7 =
 * Fixed bugs
