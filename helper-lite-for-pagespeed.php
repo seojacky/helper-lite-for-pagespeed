@@ -11,30 +11,32 @@
 
 defined('ABSPATH') or exit('No direct script access allowed');
 
-if (!is_admin())
+// define plugin dir name
+if (!defined('HLFP_NAME'))
 {
-    ob_start();
+    define('HLFP_NAME', trim(dirname(plugin_basename(__FILE__)), '/'));
 }
 
-add_action('shutdown', function ()
+// define plugin dir path
+if (!defined('HLFP_DIR'))
 {
-    if (ob_get_level() == 0)
-    {
-        return;
-    }
+    define('HLFP_DIR', WP_PLUGIN_DIR . '/' . HLFP_NAME);
+}
 
-    $content = '';
+// define plugin's admin dir path
+if (!defined('HLFP_DIR_ADMIN'))
+{
+    define('HLFP_DIR_ADMIN', HLFP_DIR . '/admin');
+}
 
-    // We need to iterate over each ob level, collecting that buffer's output into the final output.
-    while (ob_get_level() > 0)
-    {
-        $content .= ob_get_clean();
-    }
+// define plugin's inc dir path
+if (!defined('HLFP_DIR_INC'))
+{
+    define('HLFP_DIR_INC', HLFP_DIR . '/inc');
+}
 
-    // add async decoding & lazy loading to each image
-    $content = str_replace('<img', '<img decoding="async" loading="lazy"', $content);
+// require admin fields configuration
+require_once HLFP_DIR_ADMIN . '/admin_fields.php';
 
-    // output content
-    echo $content;
-
-}, 0);
+// require content filter
+require_once HLFP_DIR_INC . '/filter.php';
