@@ -15,6 +15,10 @@ ob_start();
 
 add_action('shutdown', function ()
 {
+    if ( is_admin() ) {
+        
+    return;
+        
     $content = '';
 
     // We need to iterate over each ob level, collecting that buffer's output into the final output.
@@ -28,5 +32,7 @@ add_action('shutdown', function ()
 
     // output content
     echo $content;
-}, 0);
+        }
+    
+    }, 0);
 ?>
