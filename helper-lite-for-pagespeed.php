@@ -18,7 +18,7 @@ add_filter( 'widget_text', 'hlps_add_async_and_lazy', 10 );
 add_filter( 'the_content','hlps_add_async_and_lazy' );
 add_filter( 'wp_get_attachment_image_attributes', 'hlps_add_async_and_lazy_to_attachment_image', 90 );
 
-function hlps_add_async_and_lazy($content) {
+function hlps_add_async_and_lazy( $content ) {
     $content = str_replace( '<img','<img decoding="async" loading="lazy"', $content );
     return $content;
 }
