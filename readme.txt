@@ -28,6 +28,9 @@ e.g.
 
 == Changelog ==
 
+= 2.5  =
+* Fixed WordPress Coding Standarts
+
 = 2.3.8 (17.07.2020) =
 * Fixed WordPress Coding Standarts
 
