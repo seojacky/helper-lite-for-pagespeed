@@ -31,7 +31,7 @@ add_action('shutdown', function ()
     $content = str_replace( '<img','<img decoding="async" loading="lazy"', $content );
 
     // output content
-    echo $content;
+    echo $content; 
         }
     
     }, 0);
