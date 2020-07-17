@@ -11,28 +11,30 @@
 
 defined('ABSPATH') or exit('No direct script access allowed');
 
-ob_start();
+if (!is_admin())
+{
+    ob_start();
+}
 
 add_action('shutdown', function ()
 {
-    if ( is_admin() ) {
-        
-    return;
-        
+    if (ob_get_level() == 0)
+    {
+        return;
+    }
+
     $content = '';
 
     // We need to iterate over each ob level, collecting that buffer's output into the final output.
-    while (ob_get_level())
+    while (ob_get_level() > 0)
     {
         $content .= ob_get_clean();
     }
 
     // add async decoding & lazy loading to each image
-    $content = str_replace( '<img','<img decoding="async" loading="lazy"', $content );
+    $content = str_replace('<img', '<img decoding="async" loading="lazy"', $content);
 
     // output content
-    echo $content; 
-        }
-    
-    }, 0);
-?>
+    echo $content;
+
+}, 0);
