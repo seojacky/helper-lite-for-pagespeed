@@ -13,6 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
 
+//Подгружает перевод плагина из указанной директории
+function init_textdomain() {
+    if (function_exists('load_plugin_textdomain')) {
+        load_plugin_textdomain('helper_lite_for_pagespeed', 'wp-content/plugins/helper-lite-for-pagespeed');
+    }
+}
+
 add_filter( 'widget_custom_html_content', 'hlps_add_async_and_lazy', 10 );
 add_filter( 'widget_text', 'hlps_add_async_and_lazy', 10 );
 add_filter( 'the_content','hlps_add_async_and_lazy' );
