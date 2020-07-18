@@ -7,6 +7,10 @@
  * Author URI: https://t.me/big_jacky
  * Plugin URI: https://wordpress.org/plugins/helper-lite-for-pagespeed/
  * GitHub Plugin URI: https://github.com/seojacky/helper-lite-for-pagespeed
+ * Text Domain: helper-lite-for-pagespeed
+ * Domain Path: /languages
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
