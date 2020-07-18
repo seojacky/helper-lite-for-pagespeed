@@ -13,11 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
 
+define( 'HLPS_URL', plugin_dir_url( __FILE__ ) );
+define( 'HLPS_DIR', plugin_dir_path( __FILE__ ) );
+/*define( 'HLPS_VERSION', '3.2.1' );
+define( 'HLPS_OPTION', 'custom_image_sizes' );*/
+
 //Подгружает перевод плагина из указанной директории
-function init_textdomain() {
-    if (function_exists('load_plugin_textdomain')) {
-        load_plugin_textdomain('helper_lite_for_pagespeed', 'wp-content/plugins/helper-lite-for-pagespeed/languages');
-    }
+	public static function init_translation() {
+		load_plugin_textdomain( 'helper-lite-for-pagespeed', false, basename( rtrim( SIS_DIR, '/' ) ) . '/languages' );
+	}
 }
 
 add_filter( 'widget_custom_html_content', 'hlps_add_async_and_lazy', 10 );
