@@ -23,10 +23,10 @@ define( 'HLPS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HLPS_OPTION', 'custom_image_sizes' );*/
 
 //Подгружает перевод плагина из указанной директории
-	public static function init_translation() {
-		load_plugin_textdomain( 'helper-lite-for-pagespeed', false, basename( rtrim( SIS_DIR, '/' ) ) . '/languages' );
+	function init_translation() {
+		load_plugin_textdomain( 'helper-lite-for-pagespeed', false, basename( rtrim( HLPS_DIR, '/' ) ) . '/languages' );
 	}
-}
+
 
 add_filter( 'widget_custom_html_content', 'hlps_add_async_and_lazy', 10 );
 add_filter( 'widget_text', 'hlps_add_async_and_lazy', 10 );
