@@ -1,20 +1,24 @@
 <?php
 /**
  * Plugin name: Helper Lite for PageSpeed
- * Description: A faster your site with image attributes decoding="async" & loading="lazy". Help to Up Your Google Page Speed Score. | <a href="https://t.me/big_jacky" target="blank_">Author</a>
- * Version: 2.6
- * Author: @big_jacky
+ * Description: A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score. | <a href="https://t.me/big_jacky" target="blank_">Author</a> 
+ * Version: 2.5.2
+ * Author: @big_jacky 
  * Author URI: https://t.me/big_jacky
  * Plugin URI: https://wordpress.org/plugins/helper-lite-for-pagespeed/
  * GitHub Plugin URI: https://github.com/seojacky/helper-lite-for-pagespeed
- */
+ * Text Domain: helper-lite-for-pagespeed
+ * Domain Path: /languages
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
 
 defined('ABSPATH') or exit('No direct script access allowed');
 
 // define plugin dir name
 if (!defined('HLFP_VERSION'))
 {
-    define('HLFP_VERSION', '2.6');
+    define('HLFP_VERSION', '2.5.2');
 }
 
 // define plugin dir name
