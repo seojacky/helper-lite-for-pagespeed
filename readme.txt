@@ -1,9 +1,9 @@
 === Helper Lite for PageSpeed ===
-Contributors: seojacky
+Contributors: seojacky, mihdan
 Tags: wordpress, seo-friendly, seo, pagespeed, image
 Requires at least: 5.0
 Tested up to: 5.4
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ A faster your site with image attributes decoding="async" & loading="lazy"
 
 == Description ==
 
-A faster your site with image attributes decoding="async" & loading="lazy". Help to Up Your Google Page Speed Score.
+A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
 
 == Installation ==
 
@@ -27,6 +27,10 @@ e.g.
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 2.5.2  =
+* Fixed problem "Does not use passive listeners to improve scrolling performance"
+* Add Russian adn English languge support
 
 = 2.5.1  =
 * Fixed WordPress Coding Standarts
