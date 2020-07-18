@@ -8,17 +8,12 @@ if (!defined('HLFP_DIR_INC'))
     define('HLFP_DIR_INC', HLFP_DIR . '/inc');
 }
 
-if (!defined('HLFP_DIR_ADMIN'))
-{
-    define('HLFP_DIR_ADMIN', HLFP_DIR . '/admin');
-}
-
 // require filter classes
 require_once HLFP_DIR_INC . '/class_buffer_filter.php';
 require_once HLFP_DIR_INC . '/class_light_filter.php';
 
 // get options
-$options = get_option('hlfp_settings', 'filter');
+$options = get_option('hlfp_settings', array());
 
 $type = $options['filter_type'];
 

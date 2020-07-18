@@ -37,4 +37,25 @@ if (class_exists('HLFP_OSA'))
             ),
         )
     );
+
+    // =======================================================
+
+    // Scripts section
+    $wposa_obj->add_section(
+        array(
+            'id' => 'hlfp_scripts',
+            'title' => __('Scripts', 'WPOSA'),
+        )
+    );
+
+    // Filter type selection field
+    $wposa_obj->add_field(
+        'hlfp_scripts',
+        array(
+			'id'   => 'passive_events',
+			'type' => 'checkbox',
+			'name' => __( 'Use passive events', 'WPOSA' ),
+			'desc' => __( 'Events with attribute passive perform better for touch and wheel', 'WPOSA' ),
+		)
+    );
 }
