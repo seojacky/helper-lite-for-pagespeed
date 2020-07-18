@@ -2,28 +2,20 @@
 # This file is distributed under the same license as the Plugins - Helper Lite for PageSpeed - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-18 13:21+0000\n"
+"PO-Revision-Date: 2020-07-18 13:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Loco https://localise.biz/\n"
-"Language: en_US\n"
+"Language: en-US\n"
 "Project-Id-Version: Plugins - Helper Lite for PageSpeed - Development (trunk)"
 "\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-18 13:13+0000\n"
+"POT-Creation-Date: 2020-07-18 13:47+0000\n"
 "Last-Translator: Admin\n"
 "Language-Team: English (United States)\n"
 "X-Loco-Version: 2.4.0; wp-5.4.2"
-
-#. Plugin URI of the plugin
-msgid "https://wordpress.org/plugins/helper-lite-for-pagespeed/"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://t.me/big_jacky"
-msgstr ""
 
 #. Author of the plugin
 msgid "@big_jacky"
@@ -32,13 +24,23 @@ msgstr ""
 #. Description of the plugin
 msgid ""
 "A faster your site with image attributes decoding=\"async\" & "
-"loading=\"lazy\". Help to Up Your Google Page Speed Score. | <a href=\"https:"
-"//t.me/big_jacky\" target=\"blank_\">Author</a>"
+"loading=\"lazy\". Remove problem \"Does not use passive listeners to improve "
+"scrolling performance\". Help to Up Your Google PageSpeed Insights Score. | "
+"<a href=\"https://t.me/big_jacky\" target=\"blank_\">Author</a>"
 msgstr ""
 "A faster your site with image attributes decoding=\"async\" & "
-"loading=\"lazy\". Help to Up Your Google PageSpeed Insights Score. | <a "
-"href=\"https://t.me/big_jacky\" target=\"blank_\">Author</a>"
+"loading=\"lazy\". Remove problem \"Does not use passive listeners to improve "
+"scrolling performance\". Help to Up Your Google PageSpeed Insights Score. | "
+"<a href=\"https://t.me/big_jacky\" target=\"blank_\">Author</a>"
 
-#. Plugin Name of the plugin
+#. Name of the plugin
 msgid "Helper Lite for PageSpeed"
 msgstr "Helper Lite for PageSpeed"
+
+#. Author URI of the plugin
+msgid "https://t.me/big_jacky"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/helper-lite-for-pagespeed/"
+msgstr ""
