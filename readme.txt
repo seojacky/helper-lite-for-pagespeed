@@ -12,7 +12,7 @@ A faster your site with image attributes decoding="async" & loading="lazy"
 
 == Description ==
 
-A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google Page Speed Score.
+A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
 
 == Installation ==
 
