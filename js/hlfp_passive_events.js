@@ -17,7 +17,11 @@
             var useCapture = usesListenerOptions ? options.capture : options;
 
             options = usesListenerOptions ? options : {};
-            options.passive = options.passive !== undefined ? options.passive : defaultOptions.passive;
+
+            if (type == 'touchstart' || type == 'scroll' || type == 'wheel') {
+                options.passive = options.passive !== undefined ? options.passive : defaultOptions.passive;
+            }
+            
             options.capture = useCapture !== undefined ? useCapture : defaultOptions.capture;
 
             superMethod.call(this, type, listener, options);

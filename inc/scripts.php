@@ -8,9 +8,14 @@ if (!defined('HLFP_URL_JS'))
     define('HLFP_URL_JS', HLFP_URL . '/js');
 }
 
-$options = get_option('hlfp_scripts', array());
-
-if ($options['passive_events'] === 'on'|| $options['passive_events'] === true || $options['passive_events'] === 1)
+function hlfp_enqueue_scripts()
 {
-    wp_enqueue_script('hlfp_passive_events', HLFP_URL_JS . '/hlfp_passive_events.min.js');
+    $options = get_option('hlfp_scripts', array());
+
+    if (!empty($options['passive_events']) &&
+        ($options['passive_events'] === 'on' || $options['passive_events'] === true || $options['passive_events'] === 1))
+    {
+        wp_enqueue_script('hlfp_passive_events', HLFP_URL_JS . '/hlfp_passive_events.min.js');
+    }
 }
+add_action( 'wp_enqueue_scripts', 'hlfp_enqueue_scripts' );

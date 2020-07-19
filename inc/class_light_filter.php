@@ -8,14 +8,14 @@ if (!defined('HLFP_DIR_INC'))
     define('HLFP_DIR_INC', HLFP_DIR . '/inc');
 }
 
-// require filter interface
-require_once HLFP_DIR_INC . '/interface_filter.php';
+// require filter class
+require_once HLFP_DIR_INC . '/class_filter.php';
 
 /**
- * This class users Wordpress' default filters 
+ * This class users Wordpress' default filters
  * to filter images
  */
-class HLFP_Light_Filter implements HLFP_Filter
+class HLFP_Light_Filter extends HLFP_Filter
 {
     protected $content_filters = array(
         'widget_custom_html_content',
@@ -36,23 +36,55 @@ class HLFP_Light_Filter implements HLFP_Filter
         // add content filters
         foreach ($this->content_filters as $filter)
         {
-            add_filter($filter, function ($content)
-            {
-                $content = str_replace('<img', '<img decoding="async" loading="lazy"', $content);
-                return $content;
-            });
+            $this->create_content_filter($filter);
         }
 
         // add image filters
         foreach ($this->image_filters as $filter)
         {
-            add_filter($filter, function ($attributes)
-            {
-                $attributes['decoding'] = 'async';
-                $attributes['loading'] = 'lazy';
-
-                return $attributes;
-            });
+            $this->create_image_filter($filter);
         }
+    }
+
+    private function create_content_filter($filter)
+    {
+        add_filter($filter, function ($content)
+        {
+            $content = $this->filter_content($content);
+            return $content;
+        });
+    }
+
+    private function create_image_filter($filter)
+    {
+        add_filter($filter, function ($attributes)
+        {
+            $attributes['decoding'] = 'async';
+            $attributes['loading'] = 'lazy';
+
+            return $attributes;
+        });
+    }
+
+    public function add_content_filter($filter)
+    {
+        if (!is_string($filter))
+        {
+            return;
+        }
+
+        array_push($this->content_filters, $filter);
+        $this->create_content_filter($filter);
+    }
+
+    public function add_image_filter($filter)
+    {
+        if (!is_string($filter))
+        {
+            return;
+        }
+
+        array_push($this->image_filters, $filter);
+        $this->create_image_filter($filter);
     }
 }

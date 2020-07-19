@@ -8,14 +8,14 @@ if (!defined('HLFP_DIR_INC'))
     define('HLFP_DIR_INC', HLFP_DIR . '/inc');
 }
 
-// require filter interface
-require_once HLFP_DIR_INC . '/interface_filter.php';
+// require filter class
+require_once HLFP_DIR_INC . '/class_filter.php';
 
 /**
  * This class uses buffering to collect output
- * and filter all images 
+ * and filter all images
  */
-class HLFP_Buffer_Filter implements HLFP_Filter
+class HLFP_Buffer_Filter extends HLFP_Filter
 {
     public function __construct()
     {
@@ -44,10 +44,8 @@ class HLFP_Buffer_Filter implements HLFP_Filter
                 $content .= ob_get_clean();
             }
 
-            // add async decoding & lazy loading to each image
-            $content = str_replace('<img', '<img decoding="async" loading="lazy"', $content);
+            $content = $this->filter_content($content);
 
-            // output content
             echo $content;
         }, 0);
     }
