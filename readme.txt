@@ -11,6 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 A faster your site with image attributes decoding="async" & loading="lazy"
 
 == Description ==
+Ускоряет Ваш сайт путём добавления к изображениям атрибутов decoding="async" & loading="lazy". Убирает замечание "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке". Помогает поднять баллы в тесте Google PageSpeed Insights.
 
 A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
 
@@ -25,6 +26,25 @@ e.g.
 1. (Make your instructions match the desired user flow for activating and installing your plugin. Include any steps that might be needed for explanatory purposes)
 
 == Frequently Asked Questions ==
+
+= Что делает плагин ? =
+
+Добавляет ко всем изображениям на странице атрибуты decoding="async" & loading="lazy". Экспериментально доказано, что сочетание этих атрибутов ускоряет загрузку страницы на 0,1-0,2 секунды и увеличивает баллы. Кроме того можно включить скрипт, который убирает замечание Google PageSpeed Insights "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке"
+
+= Где находятся настройки плагина ? =
+
+Настройки находятся в секции административного меню Настройки > PageSpeed Helper
+
+= Как настроить ? =
+
+В первой вкладке 'Settings' Вы можете выбрать способ добавления аттрибутов decoding="async" & loading="lazy".
+  Первый способ 'Filters' безопасен, но применяет атрибуты не ко всем изображениям.
+  Второй способ 'Buffer'добавит аттрибуты decoding="async" & loading="lazy" абсолютно ко всем изображениям, но может вызывать проблемы на некоторых сайтах.
+ 
+Во второй вкладке 'Scripts' Вы можете включить скрипт, который убирает замечание Google PageSpeed Insights"Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке" (может вызывать конфликты с некоторыми плагинами типа 'Contact Form 7')
+
+
+
 
 == Changelog ==
 
