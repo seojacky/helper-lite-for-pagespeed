@@ -54,6 +54,11 @@ e.g.
 
 == Changelog ==
 
+= 2.5.3 =
+* Fixed unescaped double quotes in AJAX calls
+* Passive events are applying only on "touchstart", "scroll" and "wheel" events
+* Fixed "undefined offset" warning
+
 = 2.5.2  =
 * Fixed problem "Does not use passive listeners to improve scrolling performance"
 * Add Russian adn English languge support
