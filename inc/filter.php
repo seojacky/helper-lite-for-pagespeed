@@ -16,13 +16,13 @@ require_once HLFP_DIR_INC . '/class_light_filter.php';
 $options = get_option('hlfp_settings', array());
 
 // create filter based on option type
-if (!empty($options['filter_type']) && $options['filter_type'] == 'filter')
+if (!empty($options['filter_type']) && $options['filter_type'] == 'buffering')
 {
-    $filter = new HLFP_Light_Filter($options);
+    $filter = new HLFP_Buffer_Filter($options);
 }
 else
 {
-    $filter = new HLFP_Buffer_Filter($options);
+    $filter = new HLFP_Light_Filter($options);
 }
 
 // apply filters

@@ -18,7 +18,7 @@ defined('ABSPATH') or exit('No direct script access allowed');
 // define plugin dir name
 if (!defined('HLFP_VERSION'))
 {
-    define('HLFP_VERSION', '2.5.2');
+    define('HLFP_VERSION', '2.5.3');
 }
 
 // define plugin dir name
