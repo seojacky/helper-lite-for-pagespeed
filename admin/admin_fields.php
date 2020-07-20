@@ -20,7 +20,7 @@ if (class_exists('HLFP_OSA'))
     $wposa_obj->add_section(
         array(
             'id' => 'hlfp_settings',
-            'title' => __('Settings', 'WPOSA'),
+            'title' => __('Settings', 'helper-lite-for-pagespeed'),
         )
     );
 
@@ -30,10 +30,10 @@ if (class_exists('HLFP_OSA'))
         array(
             'id' => 'filter_type',
             'type' => 'select',
-            'name' => __('Select filter type', 'WPOSA'),
+            'name' => __('Select filter type', 'helper-lite-for-pagespeed'),
             'desc' => __("Filter - use default Wordpress filters. Will not filter all images on page.
             <br />
-            Buffer - use PHP buffer. Filter all images on page. Might cause problems on some servers.", 'WPOSA'),
+            Buffer - use PHP buffer. Filter all images on page. Might cause problems on some servers.", 'helper-lite-for-pagespeed'),
             'options' => array(
                 'filter' => 'Filters',
                 'buffering' => 'Buffer',
@@ -47,7 +47,7 @@ if (class_exists('HLFP_OSA'))
         array(
             'id' => 'loading_type',
             'type' => 'select',
-            'name' => __('loading', 'WPOSA'),
+            'name' => __('loading', 'helper-lite-for-pagespeed'),
             'options' => array(
                 'lazy' => 'lazy',
                 'eager' => 'eager',
@@ -63,7 +63,7 @@ if (class_exists('HLFP_OSA'))
         array(
             'id' => 'decoding_type',
             'type' => 'select',
-            'name' => __('decoding', 'WPOSA'),
+            'name' => __('decoding', 'helper-lite-for-pagespeed'),
             'options' => array(
                 'async' => 'async',
                 'sync' => 'sync',
@@ -79,7 +79,7 @@ if (class_exists('HLFP_OSA'))
     $wposa_obj->add_section(
         array(
             'id' => 'hlfp_scripts',
-            'title' => __('Scripts', 'WPOSA'),
+            'title' => __('Scripts', 'helper-lite-for-pagespeed'),
         )
     );
 
@@ -89,8 +89,8 @@ if (class_exists('HLFP_OSA'))
         array(
             'id' => 'passive_events',
             'type' => 'checkbox',
-            'name' => __('Use passive events', 'WPOSA'),
-            'desc' => __('Events with attribute passive perform better for touch and wheel', 'WPOSA'),
+            'name' => __('Use passive events', 'hlfp'),
+            'desc' => __('Events with attribute passive perform better for touch and wheel', 'helper-lite-for-pagespeed'),
         )
     );
 }
