@@ -14,6 +14,7 @@ A faster your site with image attributes decoding="async" & loading="lazy"
 Ускоряет Ваш сайт путём добавления к изображениям атрибутов decoding="async" & loading="lazy". Убирает замечание "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке". Помогает поднять баллы в тесте Google PageSpeed Insights.
 
 A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
+The main development is all going on on [GitHub] (https://github.com/seojacky/helper-lite-for-pagespeed).
 
 == Installation ==
 
