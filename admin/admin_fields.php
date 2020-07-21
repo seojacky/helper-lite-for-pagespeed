@@ -89,8 +89,28 @@ if (class_exists('HLFP_OSA'))
         array(
             'id' => 'passive_events',
             'type' => 'checkbox',
-            'name' => __('Use passive events', 'hlfp'),
+            'name' => __('Use passive events', 'helper-lite-for-pagespeed'),
             'desc' => __('Events with attribute passive perform better for touch and wheel', 'helper-lite-for-pagespeed'),
+        )
+    );
+
+    // =======================================================
+
+    // Scripts section
+    $wposa_obj->add_section(
+        array(
+            'id' => 'hlfp_contacts',
+            'title' => __('Contacts', 'helper-lite-for-pagespeed'),
+        )
+    );
+
+    $wposa_obj->add_field(
+        'hlfp_contacts',
+        array(
+            'id' => 'contacts',
+            'type' => 'html',
+            'name' => '<h2>' . __('Telegram', 'helper-lite-for-pagespeed') . '</h2>',
+            'desc' => 'Contact us at telegram chat <a href="https://t.me/wp_booster" target="_blank">WP Boost</a>',
         )
     );
 }

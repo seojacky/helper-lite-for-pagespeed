@@ -2,7 +2,7 @@
 /**
  * Plugin name: Helper Lite for PageSpeed
  * Description: A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score. | <a href="https://t.me/wp_booster" target="blank_">telegram WP Boost</a> | <a href="http://https://github.com/seojacky/helper-lite-for-pagespeed" target="blank_">plugin on GitHub</a>
- * Version: 2.5.3
+ * Version: 2.5.4
  * Author: seojacky, Mikhail Kobzarev, Каренина
  * Author URI: https://t.me/big_jacky
  * Plugin URI: https://wordpress.org/plugins/helper-lite-for-pagespeed/
@@ -18,13 +18,7 @@ defined('ABSPATH') or exit('No direct script access allowed');
 // define plugin dir name
 if (!defined('HLFP_VERSION'))
 {
-    define('HLFP_VERSION', '2.5.3');
-}
-
-// define plugin dir name
-if (!defined('HLFP_TITLE'))
-{
-    define('HLFP_TITLE', __('PageSpeed Helper', 'helper-lite-for-pagespeed'));
+    define('HLFP_VERSION', '2.5.4');
 }
 
 // define plugin dir name
@@ -35,10 +29,15 @@ if (!defined('HLFP_NAME'))
 
 function hlfp_load_translations()
 {
-    load_plugin_textdomain('helper-lite-for-pagespeed', false, HLFP_NAME . '/languages/');
+    load_plugin_textdomain('helper-lite-for-pagespeed', false, basename( dirname( __FILE__ ) ) . '/languages');
 }
+add_action('init', 'hlfp_load_translations');
 
-add_action('plugins_loaded', 'hlfp_load_translations');
+// define plugin dir name
+if (!defined('HLFP_TITLE'))
+{
+    define('HLFP_TITLE', __('PageSpeed Helper', 'helper-lite-for-pagespeed'));
+}
 
 // define plugin dir path
 if (!defined('HLFP_DIR'))
