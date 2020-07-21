@@ -1,5 +1,7 @@
 <?php
 
+namespace Karenina\HelperLightForPageSpeed;
+
 defined('ABSPATH') or exit('No direct script access allowed');
 defined('HLFP_URL') or exit('No HLFP_URL defined');
 
@@ -23,4 +25,4 @@ function hlfp_enqueue_scripts()
         wp_enqueue_script('hlfp_passive_events', HLFP_URL_JS . '/hlfp_passive_events.min.js');
     }
 }
-add_action( 'wp_enqueue_scripts', 'hlfp_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\hlfp_enqueue_scripts' );

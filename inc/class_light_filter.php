@@ -1,5 +1,7 @@
 <?php
 
+namespace Karenina\HelperLightForPageSpeed;
+
 defined('ABSPATH') or exit('No direct script access allowed');
 defined('HLFP_DIR') or exit('No HLFP_DIR defined');
 

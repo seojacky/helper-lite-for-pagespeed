@@ -1,5 +1,7 @@
 <?php
 
+namespace Karenina\HelperLightForPageSpeed;
+
 defined('ABSPATH') or exit('No direct script access allowed');
 defined('HLFP_DIR') or exit('No HLFP_DIR defined');
 
@@ -8,12 +10,11 @@ if (!defined('HLFP_DIR_ADMIN'))
     define('HLFP_DIR_ADMIN', HLFP_DIR . '/admin');
 }
 
-// require field configuration class
-require_once HLFP_DIR_ADMIN . '/class_admin_fields.php';
-
-// create admin fields
-if (class_exists('HLFP_OSA'))
+function hlfp_generate_admin_fields()
 {
+    // require field configuration class
+    require_once HLFP_DIR_ADMIN . '/class_admin_fields.php';
+
     $wposa_obj = new HLFP_OSA();
 
     // Settings section
@@ -32,8 +33,8 @@ if (class_exists('HLFP_OSA'))
             'type' => 'select',
             'name' => __('Select filter type', 'helper-lite-for-pagespeed'),
             'desc' => __("Filter - use default Wordpress filters. Will not filter all images on page.
-            <br />
-            Buffer - use PHP buffer. Filter all images on page. Might cause problems on some servers.", 'helper-lite-for-pagespeed'),
+                <br />
+                Buffer - use PHP buffer. Filter all images on page. Might cause problems on some servers.", 'helper-lite-for-pagespeed'),
             'options' => array(
                 'filter' => 'Filters',
                 'buffering' => 'Buffer',
@@ -114,3 +115,4 @@ if (class_exists('HLFP_OSA'))
         )
     );
 }
+add_action('init', __NAMESPACE__ . '\\hlfp_generate_admin_fields', 9);
