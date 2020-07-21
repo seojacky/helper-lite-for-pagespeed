@@ -110,7 +110,7 @@ if (class_exists('HLFP_OSA'))
             'id' => 'contacts',
             'type' => 'html',
             'name' => '<h2>' . __('Telegram', 'helper-lite-for-pagespeed') . '</h2>',
-            'desc' => 'Contact us at telegram chat <a href="https://t.me/wp_booster" target="_blank">WP Boost</a>',
+            'desc' => __('Contact us at telegram chat') . ' <a href="https://t.me/wp_booster" target="_blank">WP Boost</a>',
         )
     );
 }
