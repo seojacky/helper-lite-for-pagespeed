@@ -1,5 +1,5 @@
 === Helper Lite for PageSpeed ===
-Contributors: seojacky, mihdan
+Contributors: seojacky
 Tags: wordpress, seo-friendly, seo, pagespeed, image
 Requires at least: 5.0
 Tested up to: 5.4
