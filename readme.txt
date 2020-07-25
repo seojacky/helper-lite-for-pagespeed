@@ -3,7 +3,7 @@ Contributors: seojacky
 Tags: wordpress, seo-friendly, seo, pagespeed, image
 Requires at least: 5.0
 Tested up to: 5.4
-Stable tag: 2.5.5
+Stable tag: 2.5.6
 Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -60,7 +60,7 @@ e.g.
 
 == Changelog ==
 
-== 2.5.5 ==
+== 2.5.6 ==
 * Added support attribute loading="lazy" for iframe
 * Added "iframe loading" on "Settings" page
 
