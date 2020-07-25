@@ -2,7 +2,7 @@
 /**
  * Plugin name: Helper Lite for PageSpeed
  * Description: A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score. | <a href="https://t.me/wp_booster" target="blank_">telegram WP Boost</a> | <a href="http://https://github.com/seojacky/helper-lite-for-pagespeed" target="blank_">plugin on GitHub</a>
- * Version: 2.5.4
+ * Version: 2.5.6
  * Author: seojacky, Каренина
  * Author URI: https://t.me/big_jacky
  * Plugin URI: https://wordpress.org/plugins/helper-lite-for-pagespeed/
@@ -18,7 +18,7 @@ namespace Karenina\HelperLightForPageSpeed;
 defined('ABSPATH') or exit('No direct script access allowed');
 
 // define plugin dir name
-define('HLFP_VERSION', '2.5.4');
+define('HLFP_VERSION', '2.5.6');
 
 // define plugin dir name
 define('HLFP_NAME', trim(dirname(plugin_basename(__FILE__)), '/'));
