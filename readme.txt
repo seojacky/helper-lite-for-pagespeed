@@ -1,9 +1,9 @@
 === Helper Lite for PageSpeed ===
-Contributors: seojacky, mihdan
+Contributors: seojacky
 Tags: wordpress, seo-friendly, seo, pagespeed, image
 Requires at least: 5.0
 Tested up to: 5.4
-Stable tag: 2.5.3
+Stable tag: 2.5.4
 Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -14,6 +14,7 @@ A faster your site with image attributes decoding="async" & loading="lazy"
 Ускоряет Ваш сайт путём добавления к изображениям атрибутов decoding="async" & loading="lazy". Убирает замечание "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке". Помогает поднять баллы в тесте Google PageSpeed Insights.
 
 A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
+The main development is all going on [GitHub] (https://github.com/seojacky/helper-lite-for-pagespeed).
 
 == Installation ==
 
@@ -36,24 +37,32 @@ e.g.
 Настройки находятся в секции административного меню Настройки > PageSpeed Helper
 
 = Как настроить ? =
+1. В первой вкладке ‘Settings’ Вы можете выбрать способ добавления аттрибутов decoding=”async” &amp; loading=”lazy”.
 <ul>
- <ol>
- В первой вкладке 'Settings' Вы можете выбрать способ добавления аттрибутов decoding="async" & loading="lazy".
-  <ul>
-   <li>Первый способ 'Filters' безопасен, но применяет атрибуты не ко всем изображениям.</li>
-   <li>Второй способ 'Buffer'добавит аттрибуты decoding="async" & loading="lazy" абсолютно ко всем изображениям, но **может вызывать проблемы на некоторых сайтах**.</li>
-  </ul>
- </ol> 
- <ol>
- Во второй вкладке 'Scripts' Вы можете включить скрипт, который убирает замечание Google PageSpeed Insights"Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке" (**может вызывать конфликты** с некоторыми плагинами типа 'Contact Form 7').
- </ol>
-<ul>
+ 	<li>Первый способ ‘Filters’ безопасен, но применяет атрибуты не ко всем изображениям.</li>
+ 	<li>Второй способ ‘Buffer’добавит аттрибуты decoding=”async” &amp; loading=”lazy” абсолютно ко всем изображениям, но **может вызывать проблемы на некоторых сайтах**.</li>
+</ul>
+2. Во второй вкладке ‘Scripts’ Вы можете включить скрипт, который убирает замечание Google PageSpeed Insights ”Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке” (**может вызывать конфликты** с некоторыми плагинами типа ‘Contact Form 7’).
+
+= Что такое "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке" ???? =
+Это замечание PSI есть, например, на страницах с комментариями где подгружается скрипт comment-reply.min.js. Некоторые другие скрипты также могут приводить к этому замечанию.
+
+= Установил плагин, но баллы в Google PageSpeed Insights не увеличились =
+* Очистите кеш на сайте
+* Максимальный эффект от плагина будет там, где есть то что он оптимизирует - картинки. Нет картинок - нет и результата
+* Плагин не влияет на изображения добавленные в background через css, по той простой причине что к ним невозможно добавить аттрибуты decoding="async" и loading="lazy". Плагин работает лишь с изображениями добавленными через тег <img>.
 
 == Screenshots ==
 1. До активации плагина
 2. После активации плагина
 
 == Changelog ==
+
+== 2.5.4 ==
+* Plugin works only with GET requests due to Gutenberg's issues
+* Buffer doesn't get clean after plugin's work
+* It's possible now to select attributes value or turn off attribute at all
+* Added "Settings" and "Author" links on plugins page
 
 = 2.5.3 =
 * Fixed unescaped double quotes in AJAX calls

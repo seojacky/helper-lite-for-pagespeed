@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helper Lite for PageSpeed\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-18 13:55+0000\n"
+"POT-Creation-Date: 2020-07-21 15:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,6 +15,42 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.4.0; wp-5.4.2"
 
+#: helper-lite-for-pagespeed.php:27
+msgid "PageSpeed Helper"
+msgstr ""
+
+#: admin/admin_fields.php:23
+msgid "Settings"
+msgstr ""
+
+#: admin/admin_fields.php:33
+msgid "Select filter type"
+msgstr ""
+
+#: admin/admin_fields.php:34
+msgid ""
+"Filter - use default Wordpress filters. Will not filter all images on page.\n"
+"            <br />\n"
+"            Buffer - use PHP buffer. Filter all images on page. Might cause "
+"problems on some servers."
+msgstr ""
+
+#: admin/admin_fields.php:50
+msgid "loading"
+msgstr ""
+
+#: admin/admin_fields.php:66
+msgid "decoding"
+msgstr ""
+
+#: admin/admin_fields.php:82
+msgid "Scripts"
+msgstr ""
+
+#: admin/admin_fields.php:93
+msgid "Events with attribute passive perform better for touch and wheel"
+msgstr ""
+
 #. Name of the plugin
 msgid "Helper Lite for PageSpeed"
 msgstr ""
@@ -24,7 +60,9 @@ msgid ""
 "A faster your site with image attributes decoding=\"async\" & "
 "loading=\"lazy\". Remove problem \"Does not use passive listeners to improve "
 "scrolling performance\". Help to Up Your Google PageSpeed Insights Score. | "
-"<a href=\"https://t.me/big_jacky\" target=\"blank_\">Author</a>"
+"<a href=\"https://t.me/wp_booster\" target=\"blank_\">telegram WP Boost</a> "
+"| <a href=\"http://https://github.com/seojacky/helper-lite-for-pagespeed\" "
+"target=\"blank_\">plugin on GitHub</a>"
 msgstr ""
 
 #. URI of the plugin
@@ -32,7 +70,7 @@ msgid "https://wordpress.org/plugins/helper-lite-for-pagespeed/"
 msgstr ""
 
 #. Author of the plugin
-msgid "@big_jacky"
+msgid "seojacky, Mikhail Kobzarev, Каренина"
 msgstr ""
 
 #. Author URI of the plugin

@@ -1,5 +1,8 @@
 <?php
 
+namespace Karenina\HelperLightForPageSpeed;
+use \WP_OSA;
+
 defined('ABSPATH') or exit('No direct script access allowed');
 defined('HLFP_DIR') or exit('No HLFP_DIR defined');
 
@@ -39,7 +42,7 @@ class HLFP_OSA extends WP_OSA
             HLFP_TITLE,
             HLFP_TITLE,
             'manage_options',
-            'hlfp_osa_settings',
+            'hlfp-settings',
             array($this, 'plugin_page')
         );
     }
