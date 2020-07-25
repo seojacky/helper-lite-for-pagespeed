@@ -60,6 +60,7 @@ e.g.
 
 == 2.5.4 ==
 * Plugin works only with GET requests due to Gutenberg's issues
+* Buffer doesn't get clean after plugin's work
 * It's possible now to select attributes value or turn off attribute at all
 * Added "Settings" and "Author" links on plugins page
 
