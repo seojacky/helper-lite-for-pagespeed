@@ -58,6 +58,11 @@ e.g.
 
 == Changelog ==
 
+== 2.5.4 ==
+* Plugin works only with GET requests due to Gutenberg's issues
+* It's possible now to select attributes value or turn of attribute at all
+* Added "Settings" and "Author" links on plugins page
+
 = 2.5.3 =
 * Fixed unescaped double quotes in AJAX calls
 * Passive events are applying only on "touchstart", "scroll" and "wheel" events
