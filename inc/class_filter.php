@@ -41,16 +41,6 @@ class HLFP_Filter
      */
     public function filter_content($content)
     {
-        global $current_screen;
-        $current_screen = get_current_screen();
-
-        // check if it's gutenberg editor
-        if ((method_exists($current_screen, 'is_block_editor') && $current_screen->is_block_editor())
-        || (function_exists('is_gutenberg_page') && is_gutenberg_page()))
-        {
-            return;
-        }
-
         // set double quotes escaping if it's AJAX call
         $quote = wp_doing_ajax() ? '\"' : '"';
 
@@ -76,7 +66,7 @@ class HLFP_Filter
 
         // make replace
         $content = str_replace('<img', $replacement, $content);
-        return wp_doing_ajax() . $content;
+        return $content;
     }
 
     /**

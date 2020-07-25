@@ -42,7 +42,7 @@ class HLFP_OSA extends WP_OSA
             HLFP_TITLE,
             HLFP_TITLE,
             'manage_options',
-            'hlfp_osa_settings',
+            'hlfp-settings',
             array($this, 'plugin_page')
         );
     }

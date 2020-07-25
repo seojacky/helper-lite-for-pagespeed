@@ -40,8 +40,11 @@ define('HLFP_URL', plugin_dir_url(__FILE__));
 // define plugin's inc dir path
 define('HLFP_URL_JS', HLFP_URL . '/js');
 
-// require content filter
-require_once HLFP_DIR_INC . '/filter.php';
+if (!is_admin() && $_SERVER['REQUEST_METHOD'] === 'GET')
+{
+    // require content filter
+    require_once HLFP_DIR_INC . '/filter.php';
+}
 
 // require content filter
 require_once HLFP_DIR_INC . '/scripts.php';
@@ -50,4 +53,16 @@ if (is_admin())
 {
     // require admin fields configuration
     require_once HLFP_DIR_ADMIN . '/admin_fields.php';
+
+    function hlfp_plugin_page_settings_link($links)
+    {
+        $settings_link = '<a href="options-general.php?page=hlfp-settings.php">' . __('Settings') . '</a>';
+        $author_link = '<a href="https://t.me/wp_booster">' . __('Author') . '</a>';
+        
+        array_unshift($links, $settings_link);
+        array_push($links, $author_link);
+
+        return $links;
+    }
+    add_filter('plugin_action_links_' . plugin_basename(__FILE__), __NAMESPACE__ . '\\hlfp_plugin_page_settings_link');
 }
