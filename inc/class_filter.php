@@ -66,6 +66,17 @@ class HLFP_Filter
 
         // make replace
         $content = str_replace('<img', $replacement, $content);
+
+        // get option for iframe
+        $iframe_option = $this->get_option('iframe_loading_type', 'lazy');
+
+        if ($iframe_option != 'none')
+        {
+            // make replace
+            $iframe_replacement = '<iframe loading=' . $quote . $iframe_option . $quote;
+            $content = str_replace('<iframe', $iframe_replacement, $content);
+        }
+
         return $content;
     }
 
