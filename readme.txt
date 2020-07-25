@@ -3,7 +3,7 @@ Contributors: seojacky
 Tags: wordpress, seo-friendly, seo, pagespeed, image
 Requires at least: 5.0
 Tested up to: 5.4
-Stable tag: 2.5.4
+Stable tag: 2.5.5
 Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -11,9 +11,9 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 A faster your site with image attributes decoding="async" & loading="lazy"
 
 == Description ==
-Ускоряет Ваш сайт путём добавления к изображениям атрибутов decoding="async" & loading="lazy". Убирает замечание "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке". Помогает поднять баллы в тесте Google PageSpeed Insights.
+Ускоряет Ваш сайт путём добавления к изображениям b iframe атрибутов decoding="async" & loading="lazy". Убирает замечание "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке". Помогает поднять баллы в тесте Google PageSpeed Insights.
 
-A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
+A faster your site with image  and iframe attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
 The main development is all going on [GitHub] (https://github.com/seojacky/helper-lite-for-pagespeed).
 
 == Installation ==
@@ -23,14 +23,16 @@ This section describes how to install the plugin and get it working.
 e.g.
 
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-1. (Make your instructions match the desired user flow for activating and installing your plugin. Include any steps that might be needed for explanatory purposes)
+2. Activate the plugin through the 'Plugins' screen in WordPress
+3. (Make your instructions match the desired user flow for activating and installing your plugin. Include any steps that might be needed for explanatory purposes)
 
 == Frequently Asked Questions ==
 
 = Что делает плагин ? =
 
-Добавляет ко всем изображениям на странице атрибуты decoding="async" & loading="lazy". Экспериментально доказано, что сочетание этих атрибутов **ускоряет загрузку страницы на 0,1-0,2 секунды** и увеличивает баллы. Кроме того можно включить скрипт, который убирает замечание Google PageSpeed Insights "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке"
+* Добавляет ко всем изображениям на странице атрибуты decoding="async" & loading="lazy". Экспериментально доказано, что сочетание этих атрибутов **ускоряет загрузку страницы на 0,1-0,2 секунды** и увеличивает баллы.
+* Добавляет ко всем <iframe в записях и виджетах атрибут loading="lazy".
+* Кроме того можно включить скрипт, который убирает замечание Google PageSpeed Insights "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке"
 
 = Где находятся настройки плагина ? =
 
@@ -57,6 +59,10 @@ e.g.
 2. После активации плагина
 
 == Changelog ==
+
+== 2.5.5 ==
+* Added support attribute loading="lazy" for iframe
+* Added "iframe loading" on "Settings" page
 
 == 2.5.4 ==
 * Plugin works only with GET requests due to Gutenberg's issues

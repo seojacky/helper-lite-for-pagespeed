@@ -74,6 +74,23 @@ function hlfp_generate_admin_fields()
         )
     );
 
+    // iframe loading type selection field
+    $wposa_obj->add_field(
+        'hlfp_settings',
+        array(
+            'id' => 'iframe_loading_type',
+            'type' => 'select',
+            'name' => __('iframe loading', 'helper-lite-for-pagespeed'),
+            'desc' => __("Attribute \"loading\" for &lt;iframe&gt;", 'helper-lite-for-pagespeed'),
+            'options' => array(
+                'lazy' => 'lazy',
+                'eager' => 'eager',
+                'auto' => 'auto',
+                'none' => '-',
+            ),
+        )
+    );
+
     // =======================================================
 
     // Scripts section
