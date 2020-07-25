@@ -5,7 +5,7 @@ namespace Karenina\HelperLightForPageSpeed;
 defined('ABSPATH') or exit('No direct script access allowed');
 
 /**
- * Base Filter class. 
+ * Base Filter class.
  * Defines options storage and content filtering.
  * Needs to be extended.
  */
@@ -34,13 +34,23 @@ class HLFP_Filter
     /**
      * Filter images in given content using options from admin panel
      * Adds "loading" and "decoding" attributes if not turned of
-     * 
+     *
      * @param string $content content to filter
-     * 
+     *
      * @return string $content filtered content
      */
     public function filter_content($content)
     {
+        global $current_screen;
+        $current_screen = get_current_screen();
+
+        // check if it's gutenberg editor
+        if ((method_exists($current_screen, 'is_block_editor') && $current_screen->is_block_editor())
+        || (function_exists('is_gutenberg_page') && is_gutenberg_page()))
+        {
+            return;
+        }
+
         // set double quotes escaping if it's AJAX call
         $quote = wp_doing_ajax() ? '\"' : '"';
 
@@ -66,7 +76,7 @@ class HLFP_Filter
 
         // make replace
         $content = str_replace('<img', $replacement, $content);
-        return $content;
+        return wp_doing_ajax() . $content;
     }
 
     /**
@@ -78,10 +88,10 @@ class HLFP_Filter
 
     /**
      * Get option for saved options array.
-     * 
+     *
      * @param string $name option's name
      * @param string $default default value to return if option doesn't exist
-     * 
+     *
      * @return string option value or default value
      */
     protected function get_option(string $name, string $default = '')
