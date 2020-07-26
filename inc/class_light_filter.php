@@ -62,7 +62,7 @@ class HLFP_Light_Filter extends HLFP_Filter
      *
      * @param string $filter hook name
      */
-    private function create_content_filter(string $filter)
+    private function create_content_filter($filter)
     {
         add_filter($filter, function ($content)
         {
@@ -76,7 +76,7 @@ class HLFP_Light_Filter extends HLFP_Filter
      *
      * @param string $filter hook name
      */
-    private function create_image_filter(string $filter)
+    private function create_image_filter($filter)
     {
         add_filter($filter, function ($attributes)
         {
@@ -107,7 +107,7 @@ class HLFP_Light_Filter extends HLFP_Filter
      * 
      * @param string $filter hook name
      */
-    public function add_content_filter(string $filter)
+    public function add_content_filter($filter)
     {
         // check for string
         if (!is_string($filter))

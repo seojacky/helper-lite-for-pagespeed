@@ -17,7 +17,7 @@ class HLFP_Filter
     /**
      * @param array $options filter options
      */
-    public function __construct(array $options)
+    public function __construct($options)
     {
         // if $options is not an array, save empty array
         if (!is_array($options))
@@ -95,7 +95,7 @@ class HLFP_Filter
      *
      * @return string option value or default value
      */
-    protected function get_option(string $name, string $default = '')
+    protected function get_option($name, $default = '')
     {
         // check $name for string
         if (!is_string($name))
