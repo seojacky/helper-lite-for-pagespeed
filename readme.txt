@@ -3,7 +3,7 @@ Contributors: seojacky
 Tags: wordpress, seo-friendly, seo, pagespeed, image
 Requires at least: 5.0
 Tested up to: 5.4
-Stable tag: 2.5.6
+Stable tag: 2.5.7
 Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -11,9 +11,9 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 A faster your site with image attributes decoding="async" & loading="lazy"
 
 == Description ==
-Ускоряет Ваш сайт путём добавления к изображениям b iframe атрибутов decoding="async" & loading="lazy". Убирает замечание "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке". Помогает поднять баллы в тесте Google PageSpeed Insights.
+Ускоряет Ваш сайт путём добавления к изображениям и iframe атрибутов decoding="async" & loading="lazy". Убирает замечание "Пассивные прослушиватели событий не используются для улучшения производительности при прокрутке". Помогает поднять баллы в тесте Google PageSpeed Insights.
 
-A faster your site with image  and iframe attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
+A faster your site with image and iframe attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
 The main development is all going on [GitHub] (https://github.com/seojacky/helper-lite-for-pagespeed).
 
 == Installation ==
@@ -53,6 +53,7 @@ e.g.
 * Очистите кеш на сайте
 * Максимальный эффект от плагина будет там, где есть то что он оптимизирует - картинки. Нет картинок - нет и результата
 * Плагин не влияет на изображения добавленные в background через css, по той простой причине что к ним невозможно добавить аттрибуты decoding="async" и loading="lazy". Плагин работает лишь с изображениями добавленными через тег <img>.
+* Плагин пока добавляет атрибут loading=”lazy” лишь к iframe в записях и сайдбаре.
 
 == Screenshots ==
 1. До активации плагина
