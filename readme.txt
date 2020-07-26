@@ -60,6 +60,9 @@ e.g.
 
 == Changelog ==
 
+== 2.5.7 ==
+* Fixed bugs
+
 == 2.5.6 ==
 * Added support attribute loading="lazy" for iframe
 * Added "iframe loading" on "Settings" page
