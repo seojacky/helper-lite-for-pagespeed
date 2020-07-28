@@ -12,9 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Speed up your site with attributes decoding="async" & loading="lazy" for &lt;img&gt; and &lt;iframe&gt;. Removes problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
 The main development is all going on <a href="https://github.com/seojacky/helper-lite-for-pagespeed" target="blank_">GitHub</a>.
 
-== Screenshots ==
-1. Before activating the plugin
-2. After activating the plugin
+
 
 
 == Frequently Asked Questions ==
@@ -61,19 +59,19 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 
 == Changelog ==
 
-== 2.5.8 ==
-* Fixed incompatibility with pglugin's pro version
+= 2.5.8 =
+* Fixed incompatibility with plugin's pro version
 * Fixed WordPress Coding Standarts
 * Added new icon and cover
 
-== 2.5.7 ==
+= 2.5.7 =
 * Fixed bugs
 
-== 2.5.6 ==
+= 2.5.6 =
 * Added support attribute loading="lazy" for iframe
 * Added "iframe loading" on "Settings" page
 
-== 2.5.4 ==
+= 2.5.4 =
 * Plugin works only with GET requests due to Gutenberg's issues
 * Buffer doesn't get clean after plugin's work
 * It's possible now to select attributes value or turn off attribute at all
@@ -109,4 +107,6 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 = 2.0 (10.07.2020) =
 * Fixed bugs
 
-== Upgrade Notice ==
+== Screenshots ==
+1. Before activating the plugin
+2. After activating the plugin
