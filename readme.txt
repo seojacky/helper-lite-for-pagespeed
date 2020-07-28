@@ -64,6 +64,7 @@ e.g.
 == 2.5.8 ==
 * Fixed incompatibility with pglugin's pro version
 * Fixed WordPress Coding Standarts
+* Added new icon and cover
 
 == 2.5.7 ==
 * Fixed bugs
