@@ -3,7 +3,7 @@ Contributors: seojacky
 Tags: wordpress, seo-friendly, seo, pagespeed, lighthouse, perfomance, optimaze, optimization, lazy load, image, optimaze images 
 Requires at least: 5.0
 Tested up to: 5.4
-Stable tag: 2.5.7
+Stable tag: 2.5.8
 Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
