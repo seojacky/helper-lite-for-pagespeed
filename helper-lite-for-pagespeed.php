@@ -17,52 +17,16 @@ namespace Karenina\HelperLightForPageSpeed;
 
 defined('ABSPATH') or exit('No direct script access allowed');
 
-// define plugin dir name
+define('HLFP_DIR', __DIR__);
+define('HLFP_URL', plugin_dir_url(__FILE__));
 define('HLFP_VERSION', '2.5.8');
-
-// define plugin dir name
-define('HLFP_NAME', trim(dirname(plugin_basename(__FILE__)), '/'));
-
-// define plugin dir name
 define('HLFP_TITLE', __('PageSpeed Helper', 'helper-lite-for-pagespeed'));
 
-// define plugin dir path
-define('HLFP_DIR', WP_PLUGIN_DIR . '/' . HLFP_NAME);
-
-// define plugin's admin dir path
-define('HLFP_DIR_ADMIN', HLFP_DIR . '/admin');
-
-// define plugin's inc dir path
-define('HLFP_DIR_INC', HLFP_DIR . '/inc');
-
-define('HLFP_URL', plugin_dir_url(__FILE__));
-
-// define plugin's inc dir path
-define('HLFP_URL_JS', HLFP_URL . '/js');
-
-if (!is_admin() && $_SERVER['REQUEST_METHOD'] === 'GET')
+if (!file_exists(HLFP_DIR . '/vendor/autoload.php'))
 {
-    // require content filter
-    require_once HLFP_DIR_INC . '/filter.php';
+    exit('No autoload found for helper-lite-for-pagespeed plugin!');
 }
 
-// require content filter
-require_once HLFP_DIR_INC . '/scripts.php';
+require_once HLFP_DIR . '/vendor/autoload.php';
 
-if (is_admin())
-{
-    // require admin fields configuration
-    require_once HLFP_DIR_ADMIN . '/admin-fields.php';
-
-    function hlfp_plugin_page_settings_link($links)
-    {
-        $settings_link = '<a href="options-general.php?page=hlfp-settings.php">' . __('Settings') . '</a>';
-        $author_link = '<a href="https://t.me/wp_booster">' . __('Author') . '</a>';
-        
-        array_unshift($links, $settings_link);
-        array_push($links, $author_link);
-
-        return $links;
-    }
-    add_filter('plugin_action_links_' . plugin_basename(__FILE__), __NAMESPACE__ . '\\hlfp_plugin_page_settings_link');
-}
+$helper_light_for_page_speed = new Main();

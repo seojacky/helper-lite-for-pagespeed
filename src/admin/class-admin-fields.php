@@ -1,9 +1,8 @@
 <?php
 
-namespace Karenina\HelperLightForPageSpeed;
+namespace Karenina\HelperLightForPageSpeed\Admin;
 
 defined('ABSPATH') or exit('No direct script access allowed');
-defined('HLFP_DIR') or exit('No HLFP_DIR defined');
 
 if (!defined('HLFP_VERSION'))
 {

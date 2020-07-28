@@ -1,38 +1,44 @@
 <?php
 
-namespace Karenina\HelperLightForPageSpeed;
+namespace Karenina\HelperLightForPageSpeed\Filter;
+
+use Karenina\HelperLightForPageSpeed\Admin\HLFP_OSA;
 
 defined('ABSPATH') or exit('No direct script access allowed');
 
 /**
- * Base Filter class.
- * Defines options storage and content filtering.
- * Needs to be extended.
+ * class BaseFilter
+ * 
+ * @package Karenina\HelperLightForPageSpeed\Filter
  */
-class HLFP_Filter
+class BaseFilter
 {
-    // options to store
-    protected $options;
+    /**
+     * Admin Settings wrap instance
+     * 
+     * @var HLFP_OSA
+     */
+    protected $hlfp_osa;
 
     /**
+     * Options section name
+     * 
+     * @var string
+     */
+    protected $section = 'hlfp_settings';
+
+    /**
+     * BaseFilter constructor 
+     * 
      * @param array $options filter options
      */
-    public function __construct($options)
+    public function __construct(HLFP_OSA $hlfp_osa)
     {
-        // if $options is not an array, save empty array
-        if (!is_array($options))
-        {
-            $this->options = array();
-        }
-        else
-        {
-            // save $options
-            $this->options = $options;
-        }
+        $this->hlfp_osa = $hlfp_osa;
     }
 
     /**
-     * Filter images in given content using options from admin panel
+     * Filter images and iframes in given content using options from admin panel
      * Adds "loading" and "decoding" attributes if not turned of
      *
      * @param string $content content to filter
@@ -81,35 +87,15 @@ class HLFP_Filter
     }
 
     /**
-     * Add filters. For child classes to implement
-     */
-    public function add_filters()
-    {
-    }
-
-    /**
-     * Get option for saved options array.
+     * Get option from local HLFP_OSA instance
      *
-     * @param string $name option's name
-     * @param string $default default value to return if option doesn't exist
+     * @param string $option option's name
+     * @param string|mixed $default default value to return if option doesn't exist
      *
-     * @return string option value or default value
+     * @return string|mixed option value or default value
      */
-    protected function get_option($name, $default = '')
+    protected function get_option($option, $default = '')
     {
-        // check $name for string
-        if (!is_string($name))
-        {
-            return $default;
-        }
-
-        // check if option exists
-        if (empty($this->options[$name]))
-        {
-            return $default;
-        }
-
-        // return option
-        return $this->options[$name];
+        return $this->hlfp_osa->get_option($option, $this->section, $default);
     }
 }
