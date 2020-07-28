@@ -3,7 +3,7 @@ Contributors: seojacky
 Tags: wordpress, seo-friendly, seo, pagespeed, lighthouse, perfomance, optimaze, optimization, lazy load, image, optimaze images 
 Requires at least: 5.0
 Tested up to: 5.4
-Stable tag: 2.5.8
+Stable tag: 3.0
 Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -58,6 +58,9 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 
 
 == Changelog ==
+
+= 3.0 =
+* Plugin structure fully rewritten 
 
 = 2.5.8 =
 * Fixed incompatibility with plugin's pro version
