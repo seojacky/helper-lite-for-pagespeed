@@ -86,7 +86,7 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 
 = 2.5.2  =
 * Fixed problem "Does not use passive listeners to improve scrolling performance"
-* Add Russian adn English languge support
+* Add Russian adn English language support
 
 = 2.5.1  =
 * Fixed WordPress Coding Standarts
