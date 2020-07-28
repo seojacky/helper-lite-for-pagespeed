@@ -10,7 +10,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 Speed up your site with attributes decoding="async" & loading="lazy" for &lt;img&gt; and &lt;iframe&gt;. Removes problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
-The main development is all going on <a href="http://https://github.com/seojacky/helper-lite-for-pagespeed" target="blank_">GitHub</a>.
+The main development is all going on <a href="https://github.com/seojacky/helper-lite-for-pagespeed" target="blank_">GitHub</a>.
 
 == Screenshots ==
 1. Before activating the plugin
