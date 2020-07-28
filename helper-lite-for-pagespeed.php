@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin name: Helper Lite for PageSpeed
- * Description: A faster your site with image and iframe attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score. | <a href="https://t.me/wp_booster" target="blank_">WP Boost support</a> | <a href="https://github.com/seojacky/helper-lite-for-pagespeed" target="blank_">GitHub</a>
- * Version: 2.5.7
+ * Description: A faster your site with image attributes decoding="async" & loading="lazy". Remove problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score. | <a href="https://t.me/wp_booster" target="blank_">WP Boost</a> | <a href="https://github.com/seojacky/helper-lite-for-pagespeed" target="blank_">GitHub</a>
+ * Version: 2.5.8
  * Author: seojacky, Каренина
  * Author URI: https://t.me/big_jacky
  * Plugin URI: https://wordpress.org/plugins/helper-lite-for-pagespeed/
@@ -18,7 +18,7 @@ namespace Karenina\HelperLightForPageSpeed;
 defined('ABSPATH') or exit('No direct script access allowed');
 
 // define plugin dir name
-define('HLFP_VERSION', '2.5.7');
+define('HLFP_VERSION', '2.5.8');
 
 // define plugin dir name
 define('HLFP_NAME', trim(dirname(plugin_basename(__FILE__)), '/'));
@@ -52,7 +52,7 @@ require_once HLFP_DIR_INC . '/scripts.php';
 if (is_admin())
 {
     // require admin fields configuration
-    require_once HLFP_DIR_ADMIN . '/admin_fields.php';
+    require_once HLFP_DIR_ADMIN . '/admin-fields.php';
 
     function hlfp_plugin_page_settings_link($links)
     {

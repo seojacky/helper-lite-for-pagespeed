@@ -61,6 +61,10 @@ e.g.
 
 == Changelog ==
 
+== 2.5.8 ==
+* Fixed incompatibility with pglugin's pro version
+* Fixed WordPress Coding Standarts
+
 == 2.5.7 ==
 * Fixed bugs
 

@@ -11,7 +11,7 @@ if (!defined('HLFP_DIR_INC'))
 }
 
 // require filter class
-require_once HLFP_DIR_INC . '/class_filter.php';
+require_once HLFP_DIR_INC . '/class-filter.php';
 
 /**
  * This class uses buffering to collect output
