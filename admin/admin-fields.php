@@ -13,7 +13,7 @@ if (!defined('HLFP_DIR_ADMIN'))
 function hlfp_generate_admin_fields()
 {
     // require field configuration class
-    require_once HLFP_DIR_ADMIN . '/class_admin_fields.php';
+    require_once HLFP_DIR_ADMIN . '/class-admin-fields.php';
 
     $wposa_obj = new HLFP_OSA();
 

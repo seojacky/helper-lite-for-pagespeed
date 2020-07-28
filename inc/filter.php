@@ -11,8 +11,8 @@ if (!defined('HLFP_DIR_INC'))
 }
 
 // require filter classes
-require_once HLFP_DIR_INC . '/class_buffer_filter.php';
-require_once HLFP_DIR_INC . '/class_light_filter.php';
+require_once HLFP_DIR_INC . '/class-buffer-filter.php';
+require_once HLFP_DIR_INC . '/class-light-filter.php';
 
 // get options
 $options = get_option('hlfp_settings', array());
