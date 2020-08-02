@@ -63,7 +63,7 @@ class AdminManager
     {
         $extra_links = array(
             '<a href="options-general.php?page=hlfp-settings.php">' . __('Settings', 'helper-lite-for-pagespeed') . '</a>',
-            '<a href="https://t.me/wp_booster">' . __('Author', 'helper-lite-for-pagespeed') . '</a>',
+            '<a href="https://t.me/wp_booster" target="_blank">' . __('Author', 'helper-lite-for-pagespeed') . '</a>',
         );
 
         return array_merge($links, $extra_links);
@@ -87,7 +87,7 @@ class AdminManager
         }
 
         $meta_links = array(
-            '<a href="https://t.me/wp_booster">' . __('FAQ', 'helper-lite-for-pagespeed') . '</a>',
+            '<a href="https://wordpress.org/plugins/helper-lite-for-pagespeed/#%0Awhat%20does%20the%20plugin%20do%3F%0A" target="_blank">' . __('FAQ', 'helper-lite-for-pagespeed') . '</a>',
         );
 
         return array_merge($links, $meta_links);
@@ -229,7 +229,7 @@ class AdminManager
                 speeds up page loading by 0.1-0.2 seconds and increases Your Google PageSpeed Insights Score. We recommend You to use this attributes combination. 
                 You can also turn off attribute at all, if You, for example, use third-party lazy loading.<br />
                 <code>loading=\"lazy\"</code> for <code>&lt;iframe&gt;</code> also speeds up page loading.", 'helper-lite-for-pagespeed') . '</p><br />'
-                . '<b style="font-style:normal;">' . __('For more information visit our <a href="https://t.me/wp_booster" target="_blank">FAQ</a>.', 'helper-lite-for-pagespeed') . '</b>',
+                . '<b style="font-style:normal;">' . __('For more information visit our <a href="https://wordpress.org/plugins/helper-lite-for-pagespeed/#%0Awhat%20does%20the%20plugin%20do%3F%0A" target="_blank">FAQ</a>.', 'helper-lite-for-pagespeed') . '</b>',
             )
         );
 
