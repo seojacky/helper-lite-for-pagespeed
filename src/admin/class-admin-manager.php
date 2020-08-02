@@ -226,8 +226,8 @@ class AdminManager
 
                 . '<h4>' . __('What attributes should I use?', 'helper-lite-for-pagespeed') . '</h4>'
                 . '<p>' . __("It has been experimentally proven that combination of attributes <code>loading=\"lazy\"</code> and <code>decoding=\"async\"</code> on <code>&lt;img&gt;</code>
-                speeds up page loading by 0.1-0.2 seconds and increases Your Google PageSpeed Insights Score. We recommend you use this attributes combination. 
-                You can also turn off attribute at all, if you, for example, use third-party lazy loading.<br />
+                speeds up page loading by 0.1-0.2 seconds and increases Your Google PageSpeed Insights Score. We recommend You to use this attributes combination. 
+                You can also turn off attribute at all, if You, for example, use third-party lazy loading.<br />
                 <code>loading=\"lazy\"</code> for <code>&lt;iframe&gt;</code> also speeds up page loading.", 'helper-lite-for-pagespeed') . '</p><br />'
                 . '<b style="font-style:normal;">' . __('For more information visit our <a href="https://t.me/wp_booster" target="_blank">FAQ</a>.', 'helper-lite-for-pagespeed') . '</b>',
             )
@@ -240,7 +240,7 @@ class AdminManager
                 'id' => 'telegram',
                 'type' => 'html',
                 'name' => '<h2>' . __('Telegram', 'helper-lite-for-pagespeed') . '</h2>',
-                'desc' => '<b style="font-style:normal;">' . __('Contact us at Telegram chat') . ' <a href="https://t.me/wp_booster" target="_blank">WP Boost</a></b> <br/>'
+                'desc' => '<b style="font-style:normal;color:#444;">' . __('Contact us at Telegram chat') . ' <a href="https://t.me/wp_booster" target="_blank">WP Boost</a></b> <br/>'
                 . sprintf(__('We speak %s languages.', 'helper-lite-for-pagespeed'), '<span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">' . $this->get_flags(array('uk', 'usa', 'ru', 'ua', 'pl')) . '</span>')
 
                 . '<h3>' . __('Developers', 'helper-lite-for-pagespeed') . '</h3>'
@@ -251,7 +251,7 @@ class AdminManager
                 . '<img src="' . HLFP_URL . 'img/seojacky.jpeg' . '" style="border-radius:100%;float:left;">'
                 . '<p style="float:left;margin-left:2rem;">' . __('Web-Master, SEO specialist, SEO optimization + PageSpeed for Wordpress sites', 'helper-lite-for-pagespeed') . '<br />'
                 . __('Languages', 'helper-lite-for-pagespeed') . ' <span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">' . $this->get_flags(array('uk', 'usa', 'ru', 'ua')) . '</span>' . '<br />'
-                . '<b>' . __('Telegram profile: ', 'helper-lite-for-pagespeed') . '<a href="https://t.me/big_jacky" target="_blank">@big_jacky</a>' . '</b>' . '</p>'
+                . '<b>' . __('Telegram profile ', 'helper-lite-for-pagespeed') . '<a href="https://t.me/big_jacky" target="_blank">@big_jacky</a>' . '</b>' . '</p>'
                 . '</div>'
 
                 . '<hr style="border-top: 1px solid gray;width:50%;margin:1.5rem 0;">'
@@ -261,7 +261,7 @@ class AdminManager
                 . '<img src="' . HLFP_URL . 'img/karenina.png' . '" style="border-radius:100%;float:left;">'
                 . '<p style="float:left;margin-left:2rem;">' . __('PHP & JavaScript (NodeJS) programmer, Wordpress themes and plugins developer', 'helper-lite-for-pagespeed') . '<br />'
                 . __('Languages', 'helper-lite-for-pagespeed') . ' <span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">' . $this->get_flags(array('uk', 'usa', 'ru', 'ua', 'pl')) . '</span>' . '<br />'
-                . '<b>' . __('Telegram profile: ', 'helper-lite-for-pagespeed') . '<a href="https://t.me/kar_enina" target="_blank">@kar_enina</a>' . '</b>' . '</p>'
+                . '<b>' . __('Telegram profile ', 'helper-lite-for-pagespeed') . '<a href="https://t.me/kar_enina" target="_blank">@kar_enina</a>' . '</b>' . '</p>'
                 . '</div>'
                 . '</div>',
             )
