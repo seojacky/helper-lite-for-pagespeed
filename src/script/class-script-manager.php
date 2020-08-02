@@ -9,7 +9,7 @@ defined('HLFP_URL') or exit('HLFP_URL is not defined');
 
 if (!defined('HLFP_URL_JS'))
 {
-    define('HLFP_URL_JS', HLFP_URL . '/js');
+    define('HLFP_URL_JS', HLFP_URL . 'js');
 }
 
 /**

@@ -61,10 +61,14 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 
 = 3.0 =
 * Plugin structure fully rewritten 
+* Fix bug with double slash in script URL
+* "Contacts" tab changed to "Help" tab
+* Added little FAQ
+* Added More contacts information
 
 = 2.5.8 =
 * Fixed incompatibility with plugin's pro version
-* Fixed WordPress Coding Standarts
+* Fixed WordPress Coding Standards
 * Added new icon and cover
 
 = 2.5.7 =
@@ -90,10 +94,10 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 * Add Russian adn English language support
 
 = 2.5.1  =
-* Fixed WordPress Coding Standarts
+* Fixed WordPress Coding Standards
 
 = 2.3.8 (17.07.2020) =
-* Fixed WordPress Coding Standarts
+* Fixed WordPress Coding Standards
 
 = 2.3.7 =
 * Fixed bugs
