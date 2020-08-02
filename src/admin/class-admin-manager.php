@@ -6,21 +6,21 @@ defined('ABSPATH') or exit('No direct script access allowed');
 
 /**
  * class AdminManager
- * 
+ *
  * @package Karenina\HelperLightForPageSpeed\Admin
  */
 class AdminManager
 {
     /**
      * Admin Settings wrap instance
-     * 
+     *
      * @var HLFP_OSA
      */
     protected $hlfp_osa;
 
     /**
      * AdminManager constructor
-     * 
+     *
      * @param HLFP_OSA $hlfp_osa HLFP_OSA instance
      */
     public function __construct(HLFP_OSA $hlfp_osa)
@@ -33,28 +33,44 @@ class AdminManager
      */
     public function hooks()
     {
-        add_action('admin_init', array($this, 'setup_fields'), 9);
-        add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'setup_plugin_links'));
+        add_action('admin_init', array($this, 'setup_fields'), 9, 0);
+        add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'setup_extra_links'), 10, 1);
+        add_filter('plugin_row_meta', array($this, 'setup_meta_links'), 10, 2);
     }
 
     /**
      * WP action hook,
      * Creates "Settings" and "Author" links
      * on plugins page
-     * 
+     *
      * @param array $links initial WP links
-     * 
+     *
      * @return array populated links
      */
-    public function setup_plugin_links($links)
+    public function setup_extra_links($links)
     {
-        $settings_link = '<a href="options-general.php?page=hlfp-settings.php">' . __('Settings') . '</a>';
-        $author_link = '<a href="https://t.me/wp_booster">' . __('Author') . '</a>';
+        $settings_link = '<a href="options-general.php?page=hlfp-settings.php">' . __('Settings', 'helper-lite-for-pagespeed') . '</a>';
+        $author_link = '<a href="https://t.me/wp_booster">' . __('Author', 'helper-lite-for-pagespeed') . '</a>';
 
         array_unshift($links, $settings_link);
         array_push($links, $author_link);
 
         return $links;
+    }
+
+    public function setup_meta_links($links, $file)
+    {  
+        if (plugin_basename(HLFP_FILE) !== $file)
+        {
+            return $links;
+        }
+
+        $extra_links = array(
+            '<a href="https://t.me/wp_booster">' . __('Contact Us', 'helper-lite-for-pagespeed') . '</a>',
+            '<a href="https://wp-booster.com/">' . __('Premium Version', 'helper-lite-for-pagespeed') . '</a>',
+        );
+
+        return array_merge($links, $extra_links);
     }
 
     /**
@@ -176,7 +192,8 @@ class AdminManager
                 'id' => 'contacts',
                 'type' => 'html',
                 'name' => '<h2>' . __('Telegram', 'helper-lite-for-pagespeed') . '</h2>',
-                'desc' => __('Contact us at telegram chat') . ' <a href="https://t.me/wp_booster" target="_blank">WP Boost</a>',
+                'desc' => __('Contact us at telegram chat') . ' <a href="https://t.me/wp_booster" target="_blank">WP Boost</a>'
+                . __('<br/>We speak <span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">&#127468;&#127463; &#127482;&#127480; &#127479;&#127482; &#127482;&#127462; &#127477;&#127473;</span> languages.'),
             )
         );
     }
