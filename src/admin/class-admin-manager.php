@@ -130,6 +130,7 @@ class AdminManager
                 'id' => 'loading_type',
                 'type' => 'select',
                 'name' => __('loading', 'helper-lite-for-pagespeed'),
+                'desc' => __("Attribute \"loading\" for &lt;image&gt;", 'helper-lite-for-pagespeed'),
                 'options' => array(
                     'lazy' => 'lazy',
                     'eager' => 'eager',
@@ -146,6 +147,7 @@ class AdminManager
                 'id' => 'decoding_type',
                 'type' => 'select',
                 'name' => __('decoding', 'helper-lite-for-pagespeed'),
+                'desc' => __("Attribute \"decoding\" for &lt;image&gt;", 'helper-lite-for-pagespeed'),
                 'options' => array(
                     'async' => 'async',
                     'sync' => 'sync',
@@ -237,13 +239,21 @@ class AdminManager
             array(
                 'id' => 'telegram',
                 'type' => 'html',
-                'name' => '<h2>' . __('Telegram', 'helper-lite-for-pagespeed') . '</h2>',
+                'name' => '<h2>' . __('Support', 'helper-lite-for-pagespeed') . '</h2>',
                 'desc' => '<b style="font-style:normal;color:#444;">' . __('Contact us at Telegram chat') . ' <a href="https://t.me/wp_booster" target="_blank">WP Boost</a></b> <br/>'
-                . sprintf(__('We speak %s languages.', 'helper-lite-for-pagespeed'), '<span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">' . $this->get_flags(array('uk', 'usa', 'ru', 'ua', 'pl')) . '</span>')
-
-                . '<h3>' . __('Developers', 'helper-lite-for-pagespeed') . '</h3>'
-
-                . '<div style="display:flex;flex-direction:column;">'
+                . sprintf(__('We speak %s languages.', 'helper-lite-for-pagespeed'), '<span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">' . $this->get_flags(array('uk', 'usa', 'ru', 'ua', 'pl')) . '</span>'),
+            )
+        );
+		
+		
+		// Developers text
+		        $this->hlfp_osa->add_field(
+            'hlfp_help',
+            array(
+                'id' => 'developers',
+                'type' => 'html',
+                'name' => '<h2>' . __('Developers', 'helper-lite-for-pagespeed') . '</h2>',
+                'desc' => '<div style="display:flex;flex-direction:column;">'
                 . '<div>'
                 . '<h4>' . __('Eugen Kalinsky', 'helper-lite-for-pagespeed') . '</h4>'
                 . '<img src="' . HLFP_URL . 'img/seojacky.jpeg' . '" style="border-radius:100%;float:left;">'
