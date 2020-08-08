@@ -130,7 +130,6 @@ class AdminManager
                 'id' => 'loading_type',
                 'type' => 'select',
                 'name' => __('loading', 'helper-lite-for-pagespeed'),
-                'desc' => __("Attribute \"loading\" for &lt;image&gt;", 'helper-lite-for-pagespeed'),
                 'options' => array(
                     'lazy' => 'lazy',
                     'eager' => 'eager',
@@ -147,7 +146,6 @@ class AdminManager
                 'id' => 'decoding_type',
                 'type' => 'select',
                 'name' => __('decoding', 'helper-lite-for-pagespeed'),
-                'desc' => __("Attribute \"decoding\" for &lt;image&gt;", 'helper-lite-for-pagespeed'),
                 'options' => array(
                     'async' => 'async',
                     'sync' => 'sync',
