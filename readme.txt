@@ -1,6 +1,6 @@
 === Helper Lite for PageSpeed ===
 Contributors: seojacky, karenka
-Tags: wordpress, seo-friendly, seo, pagespeed, lighthouse, perfomance, optimaze, optimization, lazy load, image, optimaze images 
+Tags: seo-friendly, seo, pagespeed, lighthouse, perfomance, optimaze, optimization, lazy load, image, optimaze images 
 Requires at least: 5.0
 Tested up to: 5.4
 Stable tag: 3.0
