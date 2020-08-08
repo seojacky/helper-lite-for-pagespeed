@@ -233,15 +233,16 @@ class AdminManager
             )
         );
 
-        // Contact us at Telegram chat text
+        // Contact us 
         $this->hlfp_osa->add_field(
             'hlfp_help',
             array(
-                'id' => 'support',
+                'id' => 'telegram',
                 'type' => 'html',
                 'name' => '<h2>' . __('Support', 'helper-lite-for-pagespeed') . '</h2>',
-                'desc' => '<b style="font-style:normal;color:#444;">' . __('Contact us at Telegram chat') . ' <a href="https://t.me/wp_booster" target="_blank">WP Boost</a></b> <br/>'
-                . sprintf(__('We speak %s languages.', 'helper-lite-for-pagespeed'), '<span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">' . $this->get_flags(array('uk', 'usa', 'ru', 'ua', 'pl')) . '</span>'),
+                'desc' => '<b style="font-style:normal;color:#444;">' . __('- Contact us at Telegram chat') . ' <a href="https://t.me/wp_booster" target="_blank">WP Boost</a></b> <br/>'
+                . sprintf(__('We speak %s languages.', 'helper-lite-for-pagespeed'), '<span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">' . $this->get_flags(array('uk', 'usa', 'ru', 'ua', 'pl')) . '</span>')
+				. '<br/><b style="font-style:normal;color:#444;">' . __('- Contact us at') . ' <a href="https://wordpress.org/support/plugin/helper-lite-for-pagespeed/" target="_blank">Support Page on WordPress.org</a></b> <br/>',
             )
         );
 		
