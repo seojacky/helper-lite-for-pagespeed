@@ -115,9 +115,7 @@ class AdminManager
                 'id' => 'filter_type',
                 'type' => 'select',
                 'name' => __('Select filter type', 'helper-lite-for-pagespeed'),
-                'desc' => __("Filter - use default Wordpress filters. Will not filter all images on page.
-                <br />
-                Buffer - use PHP buffer. Filter all images on page. Might cause problems on some servers.", 'helper-lite-for-pagespeed'),
+                'desc' => __("Filter - use default Wordpress filters. Will not filter all images on page.<br />Buffer - use PHP buffer. Filter all images on page. Might cause problems on some servers.", 'helper-lite-for-pagespeed'),
                 'options' => array(
                     'filter' => 'Filters',
                     'buffering' => 'Buffer',
