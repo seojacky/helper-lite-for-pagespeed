@@ -237,7 +237,7 @@ class AdminManager
         $this->hlfp_osa->add_field(
             'hlfp_help',
             array(
-                'id' => 'telegram',
+                'id' => 'support',
                 'type' => 'html',
                 'name' => '<h2>' . __('Support', 'helper-lite-for-pagespeed') . '</h2>',
                 'desc' => '<b style="font-style:normal;color:#444;">' . __('Contact us at Telegram chat') . ' <a href="https://t.me/wp_booster" target="_blank">WP Boost</a></b> <br/>'
