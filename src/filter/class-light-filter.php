@@ -1,48 +1,54 @@
 <?php
 
-namespace Karenina\HelperLightForPageSpeed;
+namespace Karenina\HelperLightForPageSpeed\Filter;
+
+use Karenina\HelperLightForPageSpeed\Admin\HLFP_OSA;
 
 defined('ABSPATH') or exit('No direct script access allowed');
-defined('HLFP_DIR') or exit('No HLFP_DIR defined');
-
-if (!defined('HLFP_DIR_INC'))
-{
-    define('HLFP_DIR_INC', HLFP_DIR . '/inc');
-}
-
-// require filter class
-require_once HLFP_DIR_INC . '/class-filter.php';
 
 /**
- * This class users Wordpress' default filters
- * to filter images
+ * class LightFilter
+ * 
+ * @package Karenina\HelperLightForPageSpeed\Filter
  */
-class HLFP_Light_Filter extends HLFP_Filter
+class LightFilter extends BaseFilter
 {
-    // content filter hooks
+    /**
+     * Content hooks
+     * 
+     * @var array
+     */
     protected $content_filters = array(
         'widget_custom_html_content',
         'widget_text',
         'the_content',
     );
 
-    // image filter hooks
+    /**
+     * Image hooks
+     * 
+     * @var array
+     */
     protected $image_filters = array(
         'wp_get_attachment_image_attributes',
     );
 
     /**
-     * @param array $options filter options
+     * LightFilter constructor
+     * 
+     * @param HLFP_OSA $hlfp_osa HLFP_OSA instance
      */
-    public function __construct($options)
+    public function __construct(HLFP_OSA $hlfp_osa)
     {
-        parent::__construct($options);
+        parent::__construct($hlfp_osa);
+
+        $this->add_filters();
     }
 
     /**
      * Add content and image filter hooks
      */
-    public function add_filters()
+    private function add_filters()
     {
         // add content filters
         foreach ($this->content_filters as $filter)
