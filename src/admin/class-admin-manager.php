@@ -3,6 +3,7 @@
 namespace Karenina\HelperLightForPageSpeed\Admin;
 
 defined('ABSPATH') or exit('No direct script access allowed');
+defined('HLFP_FILE') or exit('HLFP_FILE is not defined for helper-lite-for-pagespeed plugin');
 
 /**
  * class AdminManager
@@ -45,11 +46,20 @@ class AdminManager
      */
     public function hooks()
     {
+        add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
         add_action('admin_init', array($this, 'setup_fields'), 9, 0);
         add_filter('plugin_action_links_' . plugin_basename(HLFP_FILE), array($this, 'setup_extra_links'), 10, 1);
         add_filter('plugin_row_meta', array($this, 'setup_meta_links'), 10, 2);
     }
 
+    /**
+     * Load plugin's text domain
+     */
+    public function load_plugin_textdomain() 
+    {
+        load_plugin_textdomain('helper-lite-for-pagespeed', false, basename(dirname(HLFP_FILE)) . '/languages/');
+    }
+    
     /**
      * WP filter hook,
      * Creates "Settings" and "Author" links
