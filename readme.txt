@@ -4,7 +4,7 @@ Tags: seo-friendly, seo, pagespeed, lighthouse, perfomance, optimaze, optimizati
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 5.6.20
-Stable tag: 3.0
+Stable tag: 3.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
