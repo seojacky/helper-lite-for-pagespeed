@@ -55,6 +55,12 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 2. After activating the plugin
 
 == Changelog ==
+= 3.0.2 =
+* Fixed bug with translations
+
+= 3.0.1 =
+* Fixed bugs
+
 = 3.0 =
 * Plugin structure fully rewritten 
 * Fix bug with double slash in script URL
