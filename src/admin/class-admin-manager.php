@@ -162,10 +162,11 @@ class AdminManager
                 'name' => __('loading', 'helper-lite-for-pagespeed'),
                 'desc' => __("Attribute \"loading\" for &lt;image&gt;", 'helper-lite-for-pagespeed'),
                 'options' => array(
+                    'none' => '-',
                     'lazy' => 'lazy',
                     'eager' => 'eager',
                     'auto' => 'auto',
-                    'none' => '-',
+                    
                 ),
             )
         );
