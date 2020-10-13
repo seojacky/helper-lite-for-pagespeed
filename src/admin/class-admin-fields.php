@@ -757,7 +757,7 @@ class HLFP_OSA
             HLFP_TITLE,
             HLFP_TITLE,
             'manage_options',
-            'helper-lite-for-pagespeed',
+            'hlfp-settings',
             array($this, 'plugin_page')
         );
     }

@@ -100,7 +100,7 @@ class AdminManager
     public function setup_extra_links($links)
     {
         $extra_links = array(
-            '<a href="options-general.php?page=hlfp-settings.php">' . __('Settings', 'helper-lite-for-pagespeed') . '</a>',
+            '<a href="admin.php?page=hlfp-settings">' . __('Settings', 'helper-lite-for-pagespeed') . '</a>',
             '<a href="https://t.me/wp_booster" target="_blank">' . __('Author', 'helper-lite-for-pagespeed') . '</a>',
         );
 
