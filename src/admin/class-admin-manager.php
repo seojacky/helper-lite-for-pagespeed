@@ -48,7 +48,7 @@ class AdminManager
     {
         add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
         add_action('admin_init', array($this, 'setup_fields'), 9, 0);
-        add_action('admin_init', array($this, 'create_admin_page'), 8, 0);
+        add_action('admin_menu', array($this, 'create_admin_page'), 8, 0);
         add_filter('plugin_action_links_' . plugin_basename(HLFP_FILE), array($this, 'setup_extra_links'), 10, 1);
         add_filter('plugin_row_meta', array($this, 'setup_meta_links'), 10, 2);
 
