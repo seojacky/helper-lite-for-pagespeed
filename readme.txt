@@ -2,7 +2,7 @@
 Contributors: seojacky, karenka
 Tags: seo-friendly, seo, pagespeed, lighthouse, perfomance, optimaze, optimization, lazy load, image, optimaze images
 Requires at least: 5.0
-Tested up to: 5.4
+Tested up to: 5.5
 Requires PHP: 5.6.20
 Stable tag: 3.0.2
 License: GPLv2 or later
@@ -57,6 +57,7 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 == Changelog ==
 = 3.0.2 =
 * Fixed bug with translations
+* Added "Rate us" link on plugins page
 
 = 3.0.1 =
 * Fixed bugs
