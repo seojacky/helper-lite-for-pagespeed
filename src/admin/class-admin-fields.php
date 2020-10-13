@@ -752,11 +752,12 @@ class HLFP_OSA
     // public function admin_menu( $page_title = 'Page Title', $menu_title = 'Menu Title', $capability = 'manage_options', $menu_slug = 'settings_page', $callable = 'plugin_page' ) {
     public function admin_menu()
     {
-        add_options_page(
+        add_submenu_page(
+            'wp-booster',
             HLFP_TITLE,
             HLFP_TITLE,
             'manage_options',
-            'hlfp-settings',
+            'helper-lite-for-pagespeed',
             array($this, 'plugin_page')
         );
     }
