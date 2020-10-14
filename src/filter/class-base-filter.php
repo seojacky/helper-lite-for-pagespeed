@@ -53,7 +53,7 @@ class BaseFilter
         $replacement = '<img';
 
         // get option for loading attribute
-        $loading_option = $this->get_option('loading_type', 'lazy');
+        $loading_option = $this->get_option('loading_type', '-');
 
         // if it's not off, set option
         if ($loading_option != 'none')

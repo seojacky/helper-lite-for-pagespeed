@@ -48,8 +48,36 @@ class AdminManager
     {
         add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
         add_action('admin_init', array($this, 'setup_fields'), 9, 0);
+        add_action('admin_menu', array($this, 'create_admin_page'), 8, 0);
+        add_action('admin_print_styles', array($this, 'hide_wp_boost_sub_menu'));
         add_filter('plugin_action_links_' . plugin_basename(HLFP_FILE), array($this, 'setup_extra_links'), 10, 1);
         add_filter('plugin_row_meta', array($this, 'setup_meta_links'), 10, 2);
+
+    }
+
+    public function create_admin_page()
+    {
+        global $admin_page_hooks;
+
+        if (!isset($admin_page_hooks['wp-booster']))
+        {
+            add_menu_page(
+                esc_html__('WP Booster', 'helper-lite-for-pagespeed'),
+                esc_html_x('WP Booster', 'Menu item', 'helper-lite-for-pagespeed'),
+                'manage_options',
+                'wp-booster',
+                array($this->hlfp_osa, 'plugin_page'),
+                'dashicons-backup',
+                92.3
+            );
+        }
+    }
+
+    public function hide_wp_boost_sub_menu()
+    {
+        echo "\n<style type='text/css'>";
+        echo "#toplevel_page_wp-booster li.wp-first-item {display: none;}";
+        echo "</style>\n";
     }
 
     /**
@@ -72,7 +100,7 @@ class AdminManager
     public function setup_extra_links($links)
     {
         $extra_links = array(
-            '<a href="options-general.php?page=hlfp-settings.php">' . __('Settings', 'helper-lite-for-pagespeed') . '</a>',
+            '<a href="admin.php?page=hlfp-settings">' . __('Settings', 'helper-lite-for-pagespeed') . '</a>',
             '<a href="https://t.me/wp_booster" target="_blank">' . __('Author', 'helper-lite-for-pagespeed') . '</a>',
         );
 
@@ -97,7 +125,8 @@ class AdminManager
         }
 
         $meta_links = array(
-            '<a href="https://wordpress.org/plugins/helper-lite-for-pagespeed/#%0Awhat%20does%20the%20plugin%20do%3F%0A" target="_blank">' . __('FAQ', 'helper-lite-for-pagespeed') . '</a>',
+		'<a href="https://wordpress.org/plugins/helper-lite-for-pagespeed/#%0Awhat%20does%20the%20plugin%20do%3F%0A" target="_blank">' . __('FAQ', 'helper-lite-for-pagespeed') . '</a>',
+		__( 'Rate us:', 'helper-lite-for-pagespeed' ) . " <span class='rating-stars'><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=1#new-post' target='_blank' data-rating='1' title='" . __('Poor', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=2#new-post' target='_blank' data-rating='2' title='" . __('Works', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=3#new-post' target='_blank' data-rating='3' title='" . __('Good', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=4#new-post' target='_blank' data-rating='4' title='" . __('Great', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=5#new-post' target='_blank' data-rating='5' title='" . __('Fantastic!', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><span>",
         );
 
         return array_merge($links, $meta_links);
@@ -142,10 +171,11 @@ class AdminManager
                 'name' => __('loading', 'helper-lite-for-pagespeed'),
                 'desc' => __("Attribute \"loading\" for &lt;image&gt;", 'helper-lite-for-pagespeed'),
                 'options' => array(
+                    'none' => '-',
                     'lazy' => 'lazy',
                     'eager' => 'eager',
                     'auto' => 'auto',
-                    'none' => '-',
+                    
                 ),
             )
         );
@@ -236,7 +266,7 @@ class AdminManager
 
                 . '<h4>' . __('What attributes should I use?', 'helper-lite-for-pagespeed') . '</h4>'
                 . '<p>' . __("It has been experimentally proven that combination of attributes <code>loading=\"lazy\"</code> and <code>decoding=\"async\"</code> on <code>&lt;img&gt;</code>
-                speeds up page loading by 0.1-0.2 seconds and increases Your Google PageSpeed Insights Score. We recommend You to use this attributes combination. 
+                speeds up page loading by 0.1-0.2 seconds and increases Your Google PageSpeed Insights Score. We recommend You to use this attributes combination.
                 You can also turn off attribute at all, if You, for example, use third-party lazy loading.<br />
                 <code>loading=\"lazy\"</code> for <code>&lt;iframe&gt;</code> also speeds up page loading.", 'helper-lite-for-pagespeed') . '</p><br />'
                 . '<b style="font-style:normal;">' . __('For more information visit our <a href="https://wordpress.org/plugins/helper-lite-for-pagespeed/#%0Awhat%20does%20the%20plugin%20do%3F%0A" target="_blank">FAQ</a>.', 'helper-lite-for-pagespeed') . '</b>',

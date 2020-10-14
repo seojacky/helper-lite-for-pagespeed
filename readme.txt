@@ -2,7 +2,7 @@
 Contributors: seojacky, karenka
 Tags: seo-friendly, seo, pagespeed, lighthouse, perfomance, optimaze, optimization, lazy load, image, optimaze images
 Requires at least: 5.0
-Tested up to: 5.4
+Tested up to: 5.5
 Requires PHP: 5.6.20
 Stable tag: 3.0.2
 License: GPLv2 or later
@@ -17,13 +17,13 @@ The main development is all going on GitHub.
 1. Visit 'Plugins > Add New'
 2. Search for 'Helper Lite for PageSpeed'
 3. Activate Helper Lite for PageSpeed from your Plugins page.
-4. [Optional] Configure plugin in 'Settings > PageSpeed Helper'.
+4. [Optional] Configure plugin in 'WP Booster > PageSpeed Helper'.
 
 = From WordPress.org =
 1. Download Helper Lite for PageSpeed.
 2. Upload the 'helper-lite-for-pagespeed' directory to your '/wp-content/plugins/' directory, using your favorite method (ftp, sftp, scp, etc...)
 3. Activate Helper Lite for PageSpeed from your Plugins page.
-4. [Optional] Configure plugin in 'Settings > PageSpeed Helper'.
+4. [Optional] Configure plugin in 'WP Booster > PageSpeed Helper'.
 
 == Frequently Asked Questions ==
 = What does the plugin do? = 
@@ -32,7 +32,7 @@ The main development is all going on GitHub.
 * You can include a script that removes the Google PageSpeed Insights remark "Does not use passive listeners to improve scrolling performance"
 
 = Where are the plugin settings? =
-The settings are located at the section of the admin panel Settings > PageSpeed Helper
+The settings are located at the section of the admin panel WP Booster > PageSpeed Helper
 
 = How to set up? =
 1. In the first tab ‘Settings’ you can choose how to add attributes.
@@ -57,6 +57,8 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 == Changelog ==
 = 3.0.2 =
 * Fixed bug with translations
+* Added "Rate us" link on plugins page
+* Settings was moved under "WP Booster" page in the Dashboard
 
 = 3.0.1 =
 * Fixed bugs
