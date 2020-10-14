@@ -4,7 +4,7 @@ Tags: seo-friendly, seo, pagespeed, lighthouse, perfomance, optimaze, optimizati
 Requires at least: 5.0
 Tested up to: 5.5
 Requires PHP: 5.6.20
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,9 +56,11 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 
 == Changelog ==
 = 3.0.2 =
-* Fixed bug with translations
 * Added "Rate us" link on plugins page
 * Settings was moved under "WP Booster" page in the Dashboard
+
+= 3.0.2 =
+* Fixed bug with translations
 
 = 3.0.1 =
 * Fixed bugs
