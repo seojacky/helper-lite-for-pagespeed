@@ -50,7 +50,7 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 = I installed the plugin but my Google PageSpeed Insights score did not increase =
 * Clear cache on your site
 * The maximum effect will be on page with images. No images - no result
-* Plugin does not affect images added to background via css, for the simple reason that it is impossible to add decoding="async" and loading="lazy" attributes to them. The plugin only works with images added via the  tag.
+* Plugin does not affect images added to background via css, for the simple reason that it is impossible to add decoding="async" and loading="lazy" attributes to them. The plugin only works with images added via the &lt;img&gt; tag.
 
 == Screenshots ==
 1. Before activating the plugin
