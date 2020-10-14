@@ -58,7 +58,7 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 = 3.0.2 =
 * Fixed bug with translations
 * Added "Rate us" link on plugins page
-* Settings was moved under "WP Booster" page in the admin panel
+* Settings was moved under "WP Booster" page in the Dashboard
 
 = 3.0.1 =
 * Fixed bugs
