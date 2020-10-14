@@ -36,9 +36,11 @@ The settings are located at the section of the admin panel WP Booster > PageSpee
 
 = How to set up? =
 1. In the first tab ‘Settings’ you can choose how to add attributes.
+
 * The first method ‘Filters’ is safe, but does not apply attributes to all images.
 * The second method ‘Buffer’ will add attributes to all images, but may cause problems on some sites.
 * You can choose what values set to attributes or turn off them at all.
+
 2. At the second tab ‘Scripts’ you can turn on a script,
 which removes the Google PageSpeed Insights remark “Does not use passive listeners to improve scrolling performance”.
 
