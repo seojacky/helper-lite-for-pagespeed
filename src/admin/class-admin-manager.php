@@ -234,6 +234,37 @@ class AdminManager
                 'desc' => __('Events with attribute passive perform better for touch and wheel', 'helper-lite-for-pagespeed'),
             )
         );
+	
+	        // ======================== MORE OPTIMIZATION ========================
+
+        // Other plugins section
+        $this->hlfp_osa->add_section(
+            array(
+                'id' => 'hlfp_other_plugins',
+                'title' => __('More optimization', 'helper-lite-for-pagespeed'),
+            )
+        );
+		
+        $this->hlfp_osa->add_field(
+            'hlfp_other_plugins',
+            array(
+                'id' => 'true_lazy_analitics_plugin',
+                'type' => 'html',
+                'name' => '<h2>' . __('True Lazy Analytics', 'helper-lite-for-pagespeed') . '</h2>',
+                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/true-lazy-analytics/assets/icon-128x128.png, https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png 2x" src="https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('This plugin enables lazy loading for Google Analytics and Liveinternet counter. Does not degrade PageSpeed scores.') . '<br/> <a class="button button-primary"  style="margin-top: 10px;" href="https://wordpress.org/plugins/true-lazy-analytics/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
+            )
+        );
+		
+		        $this->hlfp_osa->add_field(
+            'hlfp_other_plugins',
+            array(
+                'id' => 'mihdan_lite_youtube_embed_plugin',
+                'type' => 'html',
+                'name' => '<h2>' . __('Mihdan: Lite YouTube Embed', 'helper-lite-for-pagespeed') . '</h2>',
+                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-128x128.png, https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png 2x" src="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('A faster youtube embed. Renders faster than a sneeze. Provide videos with a supercharged focus on visual performance. This custom element renders just like the real thing but approximately 224X faster.') . '<br/> <a class="button button-primary" style="margin-top: 10px;" href="https://wordpress.org/plugins/true-lazy-analytics/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
+            )
+        );    
+	    
 
         // ======================== CONTACTS ========================
 
