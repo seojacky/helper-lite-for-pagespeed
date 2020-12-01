@@ -19,8 +19,8 @@ The main development is all going on GitHub.
 	<li>🇷🇺 Русский (Russian) - <a href="https://profiles.wordpress.org/seojacky">seojacky</a></li>
 	<li>🇺🇦 Українська (Ukranian) - <a href="https://profiles.wordpress.org/karenka">karenka</a></li>
 	<li>🇪🇸 Spanish (Spain) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
-  <li>🇲🇽 Spanish (Mexico) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
-  <li>🇻🇪 Spanish (Venezuela) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
+	<li>🇲🇽 Spanish (Mexico) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
+	<li>🇻🇪 Spanish (Venezuela) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
 </ul>
 
 == Installation ==
