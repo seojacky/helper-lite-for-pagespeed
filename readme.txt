@@ -63,13 +63,21 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 * The maximum effect will be on page with images. No images - no result
 * Plugin does not affect images added to background via css, for the simple reason that it is impossible to add decoding="async" and loading="lazy" attributes to them. The plugin only works with images added via the &lt;img&gt; tag.
 
+= Disabling LazyLoad on Specific Images =
+If you want to disable LazyLoad on a specific image, you can do so by adding the `skip-lazy` class to the &lt;img&gt; HTML tag. 
+
 == Screenshots ==
 1. Before activating the plugin
 2. After activating the plugin
 
 == Changelog ==
+= 3.0.5 =
+* Changed Setting page
+* Added disable function for loading lazy in WP 5.5 and higher
+* Added disable function for lazyload on specific images
+
 = 3.0.4 =
-* Added "More optimization" tap
+* Added "More optimization" tab
 * Deleted support chat link
 
 = 3.0.3 =
