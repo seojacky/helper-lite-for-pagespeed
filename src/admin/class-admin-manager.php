@@ -50,6 +50,7 @@ class AdminManager
         add_action('admin_init', array($this, 'setup_fields'), 9, 0);
         add_action('admin_menu', array($this, 'create_admin_page'), 8, 0);
         add_action('admin_print_styles', array($this, 'hide_wp_boost_sub_menu'));
+		add_action('admin_print_styles', array($this, 'admin_page_style'));
         add_filter('plugin_action_links_' . plugin_basename(HLFP_FILE), array($this, 'setup_extra_links'), 10, 1);
         add_filter('plugin_row_meta', array($this, 'setup_meta_links'), 10, 2);
 
@@ -77,6 +78,13 @@ class AdminManager
     {
         echo "\n<style type='text/css'>";
         echo "#toplevel_page_wp-booster li.wp-first-item {display: none;}";
+        echo "</style>\n";
+    }
+	    public function admin_page_style()
+    {
+        echo "\n<style type='text/css'>";
+        echo ".nav-tab-wrapper span.dashicons {margin-right: 5px; position: relative; top: 2px;}";
+		echo "h2 span.dashicons { margin-right: 5px;}";
         echo "</style>\n";
     }
 
@@ -143,7 +151,7 @@ class AdminManager
         $this->hlfp_osa->add_section(
             array(
                 'id' => 'hlfp_settings',
-                'title' => __('Settings', 'helper-lite-for-pagespeed'),
+                'title' => '<span class="dashicons dashicons-admin-generic"></span>'.__('Settings', 'helper-lite-for-pagespeed'),
             )
         );
 
@@ -220,7 +228,7 @@ class AdminManager
         $this->hlfp_osa->add_section(
             array(
                 'id' => 'hlfp_scripts',
-                'title' => __('Scripts', 'helper-lite-for-pagespeed'),
+                'title' => '<span class="dashicons dashicons-editor-code"></span>'.__('Scripts', 'helper-lite-for-pagespeed'),
             )
         );
 
@@ -241,7 +249,7 @@ class AdminManager
         $this->hlfp_osa->add_section(
             array(
                 'id' => 'hlfp_other_plugins',
-                'title' => __('More optimization', 'helper-lite-for-pagespeed'),
+                'title' => '<span class="dashicons dashicons-admin-plugins"></span>'.__('More optimization', 'helper-lite-for-pagespeed'),
             )
         );
 		
@@ -251,7 +259,7 @@ class AdminManager
                 'id' => 'true_lazy_analitics_plugin',
                 'type' => 'html',
                 'name' => '<h2>' . __('True Lazy Analytics', 'helper-lite-for-pagespeed') . '</h2>',
-                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/true-lazy-analytics/assets/icon-128x128.png, https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png 2x" src="https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('This plugin enables lazy loading for Google Analytics and Liveinternet counter. Does not degrade PageSpeed scores.') . '<br/> <a class="button button-primary"  style="margin-top: 10px;" href="https://wordpress.org/plugins/true-lazy-analytics/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
+                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/true-lazy-analytics/assets/icon-128x128.png, https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png 2x" src="https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('This plugin enables lazy loading for Google Analytics, Facebook Pixel, Hotjar, Yandex Metrica and Liveinternet counter. Does not degrade PageSpeed scores. The installation of the counter of Yandex Metrica and Google Analytics on the website without editing the files of the selected theme. All you need is turn necessary toggle on and you are in business 😎', 'helper-lite-for-pagespeed') . '<br/> <a class="button button-primary"  style="margin-top: 10px;" href="https://wordpress.org/plugins/true-lazy-analytics/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
             )
         );
 		
@@ -261,7 +269,7 @@ class AdminManager
                 'id' => 'mihdan_lite_youtube_embed_plugin',
                 'type' => 'html',
                 'name' => '<h2>' . __('Mihdan: Lite YouTube Embed', 'helper-lite-for-pagespeed') . '</h2>',
-                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-128x128.png, https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png 2x" src="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('A faster youtube embed. Renders faster than a sneeze. Provide videos with a supercharged focus on visual performance. This custom element renders just like the real thing but approximately 224X faster.') . '<br/> <a class="button button-primary" style="margin-top: 10px;" href="https://wordpress.org/plugins/true-lazy-analytics/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
+                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-128x128.png, https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png 2x" src="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('A faster youtube embed. Renders faster than a sneeze. Provide videos with a supercharged focus on visual performance. This custom element renders just like the real thing but approximately 224X faster.', 'helper-lite-for-pagespeed') . '<br/> <a class="button button-primary" style="margin-top: 10px;" href="https://wordpress.org/plugins/mihdan-lite-youtube-embed/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
             )
         );    
 	    
@@ -272,7 +280,7 @@ class AdminManager
         $this->hlfp_osa->add_section(
             array(
                 'id' => 'hlfp_help',
-                'title' => __('Help', 'helper-lite-for-pagespeed'),
+                'title' => '<span class="dashicons dashicons-editor-help"></span>'.__('Help', 'helper-lite-for-pagespeed'),
             )
         );
 
