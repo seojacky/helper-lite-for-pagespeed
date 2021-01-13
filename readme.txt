@@ -4,13 +4,24 @@ Tags: seo-friendly, seo, pagespeed, lighthouse, perfomance, optimaze, optimizati
 Requires at least: 5.0
 Tested up to: 5.5
 Requires PHP: 5.6.20
-Stable tag: 3.0.4
+Stable tag: 3.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 Speed up your site with attributes decoding="async" & loading="lazy" for &lt;img&gt; and &lt;iframe&gt;. Removes problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
 The main development is all going on GitHub.
+
+= Translations =
+[Help translate Helper Lite for PageSpeed](https://translate.wordpress.org/projects/wp-plugins/helper-lite-for-pagespeed/)
+
+<ul>
+	<li>🇷🇺 Русский (Russian) - <a href="https://profiles.wordpress.org/seojacky">seojacky</a></li>
+	<li>🇺🇦 Українська (Ukranian) - <a href="https://profiles.wordpress.org/karenka">karenka</a></li>
+	<li>🇪🇸 Spanish (Spain) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
+	<li>🇲🇽 Spanish (Mexico) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
+	<li>🇻🇪 Spanish (Venezuela) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
+</ul>
 
 == Installation ==
 = From your WordPress dashboard =
@@ -52,13 +63,21 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 * The maximum effect will be on page with images. No images - no result
 * Plugin does not affect images added to background via css, for the simple reason that it is impossible to add decoding="async" and loading="lazy" attributes to them. The plugin only works with images added via the &lt;img&gt; tag.
 
+= Disabling LazyLoad on Specific Images =
+If you want to disable LazyLoad on a specific image, you can do so by adding the `skip-lazy` class to the &lt;img&gt; HTML tag. 
+
 == Screenshots ==
 1. Before activating the plugin
 2. After activating the plugin
 
 == Changelog ==
+= 3.0.5 =
+* Changed Setting page
+* Added disable function for loading lazy in WP 5.5 and higher
+* Added disable function for lazyload on specific images
+
 = 3.0.4 =
-* Added "More optimization" tap
+* Added "More optimization" tab
 * Deleted support chat link
 
 = 3.0.3 =

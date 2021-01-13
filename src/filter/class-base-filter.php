@@ -47,35 +47,48 @@ class BaseFilter
      */
     public function filter_content($content)
     {
+        $search = array();
+		$replace = array();
+        $matches = array();
+        
+		preg_match_all('/<img[\s\r\n]+.*?>/is', $content, $matches);
+        
         // set double quotes escaping if it's AJAX call
         $quote = wp_doing_ajax() ? '\"' : '"';
+        
+        foreach ($matches[0] as $imgHTML) {
+            //check if exist class 'skip-lazy'
+            if ( strpos($imgHTML, 'skip-lazy') === false ) {
 
-        $replacement = '<img';
+                $replacement = '<img';
+                // get option for loading attribute
+                $loading_option = $this->get_option('loading_type', '-');
+                // if it's not off, set option
+                if ($loading_option != 'none')
+                {
+                    $replacement .= ' loading=' . $quote . $loading_option . $quote;
+                }
 
-        // get option for loading attribute
-        $loading_option = $this->get_option('loading_type', '-');
-
-        // if it's not off, set option
-        if ($loading_option != 'none')
-        {
-            $replacement .= ' loading=' . $quote . $loading_option . $quote;
+                // get option for decoding attribute
+                $decoding_option = $this->get_option('decoding_type', 'async');
+                // if it's not off, set option
+                if ($decoding_option != 'none')
+                {
+                    $replacement .= ' decoding=' . $quote . $decoding_option . $quote;
+                }
+                // make replace
+                $replaceHTML = str_replace('<img', $replacement, $imgHTML);
+                
+                array_push($search, $imgHTML);
+				array_push($replace, $replaceHTML);
+            }
         }
-
-        // get option for decoding attribute
-        $decoding_option = $this->get_option('decoding_type', 'async');
-
-        // if it's not off, set option
-        if ($decoding_option != 'none')
-        {
-            $replacement .= ' decoding=' . $quote . $decoding_option . $quote;
-        }
-
-        // make replace
-        $content = str_replace('<img', $replacement, $content);
-
-        // get option for iframe
+        
+        $search = array_unique($search);
+		$replace = array_unique($replace);
+		$content = str_replace($search, $replace, $content);
+        
         $iframe_option = $this->get_option('iframe_loading_type', 'lazy');
-
         if ($iframe_option != 'none')
         {
             // make replace

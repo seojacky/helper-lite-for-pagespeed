@@ -755,7 +755,7 @@ class HLFP_OSA
         add_submenu_page(
             'wp-booster',
             HLFP_TITLE,
-            HLFP_TITLE,
+            '🛠️PageSpeed Helper',
             'manage_options',
             'hlfp-settings',
             array($this, 'plugin_page')
@@ -782,7 +782,7 @@ class HLFP_OSA
 
         foreach ($this->sections_array as $tab)
         {
-            $html .= sprintf('<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s</a>', $tab['id'], $tab['title']);
+            $html .= sprintf('<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s%3$s</a>', $tab['id'], $tab['icon'], $tab['title']);
         }
 
         $html .= '</h2>';
