@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Helper Lite for PageSpeed
- * Description: Speed up your site with attributes decoding="async" & loading="lazy" for &lt;img&gt; and &lt;iframe&gt;. Removes problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score. | <a href="https://t.me/wp_booster" target="blank_">WP Boost support</a> | <a href="https://github.com/seojacky/helper-lite-for-pagespeed" target="blank_">GitHub</a>
+ * Description: Speed up your site with attributes decoding="async" & loading="lazy" for &lt;img&gt; and &lt;iframe&gt;. Removes problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score. | <a href="https://wordpress.org/support/plugin/helper-lite-for-pagespeed/" target="blank_">Support</a> | <a href="https://github.com/seojacky/helper-lite-for-pagespeed" target="blank_">GitHub</a>
  * Version: 3.0.6
  * Author: seojacky, Каренина
  * Author URI: https://t.me/big_jacky
