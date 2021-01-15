@@ -42,6 +42,15 @@ The main development is all going on GitHub.
 * Adds loading="lazy" attributes to all &lt;iframe&gt; on the page.
 * You can include a script that removes the Google PageSpeed Insights remark "Does not use passive listeners to improve scrolling performance"
 
+= In WordPress 5.5 and up, images are lazy loaded by default. Why is this plugin needed? =
+By default, WordPress add a loading="lazy" attribute to the following images:
+* images within post content 
+* images within post excerpts 
+* images within text widgets 
+* avatar images
+* template images using wp_get_attachment_image() (wp_get_attachment_image)
+But WordPress does not add loading="lazy" for custom images in the header and footer of the site! In this case, our plugin will help you.
+
 = Where are the plugin settings? =
 The settings are located at the section of the admin panel WP Booster > PageSpeed Helper
 
