@@ -755,7 +755,7 @@ class HLFP_OSA
         add_submenu_page(
             'wp-booster',
             HLFP_TITLE,
-            '🛠️PageSpeed Helper',
+            HLFP_TITLE,
             'manage_options',
             'hlfp-settings',
             array($this, 'plugin_page')
