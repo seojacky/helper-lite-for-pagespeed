@@ -4,7 +4,7 @@ Tags: pagespeed, page speed,lazy load, image, seo, seo-friendly, lighthouse, per
 Requires at least: 5.0
 Tested up to: 5.5
 Requires PHP: 5.6.20
-Stable tag: 3.0.7
+Stable tag: 3.0.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,7 +82,7 @@ If you want to disable LazyLoad on a specific image, you can do so by adding the
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
-= 3.0.7 =
+= 3.0.8 =
 * Updated description
 * Fixed bugs
 
