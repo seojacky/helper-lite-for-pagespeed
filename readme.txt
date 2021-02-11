@@ -4,7 +4,7 @@ Tags: pagespeed, page speed,lazy load, image, seo, seo-friendly, lighthouse, per
 Requires at least: 5.0
 Tested up to: 5.5
 Requires PHP: 5.6.20
-Stable tag: 3.0.6
+Stable tag: 3.0.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,15 @@ The main development is all going on GitHub.
 * Adds loading="lazy" attributes to all &lt;iframe&gt; on the page.
 * You can include a script that removes the Google PageSpeed Insights remark "Does not use passive listeners to improve scrolling performance"
 
+= In WordPress 5.5 and up, images are lazy loaded by default. Why is this plugin needed? =
+By default, WordPress add a loading="lazy" attribute to the following images:
+* images within post content 
+* images within post excerpts 
+* images within text widgets 
+* avatar images
+* template images using wp_get_attachment_image() (wp_get_attachment_image)
+But WordPress does not add loading="lazy" for custom images in the header and footer of the site! In this case, our plugin will help you.
+
 = Where are the plugin settings? =
 The settings are located at the section of the admin panel WP Booster > PageSpeed Helper
 
@@ -69,8 +78,14 @@ If you want to disable LazyLoad on a specific image, you can do so by adding the
 == Screenshots ==
 1. Before activating the plugin
 2. After activating the plugin
+3. Tab Setting on Plugin Settings Page
+4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+= 3.0.8 =
+* Updated description
+* Fixed bugs
+
 = 3.0.6 =
 * Updated description
 

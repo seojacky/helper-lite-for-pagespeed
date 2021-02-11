@@ -20,8 +20,10 @@ class LightFilter extends BaseFilter
      */
     protected $content_filters = array(
         'widget_custom_html_content',
-        'widget_text',
         'the_content',
+        'the_excerpt',
+        'widget_text_content',
+        'get_avatar',
     );
 
     /**
@@ -55,7 +57,7 @@ class LightFilter extends BaseFilter
         {
             $this->create_content_filter($filter);
         }
-
+        
         // add image filters
         foreach ($this->image_filters as $filter)
         {
@@ -86,24 +88,27 @@ class LightFilter extends BaseFilter
     {
         add_filter($filter, function ($attributes)
         {
-            // get loading options
-            $loading_option = $this->get_option('loading_type', 'lazy');
+            if ( strpos($attributes["class"], 'skip-lazy') === false ) {
+                
+                // get loading options
+                $loading_option = $this->get_option('loading_type', 'lazy');
 
-            // if loading is not turned off, set attribute
-            if ($loading_option != 'none')
-            {
-                $attributes['loading'] = $loading_option;
+                // if loading is not turned off, set attribute
+                if ($loading_option != 'none')
+                {
+                    $attributes['loading'] = $loading_option;
+                }
+
+                // get decoding option
+                $decoding_option = $this->get_option('decoding_type', 'async');
+
+                // if decoding is not turned off, set attribute
+                if ($decoding_option != 'none')
+                {
+                    $attributes['decoding'] = $decoding_option;
+                }
             }
-
-            // get decoding option
-            $decoding_option = $this->get_option('decoding_type', 'async');
-
-            // if decoding is not turned off, set attribute
-            if ($decoding_option != 'none')
-            {
-                $attributes['decoding'] = $decoding_option;
-            }
-
+            
             return $attributes;
         });
     }
