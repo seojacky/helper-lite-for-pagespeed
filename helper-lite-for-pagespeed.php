@@ -20,7 +20,7 @@ defined('ABSPATH') or exit('No direct script access allowed');
 define('HLFP_FILE', __FILE__);
 define('HLFP_DIR', __DIR__);
 define('HLFP_URL', plugin_dir_url(__FILE__));
-define('HLFP_VERSION', '3.0.7');
+define('HLFP_VERSION', '3.0.8');
 define('HLFP_TITLE', __('PageSpeed Helper', 'helper-lite-for-pagespeed'));
 
 file_exists(HLFP_DIR . '/vendor/autoload.php') or exit('No autoload found for helper-lite-for-pagespeed plugin!');
