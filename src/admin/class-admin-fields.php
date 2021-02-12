@@ -962,6 +962,10 @@ $this->script();
 				.group .form-table input.color-picker {
 					max-width: 100px;
 				}
+                #hlfp_other_plugins .form-table > tr > th,
+                #hlfp_other_plugins .form-table > tbody > tr > th {
+                    display: none;
+                }
 			</style>
 			<?php
 }

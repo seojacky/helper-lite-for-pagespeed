@@ -2,6 +2,8 @@
 
 namespace Karenina\HelperLightForPageSpeed\Admin;
 
+use WP_Plugin_Install_List_Table;
+
 defined('ABSPATH') or exit('No direct script access allowed');
 defined('HLFP_FILE') or exit('HLFP_FILE is not defined for helper-lite-for-pagespeed plugin');
 
@@ -54,7 +56,90 @@ class AdminManager
         add_filter('plugin_action_links_' . plugin_basename(HLFP_FILE), array($this, 'setup_extra_links'), 10, 1);
         add_filter('plugin_row_meta', array($this, 'setup_meta_links'), 10, 2);
 
+	    add_filter( 'install_plugins_nonmenu_tabs', array( $this, 'install_plugins_nonmenu_tabs' ) );
+	    add_filter( 'install_plugins_table_api_args_' . HLFP_SLUG, array( $this, 'install_plugins_table_api_args' ) );
+	    add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+	    add_filter( 'plugins_api_result', array( $this, 'plugins_api_result' ), 10, 3 );
     }
+
+	/**
+	 * Добавить нужные скрипты на нашу страницу настроек.
+	 */
+	public function admin_enqueue_scripts() {
+		wp_enqueue_script( 'plugin_install' );
+		wp_enqueue_script( 'updates' );
+		add_thickbox();
+	}
+
+	/**
+	 * Добавить новый скрытый таб со списком наших плагинов.
+	 *
+	 * @param array $tabs Дефолтные табы.
+	 *
+	 * @return array
+	 */
+	public function install_plugins_nonmenu_tabs( $tabs ) {
+
+		$tabs[] = HLFP_SLUG;
+
+		return $tabs;
+	}
+
+	/**
+	 * Подправим запрос на наполнение нашего скрытого таба чиз API wp.org.
+	 *
+	 * @param array $args Массив дефолтных аргументов запроса.
+	 *
+	 * @return array
+	 */
+	public function install_plugins_table_api_args( $args ) {
+		global $paged;
+
+		return array(
+			'plugin'   => HLFP_SLUG,
+			'page'     => $paged,
+			'per_page' => 100,
+			'locale'   => get_user_locale(),
+			'author'   => 'seojacky',
+		);
+	}
+
+	/**
+	 * Подправим ответ из API wp.org и внесем туда плагины другого автора,
+	 * который тоже красавчик.
+	 *
+	 * @param object $res    Объект ответа из API.
+	 * @param string $action Название запроса (query_plugins).
+	 * @param array  $args   Аргументы запроса.
+	 *
+	 * @return mixed
+	 */
+	public function plugins_api_result( $res, $action, $args ) {
+		global $paged;
+
+		if ( isset( $args->plugin ) && HLFP_SLUG === $args->plugin ) {
+			foreach ( $res->plugins as $key => $plugin ) {
+				// Удалить текущий плагин из ответа.
+				if ( HLFP_SLUG === $plugin['slug'] ) {
+
+					// Добавить свои плагины к ответу вместо удаленных.
+					$our_plugins = plugins_api(
+						'query_plugins',
+						array(
+							'page'     => $paged,
+							'per_page' => 100,
+							'locale'   => get_user_locale(),
+							'search'   => 'Mihdan: Lite YouTube Embed',
+						)
+					);
+
+					$res->plugins[ $key ] = $our_plugins->plugins[0];
+				}
+			}
+		}
+
+		return $res;
+	}
 
     public function create_admin_page()
     {
@@ -259,26 +344,59 @@ class AdminManager
                 'title' => __('More optimization', 'helper-lite-for-pagespeed'),
             )
         );
+
+	    $this->hlfp_osa->add_field(
+		    'hlfp_other_plugins',
+		    array(
+			    'id'   => 'plugins',
+			    'type' => 'html',
+			    'name' => '',
+			    'desc' => function () {
+			    	// Кэшируем ответ от API на сутки,
+				    // чтобы не дергать его при каждом открытии страницы.
+				    $transient = HLFP_SLUG . '-plugins';
+				    $cached    = get_transient( $transient );
+
+				    if ( false !== $cached ) {
+					    return $cached;
+				    }
+
+				    ob_start();
+				    require_once ABSPATH . 'wp-admin/includes/class-wp-plugin-install-list-table.php';
+				    $_POST['tab'] = HLFP_SLUG;
+				    $table = new WP_Plugin_Install_List_Table();
+				    $table->prepare_items();
+
+
+				    $table->display();
+
+				    $content = ob_get_clean();
+				    set_transient( $transient, $content, 1 * DAY_IN_SECONDS );
+
+				    return $content;
+			    },
+		    )
+	    );
 		
-        $this->hlfp_osa->add_field(
-            'hlfp_other_plugins',
-            array(
-                'id' => 'true_lazy_analitics_plugin',
-                'type' => 'html',
-                'name' => '<h2>' . __('True Lazy Analytics', 'helper-lite-for-pagespeed') . '</h2>',
-                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/true-lazy-analytics/assets/icon-128x128.png, https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png 2x" src="https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('This plugin enables lazy loading for Google Analytics, Facebook Pixel, Hotjar, Yandex Metrica and Liveinternet counter. Does not degrade PageSpeed scores. The installation of the counter of Yandex Metrica and Google Analytics on the website without editing the files of the selected theme. All you need is turn necessary toggle on and you are in business 😎', 'helper-lite-for-pagespeed') . '<br/> <a class="button button-primary"  style="margin-top: 10px;" href="https://wordpress.org/plugins/true-lazy-analytics/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
-            )
-        );
-		
-		        $this->hlfp_osa->add_field(
-            'hlfp_other_plugins',
-            array(
-                'id' => 'mihdan_lite_youtube_embed_plugin',
-                'type' => 'html',
-                'name' => '<h2>' . __('Mihdan: Lite YouTube Embed', 'helper-lite-for-pagespeed') . '</h2>',
-                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-128x128.png, https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png 2x" src="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('A faster youtube embed. Renders faster than a sneeze. Provide videos with a supercharged focus on visual performance. This custom element renders just like the real thing but approximately 224X faster.', 'helper-lite-for-pagespeed') . '<br/> <a class="button button-primary" style="margin-top: 10px;" href="https://wordpress.org/plugins/mihdan-lite-youtube-embed/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
-            )
-        );    
+//        $this->hlfp_osa->add_field(
+//            'hlfp_other_plugins',
+//            array(
+//                'id' => 'true_lazy_analitics_plugin',
+//                'type' => 'html',
+//                'name' => '<h2>' . __('True Lazy Analytics', 'helper-lite-for-pagespeed') . '</h2>',
+//                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/true-lazy-analytics/assets/icon-128x128.png, https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png 2x" src="https://ps.w.org/true-lazy-analytics/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('This plugin enables lazy loading for Google Analytics, Facebook Pixel, Hotjar, Yandex Metrica and Liveinternet counter. Does not degrade PageSpeed scores. The installation of the counter of Yandex Metrica and Google Analytics on the website without editing the files of the selected theme. All you need is turn necessary toggle on and you are in business 😎', 'helper-lite-for-pagespeed') . '<br/> <a class="button button-primary"  style="margin-top: 10px;" href="https://wordpress.org/plugins/true-lazy-analytics/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
+//            )
+//        );
+//
+//		        $this->hlfp_osa->add_field(
+//            'hlfp_other_plugins',
+//            array(
+//                'id' => 'mihdan_lite_youtube_embed_plugin',
+//                'type' => 'html',
+//                'name' => '<h2>' . __('Mihdan: Lite YouTube Embed', 'helper-lite-for-pagespeed') . '</h2>',
+//                'desc' => '<p><span style="float: left;"><img  srcset="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-128x128.png, https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png 2x" src="https://ps.w.org/mihdan-lite-youtube-embed/assets/icon-256x256.png"><span><span style="float: right; max-width: 300px; margin: 20px;">' . __('A faster youtube embed. Renders faster than a sneeze. Provide videos with a supercharged focus on visual performance. This custom element renders just like the real thing but approximately 224X faster.', 'helper-lite-for-pagespeed') . '<br/> <a class="button button-primary" style="margin-top: 10px;" href="https://wordpress.org/plugins/mihdan-lite-youtube-embed/" target="_blank">' . __('Install', 'helper-lite-for-pagespeed') . '</a></span></p>',
+//            )
+//        );
 	    
 
         // ======================== CONTACTS ========================
