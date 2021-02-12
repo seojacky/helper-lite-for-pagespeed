@@ -1,10 +1,10 @@
 === Helper Lite for PageSpeed ===
-Contributors: seojacky, karenka, wdup
+Contributors: seojacky, mihdan, karenka, wdup
 Tags: pagespeed, page speed,lazy load, image, seo, seo-friendly, lighthouse, perfomance, optimaze, optimization, optimaze images
 Requires at least: 5.0
-Tested up to: 5.5
+Tested up to: 5.6
 Requires PHP: 5.6.20
-Stable tag: 3.0.8
+Stable tag: 3.0.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,11 @@ If you want to disable LazyLoad on a specific image, you can do so by adding the
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+
+= 3.0.9 (12.02.2021) =
+* Added tab with our useful plugins
+* Added support for WordPress 5.6+
+
 = 3.0.8 =
 * Updated description
 * Fixed bugs
