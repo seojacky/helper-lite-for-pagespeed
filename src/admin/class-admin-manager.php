@@ -458,25 +458,41 @@ class AdminManager
                 'id' => 'developers',
                 'type' => 'html',
                 'name' => '<h2>' . __('Developers', 'helper-lite-for-pagespeed') . '</h2>',
-                'desc' => '<div style="display:flex;flex-direction:column;">'
-                . '<div>'
-                . '<h4>' . __('Eugen Kalinsky', 'helper-lite-for-pagespeed') . '</h4>'
-                . '<img src="' . HLFP_URL . 'img/seojacky.jpeg' . '" style="border-radius:100%;float:left;">'
-                . '<p style="float:left;margin-left:2rem;">' . __('Web-Master, SEO specialist, SEO optimization + PageSpeed for Wordpress sites', 'helper-lite-for-pagespeed') . '<br />'
-                . __('Languages', 'helper-lite-for-pagespeed') . ' <span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">' . $this->get_flags(array('uk', 'usa', 'ru', 'ua')) . '</span>' . '<br />'
-                . '<b>' . __('Telegram profile ', 'helper-lite-for-pagespeed') . '<a href="https://t.me/big_jacky" target="_blank">@big_jacky</a>' . '</b>' . '</p>'
-                . '</div>'
-
-                . '<hr style="border-top: 1px solid gray;width:50%;margin:1.5rem 0;">'
-
-                . '<div>'
-                . '<h4>' . __('Karenina', 'helper-lite-for-pagespeed') . '</h4>'
-                . '<img src="' . HLFP_URL . 'img/karenina.png' . '" style="border-radius:100%;float:left;">'
-                . '<p style="float:left;margin-left:2rem;">' . __('PHP & JavaScript (NodeJS) programmer, Wordpress themes and plugins developer', 'helper-lite-for-pagespeed') . '<br />'
-                . __('Languages', 'helper-lite-for-pagespeed') . ' <span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;">' . $this->get_flags(array('uk', 'usa', 'ru', 'ua', 'pl')) . '</span>' . '<br />'
-                . '<b>' . __('Telegram profile ', 'helper-lite-for-pagespeed') . '<a href="https://t.me/kar_enina" target="_blank">@kar_enina</a>' . '</b>' . '</p>'
-                . '</div>'
-                . '</div>',
+                'desc' => function() {
+                	?>
+	                <div style="display:flex;flex-direction:column;">
+		                <div>
+			                <h4><?php esc_html_e( 'Eugen Kalinsky', 'helper-lite-for-pagespeed' ); ?></h4>
+			                <img width="100" height="100" src="<?php echo esc_url( HLFP_URL . 'img/seojacky.jpeg' ); ?>" style="border-radius:100%;float:left;">
+			                <p style="float:left;margin-left:2rem;">
+	                            <?php esc_html_e( 'Web-Master, SEO specialist, SEO optimization + PageSpeed for Wordpress sites', 'helper-lite-for-pagespeed' ); ?><br />
+	                            <?php esc_html_e( 'Languages', 'helper-lite-for-pagespeed' ); ?> <span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;"><?php echo $this->get_flags( array( 'uk', 'usa', 'ru', 'ua' ) ); ?></span><br />
+				                <b><?php esc_html_e( 'Telegram profile ', 'helper-lite-for-pagespeed' ); ?><a href="https://t.me/big_jacky" target="_blank">@big_jacky</a></b>
+			                </p>
+						</div>
+		                <hr style="border-top: 1px solid gray;width:50%;margin:1.5rem 0;" />
+		                <div>
+			                <h4><?php esc_html_e( 'Karenina', 'helper-lite-for-pagespeed' ); ?></h4>
+			                <img width="100" height="100" src="<?php echo esc_url( HLFP_URL . 'img/karenina.png' ); ?>" style="border-radius:100%;float:left;">
+			                <p style="float:left;margin-left:2rem;">
+	                            <?php esc_html_e( 'PHP & JavaScript (NodeJS) programmer, Wordpress themes and plugins developer', 'helper-lite-for-pagespeed' ); ?><br />
+	                            <?php esc_html_e( 'Languages', 'helper-lite-for-pagespeed' ); ?> <span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;"><?php echo $this->get_flags( array( 'uk', 'usa', 'ru', 'ua', 'pl' ) ); ?></span><br />
+				                <b><?php esc_html_e( 'Telegram profile ', 'helper-lite-for-pagespeed' ); ?><a href="https://t.me/kar_enina" target="_blank">@kar_enina</a></b>
+			                </p>
+		                </div>
+		                <hr style="border-top: 1px solid gray;width:50%;margin:1.5rem 0;">
+		                <div>
+			                <h4><?php esc_html_e( 'Mikhail Kobzarev (mihdan)', 'helper-lite-for-pagespeed '); ?></h4>
+			                <img width="100" height="100" src="<?php echo esc_url( HLFP_URL . 'img/mihdan.png' ); ?>" style="border-radius:100%;float:left;">
+			                <p style="float:left;margin-left:2rem;"><?php esc_html_e( 'TeamLead, WordPress evangelist, PHP & JavaScript programmer, Wordpress themes and plugins developer', 'helper-lite-for-pagespeed' ); ?><br />
+	                            <?php esc_html_e( 'Languages', 'helper-lite-for-pagespeed' ); ?> <span style="background-color: #cecece;padding: 2px 5px;border-radius: 10px;"><?php echo $this->get_flags( array( 'uk', 'usa', 'ru', 'ua' ) ); ?></span><br />
+				                <b><?php esc_html_e( 'Telegram profile ', 'helper-lite-for-pagespeed' ); ?><a href="https://t.me/mihdan" target="_blank">@mihdan</a></b><br>
+				                <b><?php esc_html_e( 'GitHub profile ', 'helper-lite-for-pagespeed' ); ?><a href="https://github.com/mihdan/" target="_blank">@mihdan</a></b>
+			                </p>
+		                </div>
+	                </div>
+					<?php
+                },
             )
         );
     }
