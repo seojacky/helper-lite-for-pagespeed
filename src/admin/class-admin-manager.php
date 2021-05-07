@@ -320,7 +320,23 @@ class AdminManager
                 'icon' => '<span class="dashicons dashicons-format-image"></span>',
                 'title' => __('Images', 'helper-lite-for-pagespeed'),
             )
-        );	
+        );
+        
+	 // display:none, LQIP radio
+        $this->hlfp_osa->add_field(
+            'hlfp_images',
+            array(
+                'id' => 'hlfp_lqip',
+                'type' => 'radio',
+                'name' => __('LQIP', 'helper-lite-for-pagespeed'),
+                'desc' => __('Improve Largest Contentful Paint (LCP) by optimizing thumbnail loading', 'helper-lite-for-pagespeed'),
+				'options' => array(
+					'disable' => 'Disable',
+					'dnone'  => 'display:none',
+			 		'lqip'  => 'LQIP',
+				),
+            )
+        );		    
         // ======================== SCRIPTS ========================
 
         // Scripts section
