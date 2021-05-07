@@ -311,7 +311,16 @@ class AdminManager
                 ),
             )
         );
+        // ======================== IMAGES ========================
 
+        // Images section
+        $this->hlfp_osa->add_section(
+            array(
+                'id' => 'hlfp_images',
+                'icon' => '<span class="dashicons dashicons-format-image"></span>',
+                'title' => __('Images', 'helper-lite-for-pagespeed'),
+            )
+        );	
         // ======================== SCRIPTS ========================
 
         // Scripts section
