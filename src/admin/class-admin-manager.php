@@ -329,7 +329,7 @@ class AdminManager
                 'id' => 'hlfp_lqip',
                 'type' => 'radio',
                 'name' => __('LQIP', 'helper-lite-for-pagespeed'),
-                'desc' => __('Improve Largest Contentful Paint (LCP) by optimizing thumbnail loading', 'helper-lite-for-pagespeed'),
+                'desc' => __('Improve Largest Contentful Paint (LCP) by optimizing thumbnail loading<br/> - method display:none - to hide Post Thumbnail on mobile device via the CSS property display<br/> - method LQIP - set Low Quality Image Placeholders for Post Thumbnail', 'helper-lite-for-pagespeed'),
 				'options' => array(
 					'disable' => 'Disable',
 					'dnone'  => 'display:none',
