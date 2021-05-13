@@ -110,7 +110,7 @@ class AdminManager
 	 *
 	 * @param object $res    Объект ответа из API.
 	 * @param string $action Название запроса (query_plugins).
-	 * @param array  $args   Аргументы запроса.
+	 * @param object  $args   Аргументы запроса.
 	 *
 	 * @return mixed
 	 */
