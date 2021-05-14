@@ -212,7 +212,7 @@ class ImageOptimize
     ?>
         <script>
             (function() {
-                var HLFP_loadImagesTimer = setTimeout(HLFP_loadImages, 5 * 1000);
+                var HLFP_loadImagesTimer = setTimeout(HLFP_loadImages, 3 * 1000);
                 var HLFP_userInteractionEvents = ["mouseover", "keydown", "touchmove", "touchstart"];
 
                 HLFP_userInteractionEvents.forEach(function (event) {
