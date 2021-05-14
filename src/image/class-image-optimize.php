@@ -141,6 +141,24 @@ class ImageOptimize
      */
     public function style_hide_on_mobile()
     {
+    ?>
+        <style>
+            /* max width for mobile: 480px */
+            @media (max-width: 480px) {
+                img.hide-on-mobile {
+                    display: none !important;
+                }
+            }
+        </style>
+    <?php
+    }
+
+    /**
+     * WP action,
+     * Add image background styles
+     */
+    public function style_change_attachment_srcset()
+    {
         global $post;
 
         $post_thumbnail_id = get_post_thumbnail_id($post->ID);
@@ -180,26 +198,11 @@ class ImageOptimize
 
     /**
      * WP action,
-     * Add image background styles
-     */
-    public function style_change_attachment_srcset()
-    {
-        ?>
-        <style>
-            .class-lqip {
-                background-color: grey;
-            }
-        </style>
-    <?php
-}
-
-    /**
-     * WP action,
      * Add image loader script
      */
     public function script_change_attachment_srcset()
     {
-        ?>
+    ?>
         <script>
             (function() {
                 var HLFP_loadImagesTimer = setTimeout(HLFP_loadImages, 5 * 1000);
@@ -225,7 +228,7 @@ class ImageOptimize
             })();
         </script>
     <?php
-}
+    }
 
     /**
      * Get option from local HLFP_OSA instance
