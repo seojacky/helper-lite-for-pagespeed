@@ -42,15 +42,29 @@ class ImageOptimize
      */
     public function hooks()
     {
+        add_action('wp', array($this, 'add_filters'));
+    }
+
+    /**
+     * WP action,
+     * Add filters and actions on singular pages
+     */
+    public function add_filters()
+    {
+        if (!is_singular())
+        {
+            return;
+        }
+
         $option = $this->get_option('hlfp_lqip');
 
         if ($option == 'dnone')
         {
-            add_action('init', array($this, 'display_none_hooks'));
+            $this->display_none_hooks();
         }
         else if ($option == 'lqip')
         {
-            add_action('init', array($this, 'lqip_hooks'));
+            $this->lqip_hooks();
         }
     }
 
@@ -59,11 +73,6 @@ class ImageOptimize
      */
     public function display_none_hooks()
     {
-        if (!is_singular())
-        {
-            return;
-        }
-
         add_filter('wp_get_attachment_image_attributes', array($this, 'hide_attachment_on_mobile'), 10, 2);
         add_action('wp_head', array($this, 'style_hide_on_mobile'), 10);
     }
@@ -73,11 +82,6 @@ class ImageOptimize
      */
     public function lqip_hooks()
     {
-        if (!is_singular())
-        {
-            return;
-        }
-
         add_filter('wp_get_attachment_image_attributes', array($this, 'change_attachment_srcset'), 10, 2);
         add_action('wp_footer', array($this, 'script_change_attachment_srcset'), 10);
         add_action('wp_head', array($this, 'style_change_attachment_srcset'), 10);
