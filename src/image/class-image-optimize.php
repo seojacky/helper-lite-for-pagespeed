@@ -141,12 +141,37 @@ class ImageOptimize
      */
     public function style_hide_on_mobile()
     {
+        global $post;
+
+        $post_thumbnail_id = get_post_thumbnail_id($post->ID);
+
+        if ($post_thumbnail_id === false)
+        {
+            return;
+        }
+
+        $meta = wp_get_attachment_metadata($post_thumbnail_id);
+
+        if ($meta === false || empty($meta) || empty($meta['width']) || empty($meta['height']))
+        {
+            return;
+        }
+
+        $width = $meta['width'];
+        $height = $meta['height'];
     ?>
         <style>
-            /* max width for mobile: 480px */
+            .class-lqip {
+                background-color: grey;
+                height: calc(50vw * <?php echo $height; ?>/<?php echo $width; ?>) !important;
+                aspect-ratio: <?php echo $width; ?>/<?php echo $height; ?>;
+                object-fit: cover;
+            }
+
             @media (max-width: 480px) {
-                img.hide-on-mobile {
-                    display: none !important;
+                .class-lqip {
+                    height: calc(100vw * <?php echo $height; ?> /<?php echo $width; ?>) !important;
+                    aspect-ratio: <?php echo $width; ?>/<?php echo $height; ?>;
                 }
             }
         </style>
@@ -159,14 +184,14 @@ class ImageOptimize
      */
     public function style_change_attachment_srcset()
     {
-    ?>
+        ?>
         <style>
             .class-lqip {
                 background-color: grey;
             }
         </style>
     <?php
-    }
+}
 
     /**
      * WP action,
@@ -174,7 +199,7 @@ class ImageOptimize
      */
     public function script_change_attachment_srcset()
     {
-    ?>
+        ?>
         <script>
             (function() {
                 var HLFP_loadImagesTimer = setTimeout(HLFP_loadImages, 5 * 1000);
@@ -200,7 +225,7 @@ class ImageOptimize
             })();
         </script>
     <?php
-    }
+}
 
     /**
      * Get option from local HLFP_OSA instance
