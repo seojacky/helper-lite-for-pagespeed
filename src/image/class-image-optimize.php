@@ -112,6 +112,13 @@ class ImageOptimize
     public function change_attachment_srcset($attr, $attachment)
     {
         global $post;
+        
+        $post_thumbnail_id = get_post_thumbnail_id($post->ID);
+		
+		//check if this post thumbnail (not logo)
+        if ($post_thumbnail_id !== $attachment->ID) {
+			return $attr;
+		}
 
         $thumbnail = get_the_post_thumbnail_url($post->ID, 'thumbnail');
 
