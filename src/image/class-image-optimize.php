@@ -172,26 +172,28 @@ class ImageOptimize
     {
     ?>
         <script>
-            const HLFP_loadImagesTimer = setTimeout(HLFP_loadImages, 5 * 1000);
-            const HLFP_userInteractionEvents = ["mouseover", "keydown", "touchmove", "touchstart"];
+            (function() {
+                var HLFP_loadImagesTimer = setTimeout(HLFP_loadImages, 5 * 1000);
+                var HLFP_userInteractionEvents = ["mouseover", "keydown", "touchmove", "touchstart"];
 
-            HLFP_userInteractionEvents.forEach(function (event) {
-                window.addEventListener(event, HLFP_triggerImageLoader, { passive: true });
-            });
-
-            function HLFP_triggerImageLoader() {
-                loadImages();
-                clearTimeout(HLFP_loadImagesTimer);
                 HLFP_userInteractionEvents.forEach(function (event) {
-                    window.removeEventListener(event, HLFP_triggerImageLoader, { passive: true });
+                    window.addEventListener(event, HLFP_triggerImageLoader, { passive: true });
                 });
-            }
 
-            function HLFP_loadImages() {
-                document.querySelectorAll("img[data-type='lazy']").forEach(function (elem) {
-                    elem.setAttribute("srcset", elem.getAttribute("data-srcset"));
-                });
-            }
+                function HLFP_triggerImageLoader() {
+                    HLFP_loadImages();
+                    clearTimeout(HLFP_loadImagesTimer);
+                    HLFP_userInteractionEvents.forEach(function (event) {
+                        window.removeEventListener(event, HLFP_triggerImageLoader, { passive: true });
+                    });
+                }
+
+                function HLFP_loadImages() {
+                    document.querySelectorAll("img[data-type='lazy']").forEach(function (elem) {
+                        elem.setAttribute("srcset", elem.getAttribute("data-srcset"));
+                    });
+                }
+            })();
         </script>
     <?php
     }
