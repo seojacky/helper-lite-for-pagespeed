@@ -1,6 +1,6 @@
 === Helper Lite for PageSpeed ===
 Contributors: seojacky, mihdan, karenka, wdup
-Tags: pagespeed, page speed,lazy load, image, seo, seo-friendly, lighthouse, perfomance, optimaze, optimization, optimaze images
+Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, seo-friendly, perfomance, optimaze,  optimaze images
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 5.6.20
@@ -82,6 +82,10 @@ If you want to disable LazyLoad on a specific image, you can do so by adding the
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+
+= 3.0.10 (20.05.2021) =
+* Added tab Images
+* Added function LQIP
 
 = 3.0.9 (12.02.2021) =
 * Added tab with our useful plugins
