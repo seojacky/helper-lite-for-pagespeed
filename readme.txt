@@ -83,10 +83,6 @@ If you want to disable LazyLoad on a specific image, you can do so by adding the
 
 == Changelog ==
 
-= 3.0.10 (20.05.2021) =
-* Added tab Images
-* Added function LQIP
-
 = 3.0.9 (12.02.2021) =
 * Added tab with our useful plugins
 * Added support for WordPress 5.6+
