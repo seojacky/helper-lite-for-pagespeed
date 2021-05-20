@@ -110,7 +110,7 @@ class AdminManager
 	 *
 	 * @param object $res    Объект ответа из API.
 	 * @param string $action Название запроса (query_plugins).
-	 * @param array  $args   Аргументы запроса.
+	 * @param object  $args   Аргументы запроса.
 	 *
 	 * @return mixed
 	 */
@@ -311,7 +311,32 @@ class AdminManager
                 ),
             )
         );
+        // ======================== IMAGES ========================
 
+        // Images section
+        $this->hlfp_osa->add_section(
+            array(
+                'id' => 'hlfp_images',
+                'icon' => '<span class="dashicons dashicons-format-image"></span>',
+                'title' => __('Images', 'helper-lite-for-pagespeed'),
+            )
+        );
+        
+	 // display:none, LQIP radio
+        $this->hlfp_osa->add_field(
+            'hlfp_images',
+            array(
+                'id' => 'hlfp_lqip',
+                'type' => 'radio',
+                'name' => __('LQIP', 'helper-lite-for-pagespeed'),
+                'desc' => __('Improve Largest Contentful Paint (LCP) by optimizing thumbnail loading<br/> - method display:none - to hide Post Thumbnail on mobile device via the CSS property display<br/> - method LQIP - set Low Quality Image Placeholders for Post Thumbnail', 'helper-lite-for-pagespeed'),
+				'options' => array(
+					'disable' => 'Disable',
+					'dnone'  => 'display:none',
+			 		'lqip'  => 'LQIP',
+				),
+            )
+        );		    
         // ======================== SCRIPTS ========================
 
         // Scripts section
