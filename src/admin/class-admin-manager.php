@@ -458,7 +458,7 @@ class AdminManager
    }
 </style>
 <div class="inside" style="display: block;margin-right: 12px;">
-   <img src="https://a.radikal.ru/a33/2105/ad/555da77d2194.png" title="Купить мне чашку кофе :)" width="130" height="130"style="margin: 5px; float:left;">
+   <img src="<?php echo esc_url( HLFP_URL . 'img/icon_coffe_logo.png' ); ?>" title="Купить мне чашку кофе :)" width="150" height="150"style="margin: 5px; float:left;">
    <p>Привет, мы команда разработчиков <strong>Helper lite for PageSpeed</strong>.</p>
    <p>Мы разработали данный плагин бесплатно, но не откажемся от небольшого пожертвования :) <br>
       Можете отблагодарить нас за проделанную работу чашечкой кофе.
