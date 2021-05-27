@@ -75,6 +75,9 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 = Disabling LazyLoad on Specific Images =
 If you want to disable LazyLoad on a specific image, you can do so by adding the `skip-lazy` class to the &lt;img&gt; HTML tag. 
 
+= What is LQIP? =
+LQIP (Low Quality Image Placeholders) - it is function which to enable webpages to load correctly in an orderly manner, displaying ultra small, blurry images while the actual version is loading, which works well with lazy loading in JavaScript. This effectively reduces LCP for mobile and desktop. This method only works for the first image on the page - Post Thumbnail. 
+
 == Screenshots ==
 1. Before activating the plugin
 2. After activating the plugin
