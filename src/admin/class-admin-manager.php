@@ -435,6 +435,43 @@ class AdminManager
                 'title' => __('Help', 'helper-lite-for-pagespeed'),
             )
         );
+	
+					// Donate
+		        $this->hlfp_osa->add_field(
+            'hlfp_help',
+            array(
+                'id' => 'donate',
+                'type' => 'html',
+                'name' => '<h2>' . __('Donate', 'helper-lite-for-pagespeed') . '</h2>',
+				'desc' => function() {
+                	?>
+<style>#yadonate {
+   color: #000;
+   cursor: pointer;
+   text-decoration: none;
+   background-color: #ffdb4d;
+   padding: 3px 26px 4px 25px;
+   font-size: 15px;
+   border-radius: 3px;
+   border: 1px solid rgba(0,0,0,.1);
+   transition: background-color .1s ease-out 0s;
+   }
+</style>
+<div class="inside" style="display: block;margin-right: 12px;">
+   <img src="https://a.radikal.ru/a33/2105/ad/555da77d2194.png" title="Купить мне чашку кофе :)" width="130" height="130"style="margin: 5px; float:left;">
+   <p>Привет, мы команда разработчиков <strong>Helper lite for PageSpeed</strong>.</p>
+   <p>Мы разработали данный плагин бесплатно, но не откажемся от небольшого пожертвования :) <br>
+      Можете отблагодарить нас за проделанную работу чашечкой кофе.
+   </p>
+   <br>
+   <a target="_blank" id="yadonate" href="https://bit.ly/3oZjINE" title="Подарить чашечку кофе">Подарить</a> 
+   <div style="clear:both;"></div>
+</div>
+					<?php
+                },
+            )
+        );
+    
 
         $this->hlfp_osa->add_field(
             'hlfp_help',
