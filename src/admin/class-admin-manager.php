@@ -446,15 +446,15 @@ class AdminManager
 				'desc' => function() {
                 	?>
 <style>#yadonate {
-   color: #000;
-   cursor: pointer;
-   text-decoration: none;
-   background-color: #ffdb4d;
-   padding: 3px 26px 4px 25px;
-   font-size: 15px;
-   border-radius: 3px;
-   border: 1px solid rgba(0,0,0,.1);
-   transition: background-color .1s ease-out 0s;
+	color: #f8fffa;
+    	cursor: pointer;
+    	text-decoration: none;
+    	background-color: #47b869;
+    	padding: 8px 30px 8px 30px;
+    	font-size: 15px;
+    	border-radius: 3px;
+    	border: 1px solid rgba(0,0,0,.1);
+    	transition: background-color .1s ease-out 0s;
    }
 </style>
 <div class="inside" style="display: block;margin-right: 12px;">
