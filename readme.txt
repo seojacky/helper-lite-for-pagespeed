@@ -4,7 +4,7 @@ Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, se
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 5.6.20
-Stable tag: 3.0.10
+Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,14 @@ The main development is all going on GitHub.
 	<li>🇲🇽 Spanish (Mexico) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
 	<li>🇻🇪 Spanish (Venezuela) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
 </ul>
+
+= Contribution =
+
+Developing plugins is long and tedious work. If you benefit or enjoy this plugin please take the time to:
+
+* [Donate](https://bit.ly/2RPJ1Wi) to support ongoing development. Your contribution would be greatly appreciated.
+* [Rate and Review](https://wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/#new-post) this plugin.
+* Share with us or view the [GitHub Repo](https://github.com/seojacky/helper-lite-for-pagespeed) if you have any ideas or suggestions to make this plugin better.
 
 == Installation ==
 = From your WordPress dashboard =
@@ -75,6 +83,12 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 = Disabling LazyLoad on Specific Images =
 If you want to disable LazyLoad on a specific image, you can do so by adding the `skip-lazy` class to the &lt;img&gt; HTML tag. 
 
+= What is LQIP? =
+LQIP (Low Quality Image Placeholders) - it is function which to enable webpages to load correctly in an orderly manner, displaying ultra small, blurry images while the actual version is loading, which works well with lazy loading in JavaScript. This effectively reduces LCP for mobile and desktop. This method only works for the first image on the page - Post Thumbnail.
+
+= Contribute =
+Broken Link Checker is now on [GitHub](https://github.com/seojacky/helper-lite-for-pagespeed). Pull Requests welcome.
+
 == Screenshots ==
 1. Before activating the plugin
 2. After activating the plugin
@@ -82,6 +96,12 @@ If you want to disable LazyLoad on a specific image, you can do so by adding the
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+
+= 3.1.0 (30.05.2021) =
+* Changed function LQIP
+* Changed FAQ
+* Added Donate link
+* Changed Extra links
 
 = 3.0.10 (20.05.2021) =
 * Added tab Images

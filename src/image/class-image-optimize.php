@@ -188,14 +188,14 @@ class ImageOptimize
         <style>
             .class-lqip {
                 background-color: grey;
-                height: calc(50vw * <?php echo $height; ?>/<?php echo $width; ?>) !important;
+                -moz-height: calc(50vw * <?php echo $height; ?>/<?php echo $width; ?>) !important;
                 aspect-ratio: <?php echo $width; ?>/<?php echo $height; ?>;
                 object-fit: cover;
             }
 
             @media (max-width: 480px) {
                 .class-lqip {
-                    height: calc(100vw * <?php echo $height; ?> /<?php echo $width; ?>) !important;
+                    -moz-height: calc(100vw * <?php echo $height; ?> /<?php echo $width; ?>) !important;
                     aspect-ratio: <?php echo $width; ?>/<?php echo $height; ?>;
                 }
             }

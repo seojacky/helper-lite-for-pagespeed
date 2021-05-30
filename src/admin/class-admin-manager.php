@@ -193,8 +193,9 @@ class AdminManager
     public function setup_extra_links($links)
     {
         $extra_links = array(
-            '<a href="admin.php?page=hlfp-settings">' . __('Settings', 'helper-lite-for-pagespeed') . '</a>',
-            '<a href="https://t.me/wp_booster" target="_blank">' . __('Author', 'helper-lite-for-pagespeed') . '</a>',
+        	'<a href="admin.php?page=hlfp-settings">' . __('Settings', 'helper-lite-for-pagespeed') . '</a>',            
+		//'<a href="admin.php?page=hlfp-settings" target="_blank">' . __('Author', 'helper-lite-for-pagespeed') . '</a>',
+		'<a href="https://bit.ly/3yO9unF" target="_blank" style="color:#3db634;">' . __('Buy developer a coffee', 'helper-lite-for-pagespeed') . '</a>',
         );
 
         return array_merge($links, $extra_links);
@@ -223,7 +224,7 @@ class AdminManager
 		
 		$meta_links = array(
 		'<a href="https://'.$subdomen.'wordpress.org/plugins/helper-lite-for-pagespeed/#faq-header" target="_blank">' .__('FAQ', 'helper-lite-for-pagespeed') . '</a>',
-		__( 'Rate us:', 'helper-lite-for-pagespeed' ) . " <span class='rating-stars'><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=1#new-post' target='_blank' data-rating='1' title='" . __('Poor', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=2#new-post' target='_blank' data-rating='2' title='" . __('Works', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=3#new-post' target='_blank' data-rating='3' title='" . __('Good', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=4#new-post' target='_blank' data-rating='4' title='" . __('Great', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=5#new-post' target='_blank' data-rating='5' title='" . __('Fantastic!', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><span>",
+		"<br>" . __( 'Rate us:', 'helper-lite-for-pagespeed' ) . " <span class='rating-stars'><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=1#new-post' target='_blank' data-rating='1' title='" . __('Poor', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=2#new-post' target='_blank' data-rating='2' title='" . __('Works', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=3#new-post' target='_blank' data-rating='3' title='" . __('Good', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=4#new-post' target='_blank' data-rating='4' title='" . __('Great', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><a href='//wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/?rate=5#new-post' target='_blank' data-rating='5' title='" . __('Fantastic!', 'helper-lite-for-pagespeed') . "'><span class='dashicons dashicons-star-filled' style='color:#ffb900 !important;'></span></a><span>",
         );
 
         return array_merge($links, $meta_links);
@@ -434,6 +435,43 @@ class AdminManager
                 'title' => __('Help', 'helper-lite-for-pagespeed'),
             )
         );
+	
+					// Donate
+		        $this->hlfp_osa->add_field(
+            'hlfp_help',
+            array(
+                'id' => 'donate',
+                'type' => 'html',
+                'name' => '<h2>' . __('Donate', 'helper-lite-for-pagespeed') . '</h2>',
+				'desc' => function() {
+                	?>
+<style>#yadonate {
+	color: #f8fffa;
+    	cursor: pointer;
+    	text-decoration: none;
+    	background-color: #47b869;
+    	padding: 8px 30px 8px 30px;
+    	font-size: 15px;
+    	border-radius: 3px;
+    	border: 1px solid rgba(0,0,0,.1);
+    	transition: background-color .1s ease-out 0s;
+   }
+</style>
+<div class="inside" style="display: block;margin-right: 12px;">
+   <img src="<?php echo esc_url( HLFP_URL . 'img/icon_coffe_logo.png' ); ?>" title="Купить мне чашку кофе :)" width="150" height="150"style="margin: 5px; float:left;">
+   <p>Привет, мы команда разработчиков <strong>Helper lite for PageSpeed</strong>.</p>
+   <p>Мы разработали данный плагин бесплатно, но не откажемся от небольшого пожертвования :) <br>
+      Можете отблагодарить нас за проделанную работу чашечкой кофе.
+   </p>
+   <br>
+   <a target="_blank" id="yadonate" href="https://bit.ly/3oZjINE" title="Подарить чашечку кофе">Подарить</a> 
+   <div style="clear:both;"></div>
+</div>
+					<?php
+                },
+            )
+        );
+    
 
         $this->hlfp_osa->add_field(
             'hlfp_help',
