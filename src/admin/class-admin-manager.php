@@ -195,7 +195,7 @@ class AdminManager
         $extra_links = array(
         	'<a href="admin.php?page=hlfp-settings">' . __('Settings', 'helper-lite-for-pagespeed') . '</a>',            
 		//'<a href="admin.php?page=hlfp-settings" target="_blank">' . __('Author', 'helper-lite-for-pagespeed') . '</a>',
-		'<a href="https://yoomoney.ru/to/410011327179267/200" target="_blank" style="color:#3db634;">' . __('Buy developer a coffee', 'helper-lite-for-pagespeed') . '</a>',
+		'<a href="https://bit.ly/3yO9unF" target="_blank" style="color:#3db634;">' . __('Buy developer a coffee', 'helper-lite-for-pagespeed') . '</a>',
         );
 
         return array_merge($links, $extra_links);
