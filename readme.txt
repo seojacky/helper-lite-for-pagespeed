@@ -23,6 +23,14 @@ The main development is all going on GitHub.
 	<li>🇻🇪 Spanish (Venezuela) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
 </ul>
 
+= Contribution =
+
+Developing plugins is long and tedious work. If you benefit or enjoy this plugin please take the time to:
+
+* [Donate](https://bit.ly/2RPJ1Wi) to support ongoing development. Your contribution would be greatly appreciated.
+* [Rate and Review](https://wordpress.org/support/plugin/helper-lite-for-pagespeed/reviews/#new-post) this plugin.
+* Share with us or view the [GitHub Repo](https://github.com/seojacky/helper-lite-for-pagespeed) if you have any ideas or suggestions to make this plugin better.
+
 == Installation ==
 = From your WordPress dashboard =
 1. Visit 'Plugins > Add New'
