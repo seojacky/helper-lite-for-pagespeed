@@ -90,8 +90,10 @@ Broken Link Checker is now on [GitHub](https://github.com/seojacky/helper-lite-f
 == Changelog ==
 
 = 3.1.0 (30.05.2021) =
-* Added Donate link
 * Changed function LQIP
+* Changed FAQ
+* Added Donate link
+* Changed Extra links
 
 = 3.0.10 (20.05.2021) =
 * Added tab Images
