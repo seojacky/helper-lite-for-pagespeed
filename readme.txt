@@ -4,7 +4,7 @@ Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, se
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 5.6.20
-Stable tag: 3.1.0
+Stable tag: 3.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,8 @@ Broken Link Checker is now on [GitHub](https://github.com/seojacky/helper-lite-f
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+= 3.1.1 (15.11.2021) =
+* Updated readme
 
 = 3.1.0 (30.05.2021) =
 * Changed function LQIP
