@@ -87,7 +87,7 @@ If you want to disable LazyLoad on a specific image, you can do so by adding the
 LQIP (Low Quality Image Placeholders) - it is function which to enable webpages to load correctly in an orderly manner, displaying ultra small, blurry images while the actual version is loading, which works well with lazy loading in JavaScript. This effectively reduces LCP for mobile and desktop. This method only works for the first image on the page - Post Thumbnail.
 
 = Contribute =
-Broken Link Checker is now on [GitHub](https://github.com/seojacky/helper-lite-for-pagespeed). Pull Requests welcome.
+Helper Lite for PageSpeed is now on [GitHub](https://github.com/seojacky/helper-lite-for-pagespeed). Pull Requests welcome.
 
 == Screenshots ==
 1. Before activating the plugin
