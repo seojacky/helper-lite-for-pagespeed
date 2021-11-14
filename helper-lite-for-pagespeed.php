@@ -20,7 +20,7 @@ defined('ABSPATH') or exit('No direct script access allowed');
 define('HLFP_FILE', __FILE__);
 define('HLFP_DIR', __DIR__);
 define('HLFP_URL', plugin_dir_url(__FILE__));
-define('HLFP_VERSION', '3.1.0');
+define('HLFP_VERSION', '3.1.1');
 define('HLFP_TITLE', __('PageSpeed Helper', 'helper-lite-for-pagespeed'));
 define('HLFP_SLUG', 'helper-lite-for-pagespeed');
 
