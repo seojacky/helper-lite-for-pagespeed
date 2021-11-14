@@ -2,7 +2,7 @@
 /**
  * Plugin name: Helper Lite for PageSpeed
  * Description: Speed up your site with attributes decoding="async" & loading="lazy" for &lt;img&gt; and &lt;iframe&gt;. Removes problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
- * Version: 3.1.0
+ * Version: 3.1.1
  * Author: seojacky, mihdan, Каренина, wdup
  * Author URI: https://t.me/big_jacky
  * Plugin URI: https://wordpress.org/plugins/helper-lite-for-pagespeed/
