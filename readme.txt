@@ -2,9 +2,9 @@
 Contributors: seojacky, mihdan, karenka, wdup
 Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, seo-friendly, perfomance, optimaze,  optimaze images
 Requires at least: 5.0
-Tested up to: 5.6
+Tested up to: 5.8
 Requires PHP: 5.6.20
-Stable tag: 3.1.0
+Stable tag: 3.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,7 +56,7 @@ By default, WordPress add a loading="lazy" attribute to the following images:
 * images within post excerpts 
 * images within text widgets 
 * avatar images
-* template images using wp_get_attachment_image() (wp_get_attachment_image)
+* template images using wp_get_attachment_image()
 But WordPress does not add loading="lazy" for custom images in the header and footer of the site! In this case, our plugin will help you.
 
 = Where are the plugin settings? =
@@ -96,6 +96,8 @@ Broken Link Checker is now on [GitHub](https://github.com/seojacky/helper-lite-f
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+= 3.1.1 (15.11.2021) =
+* Updated readme
 
 = 3.1.0 (30.05.2021) =
 * Changed function LQIP
