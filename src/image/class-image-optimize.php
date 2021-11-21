@@ -228,7 +228,7 @@ class ImageOptimize
                 }
 
                 function HLFP_loadImages() {
-                    document.querySelectorAll("img[data-type='lazy']").forEach(function (elem) {
+                    document.querySelectorAll("img[data-type='lazy'], source").forEach(function (elem) {
                         elem.setAttribute("srcset", elem.getAttribute("data-srcset"));
                     });
                 }
