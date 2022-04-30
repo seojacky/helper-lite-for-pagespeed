@@ -2,9 +2,9 @@
 Contributors: seojacky, mihdan, karenka, wdup
 Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, seo-friendly, perfomance, optimaze,  optimaze images
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 5.9.3
 Requires PHP: 5.6.20
-Stable tag: 3.1.3
+Stable tag: 3.1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
