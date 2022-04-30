@@ -2,9 +2,9 @@
 Contributors: seojacky, mihdan, karenka, wdup
 Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, seo-friendly, perfomance, optimaze,  optimaze images
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 5.9.3
 Requires PHP: 5.6.20
-Stable tag: 3.1.3
+Stable tag: 3.1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,7 @@ The main development is all going on GitHub.
 	<li>🇪🇸 Spanish (Spain) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
 	<li>🇲🇽 Spanish (Mexico) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
 	<li>🇻🇪 Spanish (Venezuela) - <a href="https://profiles.wordpress.org/nobnob/">Javier Esteban (nobnob)</a></li>
+	<li>🇮🇹 Italiana (Italian)- <a href="https://profiles.wordpress.org/gigaster/">gigaster</a>, <a href="https://profiles.wordpress.org/lidialab/">Lidia Pellizzaro</a></li>
 </ul>
 
 = Contribution =
@@ -96,6 +97,9 @@ Helper Lite for PageSpeed is now on [GitHub](https://github.com/seojacky/helper-
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+= 3.1.4 (30.04.2022) =
+* Updated readme
+
 = 3.1.3 (21.11.2021) =
 * Fixed bugs
 
