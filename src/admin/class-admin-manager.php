@@ -235,6 +235,15 @@ class AdminManager
      */
     public function setup_fields()
     {
+        $this->hlfp_osa
+            ->add_sidebar_card(
+                array(
+                    'id'    => 'donate',
+                    'title' => __( 'Cat! ^^', 'helper-light-for-pagespeed' ),
+                    'desc'  => __('<div><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpreview.redd.it%2F7cu5lub5okl21.jpg%3Fauto%3Dwebp%26s%3D5ad2cf86d114e14c63cbd7bfc57124f17abbc880&f=1&nofb=1" style="max-width:100%;height:auto"><div>')
+                )
+            );
+
         // ======================== SETTINGS ========================
 
         // Settings section

@@ -37,6 +37,15 @@ class HLFP_OSA
     private $fields_array = array();
 
     /**
+     * Sidebar card array.
+     *
+     * @var array $sidebar_cards
+     */
+    private $sidebar_cards = array();
+
+    private $plugin_prefix = 'HLFP_OSA';
+
+    /**
      * Constructor.
      *
      * @since  1.0.0
@@ -52,6 +61,10 @@ class HLFP_OSA
         // Menu.
         add_action('admin_menu', array($this, 'admin_menu'));
 
+    }
+
+    public function get_prefix(): string {
+        return $this->plugin_prefix;
     }
 
     /**
@@ -115,6 +128,27 @@ class HLFP_OSA
         $this->sections_array[] = $section;
 
         return $this;
+    }
+
+    /**
+     * Add sidebar cards.
+     *
+     * @param array $card
+     *
+     * @return $this
+     */
+    public function add_sidebar_card( array $card ) {
+        $this->sidebar_cards[] = $card;
+
+        return $this;
+    }
+
+    public function get_sidebar_cards() {
+        return $this->sidebar_cards;
+    }
+
+    public function get_sidebar_cards_total() {
+        return count( $this->get_sidebar_cards() );
     }
 
     /**
@@ -772,7 +806,25 @@ class HLFP_OSA
         echo '<div class="wrap">';
         echo '<h1>' . HLFP_TITLE . ' <span style="font-size:50%;">v' . HLFP_VERSION . '</span></h1>';
         $this->show_navigation();
-        $this->show_forms();
+        ?>
+        <div class="wrap--wposa" style="display:flex;gap:20px;">
+            <div class="wrap-column wrap-column--form" style="flex-basis: 100%">
+                <?php $this->show_forms(); ?>
+            </div>
+            <?php if ( $this->get_sidebar_cards_total() ) : ?>
+                <div class="wrap-column wrap-column--sidebar">
+                    <?php foreach ( $this->get_sidebar_cards() as $card ) : ?>
+                        <div class="card wpsa-card wpsa-card--<?php echo esc_attr( $this->get_prefix() )?>_<?php echo esc_attr( $card['id'] )?>">
+                            <?php if ( ! empty( $card['title'] ) ) : ?>
+                                <h2 class="title"><?php echo esc_html( $card['title'] )?></h2>
+                            <?php endif; ?>
+                            <?php echo $card['desc'] ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
+            <?php
         echo '</div>';
     }
 
