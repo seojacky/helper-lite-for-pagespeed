@@ -1,5 +1,5 @@
 === Helper Lite for PageSpeed ===
-Contributors: seojacky, mihdan, karenka, wdup
+Contributors: seojacky, mihdan, wdup
 Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, seo-friendly, perfomance, optimaze,  optimaze images
 Requires at least: 5.0
 Tested up to: 6.2
