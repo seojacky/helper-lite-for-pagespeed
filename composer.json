@@ -1,5 +1,17 @@
 {
-    "autoload": {
-        "classmap": ["src"]
-    }
+  "autoload": {
+      "classmap": ["src"]
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "squizlabs/php_codesniffer": "^3.7",
+    "phpcompatibility/php-compatibility": "^9.0",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "wp-coding-standards/wpcs": "^2.3",
+    "wp-cli/wp-cli": "*"
+  },
+  "scripts": {
+    "phpcs": "phpcs --standard=./phpcs.xml",
+    "phpcbf": "phpcbf --standard=./phpcs.xml",
+  }
 }
