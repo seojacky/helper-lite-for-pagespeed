@@ -12,6 +12,6 @@
   },
   "scripts": {
     "phpcs": "phpcs --standard=./phpcs.xml",
-    "phpcbf": "phpcbf --standard=./phpcs.xml",
+    "phpcbf": "phpcbf --standard=./phpcs.xml"
   }
 }
