@@ -8,10 +8,15 @@ jobs:
     name: New tag
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master    
-    - name: WordPress Plugin Deploy
-      uses: 10up/action-wordpress-plugin-deploy@stable
-      env:
-        SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-        SVN_USERNAME: ${{ secrets.SVN_USERNAME }}       
-        SLUG: helper-lite-for-pagespeed # optional, remove if GitHub repo name matches SVN slug, including capitalization
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-suggest
+
+      - name: WordPress Plugin Deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SLUG: helper-lite-for-pagespeed # optional, remove if GitHub repo name matches SVN slug, including capitalization
