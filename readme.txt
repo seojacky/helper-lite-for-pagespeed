@@ -4,7 +4,7 @@ Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, se
 Requires at least: 5.0
 Tested up to: 6.2
 Requires PHP: 5.6.20
-Stable tag: 3.1.5
+Stable tag: 3.1.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,16 +46,16 @@ Developing plugins is long and tedious work. If you benefit or enjoy this plugin
 4. [Optional] Configure plugin in 'WP Booster > PageSpeed Helper'.
 
 == Frequently Asked Questions ==
-= What does the plugin do? = 
+= What does the plugin do? =
 * Adds decoding="async" & loading="lazy" attributes to all images on the page. It has been experimentally proven that the combination of these attributes speeds up page load by 0.1-0.2 seconds and increases Your Google PageSpeed Insights Score.
 * Adds loading="lazy" attributes to all &lt;iframe&gt; on the page.
 * You can include a script that removes the Google PageSpeed Insights remark "Does not use passive listeners to improve scrolling performance"
 
 = In WordPress 5.5 and up, images are lazy loaded by default. Why is this plugin needed? =
 By default, WordPress add a loading="lazy" attribute to the following images:
-* images within post content 
-* images within post excerpts 
-* images within text widgets 
+* images within post content
+* images within post excerpts
+* images within text widgets
 * avatar images
 * template images using wp_get_attachment_image()
 But WordPress does not add loading="lazy" for custom images in the header and footer of the site! In this case, our plugin will help you.
@@ -82,7 +82,7 @@ This PSI note, for example, may appear on pages where the comment-reply.min.js s
 * Plugin does not affect images added to background via css, for the simple reason that it is impossible to add decoding="async" and loading="lazy" attributes to them. The plugin only works with images added via the &lt;img&gt; tag.
 
 = Disabling LazyLoad on Specific Images =
-If you want to disable LazyLoad on a specific image, you can do so by adding the `skip-lazy` class to the &lt;img&gt; HTML tag. 
+If you want to disable LazyLoad on a specific image, you can do so by adding the `skip-lazy` class to the &lt;img&gt; HTML tag.
 
 = What is LQIP? =
 LQIP (Low Quality Image Placeholders) - it is function which to enable webpages to load correctly in an orderly manner, displaying ultra small, blurry images while the actual version is loading, which works well with lazy loading in JavaScript. This effectively reduces LCP for mobile and desktop. This method only works for the first image on the page - Post Thumbnail.
@@ -97,6 +97,9 @@ Helper Lite for PageSpeed is now on [GitHub](https://github.com/seojacky/helper-
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+
+= 3.1.6 (22.04.2023) =
+* Fixed security issues
 
 = 3.1.5 (20.04.2023) =
 * Added support for WordPress 6.2+
@@ -153,7 +156,7 @@ Helper Lite for PageSpeed is now on [GitHub](https://github.com/seojacky/helper-
 * Fixed bugs
 
 = 3.0 =
-* Plugin structure fully rewritten 
+* Plugin structure fully rewritten
 * Fix bug with double slash in script URL
 * "Contacts" tab changed to "Help" tab
 * Added little FAQ
