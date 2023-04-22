@@ -5,18 +5,45 @@ on:
     - "*"
 jobs:
   tag:
-    name: New tag
+    name: New release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Set up Composer caching
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-composer-dependencies
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
       - name: Install dependencies
-        run: composer install --no-dev --prefer-dist --no-progress --no-suggest
+        run: |
+          composer config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+          composer install --no-dev --prefer-dist --no-progress --no-suggest
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: WordPress Plugin Deploy
         uses: 10up/action-wordpress-plugin-deploy@stable
+        with:
+          generate-zip: true
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          SLUG: helper-lite-for-pagespeed # optional, remove if GitHub repo name matches SVN slug, including capitalization
+          SLUG: helper-lite-for-pagespeed
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{github.workspace}}/${{ github.event.repository.name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
