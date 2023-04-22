@@ -10,6 +10,7 @@
 .idea
 .wordpress-org
 Thumbs.db
+auth.json
 behat.yml
 circle.yml
 composer.json

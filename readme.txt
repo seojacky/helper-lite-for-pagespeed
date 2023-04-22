@@ -4,7 +4,7 @@ Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, se
 Requires at least: 5.0
 Tested up to: 6.2
 Requires PHP: 5.6.20
-Stable tag: 3.1.6
+Stable tag: 3.1.6.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
