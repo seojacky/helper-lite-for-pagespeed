@@ -12,6 +12,112 @@ namespace Karenina\HelperLightForPageSpeed\Admin;
  */
 class HLFP_OSA {
 	/**
+	 * Allowed HTML tags and attributes for wp_kses().
+	 */
+	const ALLOWED_HTML = [
+		'strong'   => [],
+		'b'        => [],
+		'i'        => [],
+		'code'     => [],
+		'ul'       => [
+			'class' => true,
+		],
+		'ol'       => [],
+		'li'       => [],
+		'br'       => [
+			'class' => true,
+		],
+		'fields'   => [],
+		'fieldset' => [],
+		'label'    => [
+			'for' => true,
+		],
+		'select'   => [
+			'class' => true,
+			'name'  => true,
+			'id'    => true,
+		],
+		'option'   => [
+			'value'    => true,
+			'selected' => true,
+		],
+		'div'      => [
+			'id'     => true,
+			'style'  => true,
+			'class'  => true,
+			'data-w' => true,
+		],
+		'a'        => [
+			'id'      => true,
+			'class'   => true,
+			'href'    => true,
+			'style'   => true,
+			'title'   => true,
+			'onclick' => true,
+			'target'  => true,
+		],
+		'img'      => [
+			'src'    => true,
+			'width'  => true,
+			'height' => true,
+		],
+		'p'        => [
+			'class' => true,
+		],
+		'h1'       => [
+			'class' => true,
+		],
+		'h2'       => [
+			'class' => true,
+		],
+		'nav'      => [
+			'class'      => true,
+			'aria-label' => true,
+		],
+		'span'     => [
+			'class' => true,
+			'style' => true,
+		],
+		'table'    => [
+			'class' => true,
+		],
+		'tbody'    => [
+			'class' => true,
+		],
+		'tr'       => [
+			'class' => true,
+		],
+		'th'       => [
+			'class' => true,
+		],
+		'td'       => [
+			'class' => true,
+		],
+		'textarea' => [
+			'name'  => true,
+			'class' => true,
+			'id'    => true,
+			'rows'  => true,
+			'cols'  => true,
+		],
+		'input'    => [
+			'id'          => true,
+			'class'       => true,
+			'type'        => true,
+			'name'        => true,
+			'value'       => true,
+			'placeholder' => true,
+			'checked'     => true,
+			'readonly'    => true,
+			'disabled'    => true,
+		],
+		'script'   => [
+			'src'   => true,
+			'async' => true,
+		],
+	];
+
+	/**
 	 * Sections array.
 	 *
 	 * @var   array
@@ -58,7 +164,7 @@ class HLFP_OSA {
 			'iris',
 			admin_url( 'js/iris.min.js' ),
 			array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),
-			false,
+			HLFP_VERSION,
 			1
 		);
 
@@ -69,7 +175,7 @@ class HLFP_OSA {
 	/**
 	 * Set Sections.
 	 *
-	 * @param array $sections
+	 * @param array $sections Section List.
 	 *
 	 * @since 1.0.0
 	 */
@@ -88,7 +194,7 @@ class HLFP_OSA {
 	/**
 	 * Add a single section.
 	 *
-	 * @param array $section
+	 * @param array $section Section array.
 	 *
 	 * @since 1.0.0
 	 */
@@ -107,6 +213,8 @@ class HLFP_OSA {
 	/**
 	 * Set Fields.
 	 *
+	 * @param array $fields Fields array.
+	 *
 	 * @since 1.0.0
 	 */
 	public function set_fields( $fields ) {
@@ -124,10 +232,14 @@ class HLFP_OSA {
 	/**
 	 * Add a single field.
 	 *
+	 * @param string $section     Section ID.
+	 * @param array  $field_array Field array.
+	 *
+	 * @return HLFP_OSA
 	 * @since 1.0.0
 	 */
 	public function add_field( $section, $field_array ) {
-		// Set the defaults
+		// Set the defaults.
 		$defaults = array(
 			'id'   => '',
 			'name' => '',
@@ -135,7 +247,7 @@ class HLFP_OSA {
 			'type' => 'text',
 		);
 
-		// Combine the defaults with user's arguements.
+		// Combine the defaults with user's arguments.
 		$arg = wp_parse_args( $field_array, $defaults );
 
 		// Each field is an array named against its section.
@@ -174,7 +286,7 @@ class HLFP_OSA {
 		 * @since 1.0.0
 		 */
 		foreach ( $this->sections_array as $section ) {
-			if ( false == get_option( $section['id'] ) ) {
+			if ( false === get_option( $section['id'] ) ) {
 				// Add a new field as section ID.
 				add_option( $section['id'] );
 			}
@@ -186,7 +298,7 @@ class HLFP_OSA {
 
 				// Create the callback for description.
 				$callback = function () use ( $section ) {
-					echo str_replace( '"', '\"', $section['desc'] );
+					echo str_replace( '"', '\"', $section['desc'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				};
 
 			} elseif ( isset( $section['callback'] ) ) {
@@ -322,6 +434,9 @@ class HLFP_OSA {
 	/**
 	 * Sanitize callback for Settings API fields.
 	 *
+	 * @param array $fields Fields array.
+	 *
+	 * @return mixed
 	 * @since 1.0.0
 	 */
 	public function sanitize_fields( $fields ) {
@@ -354,7 +469,7 @@ class HLFP_OSA {
 		// Iterate over registered fields and see if we can find proper callback.
 		foreach ( $this->fields_array as $section => $field_array ) {
 			foreach ( $field_array as $field ) {
-				if ( $field['name'] != $slug ) {
+				if ( $field['name'] !== $slug ) {
 					continue;
 				}
 
@@ -369,7 +484,7 @@ class HLFP_OSA {
 	/**
 	 * Get field description for display
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function get_field_description( $args ) {
 		if ( ! empty( $args['desc'] ) ) {
@@ -389,24 +504,16 @@ class HLFP_OSA {
 	/**
 	 * Displays a title field for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_title( $args ) {
-		$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-		if ( '' !== $args['name'] ) {
-			$name = $args['name'];
-		} else {
-		};
-		$type = isset( $args['type'] ) ? $args['type'] : 'title';
-
-		$html = '';
-		echo $html;
+		echo '';
 	}
 
 	/**
 	 * Displays a text field for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_text( $args ) {
 
@@ -414,16 +521,16 @@ class HLFP_OSA {
 		$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 		$type  = isset( $args['type'] ) ? $args['type'] : 'text';
 
-		$html = sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"placeholder="%6$s"/>', $type, $size, $args['section'], $args['id'], $value, $args['placeholder'] );
+		$html  = sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s" placeholder="%6$s"/>', $type, $size, $args['section'], $args['id'], $value, $args['placeholder'] );
 		$html .= $this->get_field_description( $args );
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a url field for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_url( $args ) {
 		$this->callback_text( $args );
@@ -432,7 +539,7 @@ class HLFP_OSA {
 	/**
 	 * Displays a number field for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_number( $args ) {
 		$this->callback_text( $args );
@@ -441,26 +548,26 @@ class HLFP_OSA {
 	/**
 	 * Displays a checkbox for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_checkbox( $args ) {
 
 		$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 
-		$html = '<fieldset>';
+		$html  = '<fieldset>';
 		$html .= sprintf( '<label for="wposa-%1$s[%2$s]">', $args['section'], $args['id'] );
 		$html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
 		$html .= sprintf( '<input type="checkbox" class="checkbox" id="wposa-%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
 		$html .= sprintf( '%1$s</label>', $args['desc'] );
 		$html .= '</fieldset>';
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a multicheckbox a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_multicheck( $args ) {
 
@@ -469,20 +576,20 @@ class HLFP_OSA {
 		$html = '<fieldset>';
 		foreach ( $args['options'] as $key => $label ) {
 			$checked = isset( $value[ $key ] ) ? $value[ $key ] : '0';
-			$html    .= sprintf( '<label for="wposa-%1$s[%2$s][%3$s]">', $args['section'], $args['id'], $key );
-			$html    .= sprintf( '<input type="checkbox" class="checkbox" id="wposa-%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $checked, $key, false ) );
-			$html    .= sprintf( '%1$s</label><br>', $label );
+			$html   .= sprintf( '<label for="wposa-%1$s[%2$s][%3$s]">', $args['section'], $args['id'], $key );
+			$html   .= sprintf( '<input type="checkbox" class="checkbox" id="wposa-%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $checked, $key, false ) );
+			$html   .= sprintf( '%1$s</label><br>', $label );
 		}
 		$html .= $this->get_field_description( $args );
 		$html .= '</fieldset>';
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a multicheckbox a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_radio( $args ) {
 
@@ -497,13 +604,13 @@ class HLFP_OSA {
 		$html .= $this->get_field_description( $args );
 		$html .= '</fieldset>';
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a selectbox for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_select( $args ) {
 
@@ -514,50 +621,50 @@ class HLFP_OSA {
 		foreach ( $args['options'] as $key => $label ) {
 			$html .= sprintf( '<option value="%s"%s>%s</option>', $key, selected( $value, $key, false ), $label );
 		}
-		$html .= sprintf( '</select>' );
+		$html .= '</select>';
 		$html .= $this->get_field_description( $args );
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a textarea for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_textarea( $args ) {
 
 		$value = esc_textarea( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 		$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
-		$html = sprintf( '<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]">%4$s</textarea>', $size, $args['section'], $args['id'], $value );
+		$html  = sprintf( '<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]">%4$s</textarea>', $size, $args['section'], $args['id'], $value );
 		$html .= $this->get_field_description( $args );
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
-	 * Displays a textarea for a settings field
+	 * Displays a html for a settings field
 	 *
-	 * @param array $args settings field args.
+	 * @param array $args Settings field args.
 	 *
-	 * @return string
+	 * @return void
 	 */
 	public function callback_html( $args ) {
-		echo $this->get_field_description( $args );
+		echo wp_kses( $this->get_field_description( $args ), self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a rich text textarea for a settings field
 	 *
-	 * @param array $args settings field args.
+	 * @param array $args Settings field args.
 	 */
 	public function callback_wysiwyg( $args ) {
 
 		$value = $this->get_option( $args['id'], $args['section'], $args['std'] );
 		$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : '500px';
 
-		echo '<div style="max-width: ' . $size . ';">';
+		echo '<div style="max-width: ' . esc_attr( $size ) . ';">';
 
 		$editor_settings = array(
 			'teeny'         => true,
@@ -572,13 +679,13 @@ class HLFP_OSA {
 
 		echo '</div>';
 
-		echo $this->get_field_description( $args );
+		echo wp_kses( $this->get_field_description( $args ), self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a file upload field for a settings field
 	 *
-	 * @param array $args settings field args.
+	 * @param array $args Settings field args.
 	 */
 	public function callback_file( $args ) {
 
@@ -589,17 +696,17 @@ class HLFP_OSA {
 			$args['options']['button_label'] :
 			__( 'Choose File' );
 
-		$html = sprintf( '<input type="text" class="%1$s-text wpsa-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
+		$html  = sprintf( '<input type="text" class="%1$s-text wpsa-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
 		$html .= '<input type="button" class="button wpsa-browse" value="' . $label . '" />';
 		$html .= $this->get_field_description( $args );
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays an image upload field with a preview
 	 *
-	 * @param array $args settings field args.
+	 * @param array $args Settings field args.
 	 */
 	public function callback_image( $args ) {
 
@@ -610,57 +717,58 @@ class HLFP_OSA {
 			$args['options']['button_label'] :
 			__( 'Choose Image' );
 
-		$html = sprintf( '<input type="text" class="%1$s-text wpsa-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
+		$html  = sprintf( '<input type="text" class="%1$s-text wpsa-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
 		$html .= '<input type="button" class="button wpsa-browse" value="' . $label . '" />';
 		$html .= $this->get_field_description( $args );
-		$html .= '<p class="wpsa-image-preview"><img src=""/></p>';
+		$html .= '<p class="wpsa-image-preview"><img alt="" src=""/></p>';
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a password field for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_password( $args ) {
 
 		$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 		$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
-		$html = sprintf( '<input type="password" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
+		$html  = sprintf( '<input type="password" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
 		$html .= $this->get_field_description( $args );
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a color picker field for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_color( $args ) {
 
 		$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'], $args['placeholder'] ) );
 		$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
-		$html = sprintf( '<input type="text" class="%1$s-text color-picker" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" placeholder="%6$s" />', $size, $args['section'], $args['id'], $value, $args['std'], $args['placeholder'] );
+		$html  = sprintf( '<input type="text" class="%1$s-text color-picker" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" placeholder="%6$s" />', $size, $args['section'], $args['id'], $value, $args['std'], $args['placeholder'] );
 		$html .= $this->get_field_description( $args );
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Displays a separator field for a settings field
 	 *
-	 * @param array $args settings field args
+	 * @param array $args Settings field args.
 	 */
 	public function callback_separator( $args ) {
 		$type = isset( $args['type'] ) ? $args['type'] : 'separator';
 
-		$html = '';
+		$html  = '';
 		$html .= '<div class="wpsa-settings-separator"></div>';
-		echo $html;
+
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
@@ -686,17 +794,8 @@ class HLFP_OSA {
 	/**
 	 * Add submenu page to the Settings main menu.
 	 *
-	 * @param string $page_title
-	 * @param string $menu_title
-	 * @param string $capability
-	 * @param string $menu_slug
-	 * @param callable $function = ''
-	 *
-	 * @author Ahmad Awais
-	 * @since  [version]
+	 * @return void
 	 */
-
-	// public function admin_menu( $page_title = 'Page Title', $menu_title = 'Menu Title', $capability = 'manage_options', $menu_slug = 'settings_page', $callable = 'plugin_page' ) {
 	public function admin_menu() {
 		add_submenu_page(
 			'wp-booster',
@@ -708,9 +807,14 @@ class HLFP_OSA {
 		);
 	}
 
+	/**
+	 * Render plugin page.
+	 *
+	 * @return void
+	 */
 	public function plugin_page() {
 		echo '<div class="wrap">';
-		echo '<h1>' . HLFP_TITLE . ' <span style="font-size:50%;">v' . HLFP_VERSION . '</span></h1>';
+		echo '<h1>' . esc_html( HLFP_TITLE ) . ' <span style="font-size:50%;">v' . esc_html( HLFP_VERSION ) . '</span></h1>';
 		$this->show_navigation();
 		$this->show_forms();
 		echo '</div>';
@@ -722,30 +826,31 @@ class HLFP_OSA {
 	 * Shows all the settings section labels as tab
 	 */
 	public function show_navigation() {
-		$html = '<h2 class="nav-tab-wrapper">';
+		$html = '<nav class="nav-tab-wrapper">';
 
 		foreach ( $this->sections_array as $tab ) {
 			$html .= sprintf( '<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s%3$s</a>', $tab['id'], $tab['icon'], $tab['title'] );
 		}
 
-		$html .= '</h2>';
+		$html .= '</nav>';
 
-		echo $html;
+		echo wp_kses( $html, self::ALLOWED_HTML );
 	}
 
 	/**
 	 * Show the section settings forms
 	 *
-	 * This function displays every sections in a different form
+	 * This function displays every section in a different form
 	 */
 	public function show_forms() {
 		?>
 		<div class="metabox-holder">
-			<?php foreach ( $this->sections_array as $form ) {
+			<?php
+			foreach ( $this->sections_array as $form ) {
 				?>
 				<!-- style="display: none;" -->
-				<div id="<?php echo $form['id']; ?>" class="group">
-					<form method="post" action="options.php">
+				<div id="<?php echo esc_attr( $form['id'] ); ?>" class="group">
+					<form method="post" action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>">
 						<?php
 						do_action( 'wsa_form_top_' . $form['id'], $form );
 						settings_fields( $form['id'] );
@@ -782,7 +887,7 @@ class HLFP_OSA {
 				if ('undefined' != typeof localStorage) {
 					activetab = localStorage.getItem('activetab');
 				}
-				if ('' != activetab && $(activetab).length) {
+				if ('' !== activetab && $(activetab).length) {
 					$(activetab).fadeIn();
 				} else {
 					$('.group:first').fadeIn();
@@ -805,7 +910,7 @@ class HLFP_OSA {
 						});
 				});
 
-				if ('' != activetab && $(activetab + '-tab').length) {
+				if ('' !== activetab && $(activetab + '-tab').length) {
 					$(activetab + '-tab').addClass('nav-tab-active');
 				} else {
 					$('.nav-tab-wrapper a:first').addClass('nav-tab-active');
