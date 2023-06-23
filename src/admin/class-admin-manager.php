@@ -190,6 +190,14 @@ class AdminManager {
 		h2 span.dashicons {
 			margin-right: 5px;
 		}
+		.wp-list-table.toplevel_page_wp-booster .column-name img {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			width: 128px;
+			height: 128px;
+			margin: 0 20px 20px 0;
+		}
 		</style>
 		<?php
 	}
