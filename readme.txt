@@ -4,7 +4,7 @@ Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, se
 Requires at least: 5.0
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 3.1.6.2
+Stable tag: 3.1.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -97,6 +97,9 @@ Helper Lite for PageSpeed is now on [GitHub](https://github.com/seojacky/helper-
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+
+= 3.1.7 (15.11.2023) =
+* Added: Compatibility with WordPress 6.7
 
 = 3.1.6 (22.04.2023) =
 * Fixed security issues
