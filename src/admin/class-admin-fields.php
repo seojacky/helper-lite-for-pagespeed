@@ -1008,6 +1008,40 @@ class HLFP_OSA {
 			#hlfp_other_plugins .form-table > tbody > tr > th {
 				display: none;
 			}
+			.wp-booster_page_hlfp-settings .plugin-card-top {
+				display: grid;
+				grid-gap: 20px;
+				grid-template-columns: repeat(2, 1fr);
+			}
+			.wp-booster_page_hlfp-settings .plugin-card-top .name,
+			.wp-booster_page_hlfp-settings .plugin-card-top .desc,
+			.wp-booster_page_hlfp-settings .plugin-card-top .action-links {
+				margin: 0 !important;
+				position: static !important;
+			}
+			.wp-booster_page_hlfp-settings .plugin-card-top .desc {
+				grid-column: span 2;
+			}
+			.wp-booster_page_hlfp-settings .plugin-card-top .desc > p {
+				margin-left: 0;
+				margin-right: 0;
+			}
+			.wp-booster_page_hlfp-settings .plugin-card-top .name a {
+				font-weight: bold;
+				display: grid;
+				grid-gap: 20px;
+				grid-template-columns: 1fr;
+			}
+			.wp-booster_page_hlfp-settings img {
+				width: 100px;
+			}
+			.wp-booster_page_hlfp-settings .plugin-action-buttons {
+				text-align: right;
+				float: none;
+				position: absolute;
+				top: 20px;
+				right: 20px;
+			}
 		</style>
 		<?php
 	}

@@ -1,18 +1,21 @@
 === Helper Lite for PageSpeed ===
 Contributors: seojacky, mihdan, wdup
-Tags: pagespeed, page speed, lazy load, lighthouse, optimization, image, seo, seo-friendly, perfomance, optimaze,  optimaze images
-Requires at least: 5.0
-Tested up to: 6.2
+Tags: pagespeed, lazyload, perfomance, optimization, seo
+Requires at least: 5.6
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 3.1.7
+Stable tag: 3.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-== Description ==
 Speed up your site with attributes decoding="async" & loading="lazy" for &lt;img&gt; and &lt;iframe&gt;. Removes problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score.
-The main development is all going on GitHub.
+
+== Description ==
+
+Speed up your site with attributes decoding="async" & loading="lazy" for &lt;img&gt; and &lt;iframe&gt;. Removes problem "Does not use passive listeners to improve scrolling performance". Help to Up Your Google PageSpeed Insights Score. The main development is all going on GitHub.
 
 = Translations =
+
 [Help translate Helper Lite for PageSpeed](https://translate.wordpress.org/projects/wp-plugins/helper-lite-for-pagespeed/)
 
 <ul>
@@ -33,6 +36,7 @@ Developing plugins is long and tedious work. If you benefit or enjoy this plugin
 * Share with us or view the [GitHub Repo](https://github.com/seojacky/helper-lite-for-pagespeed) if you have any ideas or suggestions to make this plugin better.
 
 == Installation ==
+
 = From your WordPress dashboard =
 1. Visit 'Plugins > Add New'
 2. Search for 'Helper Lite for PageSpeed'
@@ -40,12 +44,14 @@ Developing plugins is long and tedious work. If you benefit or enjoy this plugin
 4. [Optional] Configure plugin in 'WP Booster > PageSpeed Helper'.
 
 = From WordPress.org =
+
 1. Download Helper Lite for PageSpeed.
 2. Upload the 'helper-lite-for-pagespeed' directory to your '/wp-content/plugins/' directory, using your favorite method (ftp, sftp, scp, etc...)
 3. Activate Helper Lite for PageSpeed from your Plugins page.
 4. [Optional] Configure plugin in 'WP Booster > PageSpeed Helper'.
 
 == Frequently Asked Questions ==
+
 = What does the plugin do? =
 * Adds decoding="async" & loading="lazy" attributes to all images on the page. It has been experimentally proven that the combination of these attributes speeds up page load by 0.1-0.2 seconds and increases Your Google PageSpeed Insights Score.
 * Adds loading="lazy" attributes to all &lt;iframe&gt; on the page.
@@ -91,6 +97,7 @@ LQIP (Low Quality Image Placeholders) - it is function which to enable webpages 
 Helper Lite for PageSpeed is now on [GitHub](https://github.com/seojacky/helper-lite-for-pagespeed). Pull Requests welcome.
 
 == Screenshots ==
+
 1. Before activating the plugin
 2. After activating the plugin
 3. Tab Setting on Plugin Settings Page
@@ -98,7 +105,11 @@ Helper Lite for PageSpeed is now on [GitHub](https://github.com/seojacky/helper-
 
 == Changelog ==
 
-= 3.1.7 (15.11.2023) =
+= 3.2.0 (10.03.2025) =
+* Added compatibility with WordPress 6.7.2
+* Fixed notices
+
+= 3.1.7 (15.11.2024) =
 * Added: Compatibility with WordPress 6.7
 
 = 3.1.6 (22.04.2023) =

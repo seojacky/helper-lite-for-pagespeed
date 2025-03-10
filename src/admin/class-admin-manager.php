@@ -47,7 +47,7 @@ class AdminManager {
 	 * Enable Admins hooks
 	 */
 	public function hooks() {
-		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'setup_fields' ), 9, 0 );
 		add_action( 'admin_menu', array( $this, 'create_admin_page' ), 8, 0 );
 		add_action( 'admin_print_styles', array( $this, 'hide_wp_boost_sub_menu' ) );
@@ -110,31 +110,47 @@ class AdminManager {
 	 * @param object $res Объект ответа из API.
 	 * @param string $action Название запроса (query_plugins).
 	 * @param object $args Аргументы запроса.
-	 *
+	 * @link https://wplake.org/blog/wordpress-org-api/
 	 * @return mixed
 	 */
 	public function plugins_api_result( $res, $action, $args ) {
 		global $paged;
 
 		if ( isset( $args->plugin ) && HLFP_SLUG === $args->plugin ) {
+			$key = 0;
 			foreach ( $res->plugins as $key => $plugin ) {
 				// Удалить текущий плагин из ответа.
 				if ( HLFP_SLUG === $plugin['slug'] ) {
-
-					// Добавить свои плагины к ответу вместо удаленных.
-					$our_plugins = plugins_api(
-						'query_plugins',
-						array(
-							'page'     => $paged,
-							'per_page' => 100,
-							'locale'   => get_user_locale(),
-							'search'   => 'Mihdan: Lite YouTube Embed',
-						)
-					);
-
-					$res->plugins[ $key ] = $our_plugins->plugins[0];
+					unset( $res->plugins[ $key ] );
 				}
 			}
+
+			$lite_video_embed = plugins_api(
+				'query_plugins',
+				array(
+					'page'     => $paged,
+					'per_page' => 100,
+					'locale'   => get_user_locale(),
+					'search'   => 'mihdan-lite-youtube-embed',
+				)
+			);
+
+			$key ++;
+
+			$res->plugins[ $key ] = $lite_video_embed->plugins[0];
+
+			$recrawler = plugins_api(
+				'query_plugins',
+				array(
+					'page'     => $paged,
+					'per_page' => 100,
+					'locale'   => get_user_locale(),
+					'search'   => 'recrawler',
+				)
+			);
+
+			$key ++;
+			$res->plugins[ $key ] = $recrawler->plugins[0];
 		}
 
 		return $res;
@@ -418,7 +434,7 @@ class AdminManager {
 
 					ob_start();
 					require_once ABSPATH . 'wp-admin/includes/class-wp-plugin-install-list-table.php';
-					$_POST['tab'] = HLFP_SLUG;
+					$_REQUEST['tab'] = HLFP_SLUG;
 					$table        = new WP_Plugin_Install_List_Table();
 					$table->prepare_items();
 					$table->display();
@@ -569,7 +585,7 @@ class AdminManager {
 									?>
 								</span>
 								<br/>
-								<b><?php esc_html_e( 'Telegram profile ', 'helper-lite-for-pagespeed' ); ?><a href="https://t.me/big_jacky" target="_blank">@big_jacky</a></b>
+								<b><?php esc_html_e( 'Telegram profile', 'helper-lite-for-pagespeed' ); ?> - <a href="https://t.me/big_jacky" target="_blank">@big_jacky</a></b>
 							</p>
 						</div>
 						<hr style="border-top: 1px solid gray;width:50%;margin:1.5rem 0;"/>
@@ -600,7 +616,7 @@ class AdminManager {
 									);
 									?>
 								</span><br/>
-								<b><?php esc_html_e( 'Telegram profile ', 'helper-lite-for-pagespeed' ); ?><a href="https://t.me/kar_enina" target="_blank">@kar_enina</a></b>
+								<b><?php esc_html_e( 'Telegram profile', 'helper-lite-for-pagespeed' ); ?> - <a href="https://t.me/kar_enina" target="_blank">@kar_enina</a></b>
 							</p>
 						</div>
 						<hr style="border-top: 1px solid gray;width:50%;margin:1.5rem 0;">
@@ -629,9 +645,9 @@ class AdminManager {
 									);
 									?>
 								</span><br/>
-								<b><?php esc_html_e( 'Telegram profile ', 'helper-lite-for-pagespeed' ); ?><a href="https://t.me/mihdan" target="_blank">@mihdan</a></b><br>
-								<b><?php esc_html_e( 'GitHub profile ', 'helper-lite-for-pagespeed' ); ?><a href="https://github.com/mihdan/" target="_blank">@mihdan</a></b><br>
-								<b><?php esc_html_e( 'WordPress profile ', 'helper-lite-for-pagespeed' ); ?><a href="https://profiles.wordpress.org/mihdan/" target="_blank">@mihdan</a></b>
+								<b><?php esc_html_e( 'Telegram profile', 'helper-lite-for-pagespeed' ); ?> - <a href="https://t.me/mihdan" target="_blank">@mihdan</a></b><br>
+								<b><?php esc_html_e( 'GitHub profile', 'helper-lite-for-pagespeed' ); ?> - <a href="https://github.com/mihdan/" target="_blank">@mihdan</a></b><br>
+								<b><?php esc_html_e( 'WordPress profile', 'helper-lite-for-pagespeed' ); ?> - <a href="https://profiles.wordpress.org/mihdan/" target="_blank">@mihdan</a></b>
 							</p>
 						</div>
 					</div>
