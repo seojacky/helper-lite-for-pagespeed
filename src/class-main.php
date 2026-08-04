@@ -7,10 +7,10 @@
 
 namespace Karenina\HelperLightForPageSpeed;
 
-use Karenina\HelperLightForPageSpeed\Admin as Admin;
-use Karenina\HelperLightForPageSpeed\Filter as Filter;
-use Karenina\HelperLightForPageSpeed\Script as Script;
-use Karenina\HelperLightForPageSpeed\Image as Image;
+use Karenina\HelperLightForPageSpeed\Admin;
+use Karenina\HelperLightForPageSpeed\Filter;
+use Karenina\HelperLightForPageSpeed\Script;
+use Karenina\HelperLightForPageSpeed\Image;
 
 /**
  * Сlass Main

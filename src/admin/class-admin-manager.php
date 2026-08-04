@@ -135,7 +135,7 @@ class AdminManager {
 				)
 			);
 
-			$key ++;
+			++$key;
 
 			$res->plugins[ $key ] = $lite_video_embed->plugins[0];
 
@@ -149,7 +149,7 @@ class AdminManager {
 				)
 			);
 
-			$key ++;
+			++$key;
 			$res->plugins[ $key ] = $recrawler->plugins[0];
 		}
 
@@ -506,7 +506,7 @@ class AdminManager {
 				'id'   => 'faq',
 				'type' => 'html',
 				'name' => '<h2>' . __( 'FAQ', 'helper-lite-for-pagespeed' ) . '</h2>',
-				'desc' => function() {
+				'desc' => function () {
 					?>
 					<h4><?php esc_html_e( 'Filters or Buffer?', 'helper-lite-for-pagespeed' ); ?></h4>
 					<ul>

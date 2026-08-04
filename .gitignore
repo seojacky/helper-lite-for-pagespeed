@@ -9,4 +9,3 @@ vendor/
 *.sql
 *.tar.gz
 *.zip
-*.lock
