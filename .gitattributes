@@ -1,0 +1,7 @@
+*.md export-ignore
+.gitattributes export-ignore
+*.php text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
