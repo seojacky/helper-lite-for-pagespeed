@@ -147,7 +147,6 @@ class HLFP_OSA {
 
 		// Menu.
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-
 	}
 
 	/**
@@ -428,7 +427,6 @@ class HLFP_OSA {
 			 */
 			register_setting( $section['id'], $section['id'], array( $this, 'sanitize_fields' ) );
 		} // foreach ended.
-
 	} // admin_init() ended.
 
 	/**
