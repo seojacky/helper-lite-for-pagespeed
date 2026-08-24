@@ -2,9 +2,9 @@
 Contributors: seojacky, mihdan, wdup
 Tags: pagespeed, lazyload, perfomance, optimization, seo
 Requires at least: 5.6
-Tested up to: 7.0.2
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.2.2
+Stable tag: 3.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,9 @@ Helper Lite for PageSpeed is now on [GitHub](https://github.com/seojacky/helper-
 4. Tab Script on Plugin Settings Page
 
 == Changelog ==
+
+= 3.2.3 (24.08.2026) =
+* Added compatibility with WordPress 7.1
 
 = 3.2.2 (04.08.2026) =
 * Fixed: arbitrary code execution vulnerability in dev dependency wp-coding-standards/wpcs (dev-only tooling, not shipped to WordPress.org)
